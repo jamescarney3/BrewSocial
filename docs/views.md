@@ -1,26 +1,18 @@
 # View Wireframes
 
 ## New Session
-![new-session]
+![new_session]
 
-## Feed Show (landing page)
-![feed-show]
+## Dashboard (landing page)
+![dashboard]
 
-## Blog Show
-![blog-show]
+## Recipe Create
+![recipe_create_edit]
 
-## Post Show
-![post-show]
+## Recipe Show
+![recipe_show]
 
-## Post Form
-![post-form]
-
-## Search Results
-![search-results]
-
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[new_session]: ./wireframes/new_session.png
+[dashboard]: ./wireframes/dashboard.png
+[recipe_create_edit]: ./wireframes/recipe_create_edit.png
+[recipe_show]: ./wireframes/recipe_show.png
