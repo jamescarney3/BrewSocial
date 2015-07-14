@@ -15,8 +15,8 @@ BrewSocial is a clone of AllRecipes built on Rails and Backbone. Users can:
 - [x] Create public recipes
 - [x] Create private recipes
 - [ ] View user profiles
-- [ ] View owned recipes
-- [ ] View other users' public recipes
+- [?] View owned recipes
+- [?] View other users' public recipes
 - [ ] Comment on recipes
 - [ ] Follow other users
 - [ ] Search for recipes by ingredients

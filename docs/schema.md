@@ -16,6 +16,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | integer   | not null
+type        | string    | not null ()
 
 ## recipe_ingredients
 column name  | data type | details
