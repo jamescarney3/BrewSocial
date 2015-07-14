@@ -27,6 +27,8 @@ gem 'nokogiri', '1.6.0'
 
 gem 'bcrypt'
 
+gem 'rails_12factor'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
