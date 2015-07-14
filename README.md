@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: #
+[heroku]: https://brewsocial.herokuapp.com/
 
 ## Minimum Viable Product
 BrewSocial is a clone of AllRecipes built on Rails and Backbone. Users can:
