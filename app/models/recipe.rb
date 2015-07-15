@@ -15,4 +15,10 @@ class Recipe < ActiveRecord::Base
     foreign_key: :recipe_id,
     primary_key: :id
   )
+
+  has_many(
+    :ingredients,
+    through: :recipe_ingredients,
+    source: :ingredient
+  )
 end
