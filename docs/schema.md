@@ -8,27 +8,16 @@ author_id   | integer   | not null, foreign key (references users)
 title       | string    | not null
 style       | string    | not null
 procedure   | text      | not null
-<<<<<<< HEAD
-private     | boolean   | not null
-created_at  | date      | not null
-=======
 is_private  | boolean   | not null
-
->>>>>>> eb35ff629f43c1fc7226650914a9567f288f3440
 
 ## ingredients
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | integer   | not null
-<<<<<<< HEAD
-
-## ingredient_inclusions
-=======
-type        | string    | not null ()
+role        | string    | not null ()
 
 ## recipe_ingredients
->>>>>>> eb35ff629f43c1fc7226650914a9567f288f3440
 column name  | data type | details
 -------------|-----------|-----------------------
 id           | integer   | not null, primary key
@@ -53,14 +42,6 @@ id          | integer   | not null, primary key
 follower_id | integer   | not null, foreign key (references users)
 followee_id | integer   | not null, foreign key (references users)
 
-<<<<<<< HEAD
-## notifications
-column name   | data type | details
---------------|-----------|-----------------------
-id            | integer   | not null, primary key
-user_id       | integer   | not null, foreign key (references users)
-notifiable_id | integer   | not null, foreign key (references users or recipes)
-=======
 ## recipe_adds
 column name | data type | details
 ------------|-----------|-----------------------
@@ -76,7 +57,7 @@ id             | integer   | not null, primary key
 user_id        | integer   | not null, foreign key (references users)
 notifiable_id  | integer   | not null, foreign key (references users or recipes)
 notifiable_type| string    | not null, foreign key (references users)
->>>>>>> eb35ff629f43c1fc7226650914a9567f288f3440
+
 
 ## users
 column name     | data type | details

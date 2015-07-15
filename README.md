@@ -2,27 +2,13 @@
 
 [Heroku link][heroku]
 
-<<<<<<< HEAD
-[heroku]: #
-=======
 [heroku]: https://brewsocial.herokuapp.com/
->>>>>>> eb35ff629f43c1fc7226650914a9567f288f3440
 
 ## Minimum Viable Product
 BrewSocial is a clone of AllRecipes built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-<<<<<<< HEAD
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Create profiles
-- [ ] Create public recipes
-- [ ] Create private recipes
-- [ ] View user profiles
-- [ ] View owned recipes
-- [ ] View other users' public recipes
-=======
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [ ] Create profiles
@@ -31,7 +17,6 @@ BrewSocial is a clone of AllRecipes built on Rails and Backbone. Users can:
 - [ ] View user profiles
 - [?] View owned recipes
 - [?] View other users' public recipes
->>>>>>> eb35ff629f43c1fc7226650914a9567f288f3440
 - [ ] Comment on recipes
 - [ ] Follow other users
 - [ ] Search for recipes by ingredients
