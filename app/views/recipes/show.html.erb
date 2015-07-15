@@ -5,7 +5,7 @@
 <h5>Ingredients would go here.....</h5>
 <h5>Procedure: <%= @recipe.procedure %></h5>
 
-<% if current_user.id == @recipe.author_id %>
+<% if current_user && current_user.id == @recipe.author_id %>
   <form action="<% recipe_url(@recipe.id) %>" method="POST">
     <input type="hidden"
       name="authenticity_token"
