@@ -4,8 +4,11 @@ window.BrewSocial = {
   Views: {},
   Routers: {},
   initialize: function(){
-    // new router here
-    // --> give new router an options hash with collections, a $rootEl
+    new BrewSocial.Routers.Router({
+      $rootEl: $("#content"),
+      users: new BrewSocial.Collections.Users(),
+      recipes: new BrewSocial.Collections.Recipes()
+    });
     Backbone.history.start();
   }
 };
