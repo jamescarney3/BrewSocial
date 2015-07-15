@@ -15,6 +15,7 @@
 //= require jquery.serializeJSON
 //= require underscore
 //= require backbone
+//= require_tree ./utils
 //= require brew_social
 //= require_tree ../templates
 //= require_tree ./models
