@@ -1,4 +1,4 @@
-BrewSocial.Views.UserShow = Backbone.View.extend({
+BrewSocial.Views.UserShow = Backbone.CompositeView.extend({
   template: _.template("<h1><%= user.escape('username') %></h1>"),
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);

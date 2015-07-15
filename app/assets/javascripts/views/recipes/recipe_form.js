@@ -1,4 +1,4 @@
-BrewSocial.Views.RecipeForm = Backbone.View.extend({
+BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   template: JST["recipes/form"],
   tagName: "form",
   events: {
