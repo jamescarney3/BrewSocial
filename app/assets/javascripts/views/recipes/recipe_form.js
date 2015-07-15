@@ -1,8 +1,20 @@
 BrewSocial.Views.RecipeForm = Backbone.View.extend({
-  template: _.template("<h1>Actually make a form template, dummy.</h1>"),
+  template: JST["recipes/form"],
   tagName: "form",
   events: {
     "click .recipe-submit":"submit"
   },
-  initialize: function()
+  initialize: function(){
+    this.listenTo(this.model, "sync", this.render);
+  },
+  submit: function(event){
+    event.preventDefault();
+    var attrs = this.$el.serializeJSON();
+    console.log(attrs.recipe);
+  },
+  render: function(){
+    var content = this.template({recipe: this.model});
+    this.$el.html(content);
+    return this;
+  }
 });

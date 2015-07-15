@@ -1,0 +1,28 @@
+<h2>Create Recipe</h2>
+
+<label for="recipe_title">Recipe title:</label>
+<input id="recipe_title"
+  type="text"
+  name="recipe[title]"
+  value="<%= recipe.escape("title") %>">
+<br>
+<label for="recipe_style">Recipe style:</label>
+<input id="recipe_style"
+  type="text"
+  name="recipe[style]"
+  value="<%= recipe.escape("style") %>">
+<br>
+<label for="recipe_procedure">Recipe procedure:</label>
+<input id="recipe_procedure"
+  type="text"
+  name="recipe[procedure]"
+  value="<%= recipe.escape("procedure") %>">
+<br>
+<label for="recipe_is_private">Recipe privacy level:</label>
+<select id="recipe_is_private"
+  name="recipe[is_private]">
+  <option value="false">Public</option>
+  <option value="true">Private</option>
+</select>
+
+<button class="recipe-submit">Submit</button>

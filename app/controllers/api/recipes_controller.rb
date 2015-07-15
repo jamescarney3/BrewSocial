@@ -5,6 +5,11 @@ class Api::RecipesController < ApplicationController
     render json: @recipe
   end
 
+  def new
+    @recipe = Recipe.new
+    render json: @recipe
+  end
+
   private
 
   def recipe_params
