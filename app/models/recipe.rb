@@ -21,4 +21,12 @@ class Recipe < ActiveRecord::Base
     through: :recipe_ingredients,
     source: :ingredient
   )
+
+  def add_ingredient(ingredient, amount, unit)
+    self.recipe_ingredients << RecipeIngredient.new(
+      ingredient_id: ingredient.id,
+      amount: amount,
+      unit: unit)
+    ingredient
+  end
 end
