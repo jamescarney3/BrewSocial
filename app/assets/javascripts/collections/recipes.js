@@ -2,20 +2,20 @@ BrewSocial.Collections.Recipes = Backbone.Collection.extend({
   model: BrewSocial.Models.Recipe,
   url: "/api/recipes",
   getOrFetch: function(id){
-    var recipe = this.get(id);
+    var mod = this.get(id);
 
-    var recipes = this;
+    var mods = this;
 
-    if (recipe){
-      recipe.fetch();
+    if (mod){
+      mod.fetch();
     } else {
-      recipe = new this.model({id: id});
-      recipe.fetch({
+      mod = new this.model({id: id});
+      mod.fetch({
         success: function(){
-          recipes.add(recipe);
+          mods.add(mod);
         }
       });
     };
-    return recipe;
+    return mod;
   }
 });
