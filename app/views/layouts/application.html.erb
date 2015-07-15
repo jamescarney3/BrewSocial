@@ -7,19 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>BrewSocial</h1>
-<% if signed_in? %>
-  <form action="<%= session_url %>" method="POST">
-    <input type="hidden"
-      name="authenticity_token"
-      value="<%= form_authenticity_token %>">
-    <input type="hidden"
-      name="_method"
-      value="DELETE">
-
-    <button>Sign Out, <%= current_user.username %></button>
-  </form>
-<% end %>
 
 <%= yield %>
 
