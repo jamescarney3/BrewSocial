@@ -22,6 +22,19 @@ class Recipe < ActiveRecord::Base
     source: :ingredient
   )
 
+  has_many(
+    :recipe_adds,
+    class_name: "RecipeAdd",
+    foreign_key: :recipe_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :users,
+    through: :recipe_adds,
+    source: :user
+  )
+
   def add_ingredient(ingredient, amount, unit)
     self.recipe_ingredients << RecipeIngredient.new(
       ingredient_id: ingredient.id,

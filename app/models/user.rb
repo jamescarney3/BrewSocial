@@ -14,6 +14,19 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :recipe_adds,
+    class_name: "RecipeAdd",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :recipes,
+    through: :recipe_adds,
+    source: :recipe
+  )
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user && user.has_password?(password)
