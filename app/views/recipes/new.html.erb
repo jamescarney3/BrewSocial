@@ -1,0 +1,43 @@
+<p><%= @recipe.errors.full_messages %></p>
+
+<form action="<%= @recipe.persisted? ? recipe_url(@recipe.id) : recipes_url %>" method="POST">
+  <input type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+  <% if @recipe.persisted? %>
+    <input type="hidden"
+      name="_method"
+      value="DELETE">
+  <% end %>
+  <br>
+  <label for="recipe_title">Recipe title:</label>
+  <input id="recipe_title"
+    type="text"
+    name="recipe[title]"
+    value="<%= @recipe.title %>">
+  <br>
+  <label for="recipe_style">Recipe style:</label>
+  <input id="recipe_style"
+    type="text"
+    name="recipe[style]"
+    value="<%= @recipe.style %>">
+  <br>
+  <label for="recipe_procedure">Recipe procedure:</label>
+  <input id="recipe_procedure"
+    type="text"
+    name="recipe[procedure]"
+    value="<%= @recipe.procedure %>">
+  <br>
+  <label for="recipe_is_private">Recipe privacy level:</label>
+  <select id="recipe_is_private"
+    name="recipe[is_private]">
+    <option value="false">Public</option>
+    <option value="true">Private</option>
+  </select>
+  <br>
+  <input type="hidden"
+    name="recipe[author_id]"
+    value="<%= current_user.id %>">
+
+  <button>Submit</button>
+</form>
