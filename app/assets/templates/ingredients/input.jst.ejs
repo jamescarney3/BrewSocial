@@ -1,0 +1,8 @@
+<label for="ingredient-name">Ingredient:</label>
+<select id="ingredient-name"
+  name="ingredient[name]">
+  <% ingredients.forEach(function(el){%>
+    <option value="<%= el %>"><%= el.escape("name") %></option>
+  <% }); %>
+</select>
+<button>Add</button>

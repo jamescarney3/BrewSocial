@@ -7,7 +7,8 @@ window.BrewSocial = {
     new BrewSocial.Routers.Router({
       $rootEl: $("#content"),
       users: new BrewSocial.Collections.Users(),
-      recipes: new BrewSocial.Collections.Recipes()
+      recipes: new BrewSocial.Collections.Recipes(),
+      ingredients: new BrewSocial.Collections.Ingredients()
     });
     Backbone.history.start();
   }

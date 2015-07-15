@@ -3,6 +3,7 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     this.users = options.users;
     this.recipes = options.recipes;
+    this.ingredients = options.ingredients;
   },
   routes: {
     "users/:id":"userShow",
@@ -20,8 +21,11 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     this.$rootEl.html(view.render().$el);
   },
   recipeNew: function(){
+    var ingredients = this.ingredients;
     var recipe = new BrewSocial.Models.Recipe();
-    var view = new BrewSocial.Views.RecipeForm({model: recipe});
+    var view = new BrewSocial.Views.RecipeForm({model: recipe,
+      collection: this.recipes,
+      ingredients: this.ingredients});
     this.$rootEl.html(view.render().$el);
   }
 });
