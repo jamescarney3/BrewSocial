@@ -2,7 +2,9 @@
 <select id="ingredient-name"
   name="ingredient[name]">
   <% ingredients.forEach(function(el){%>
-    <option value="<%= el %>"><%= el.escape("name") %></option>
+    <option value="<%= el.id %>">
+      <%= el.escape("name") %>
+    </option>
   <% }); %>
 </select>
-<button>Add</button>
+<button class="add-ingredient">Add</button>

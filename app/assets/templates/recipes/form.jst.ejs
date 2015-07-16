@@ -13,13 +13,16 @@
     name="recipe[style]"
     value="<%= recipe.escape("style") %>">
   <br>
-  <label for="recipe_procedure">Recipe procedure:</label>
-  <input id="recipe_procedure"
-    type="text"
-    name="recipe[procedure]"
-    value="<%= recipe.escape("procedure") %>">
+  <section id="ingredients">Ingredients:
+    <ul id="added-ingredients"></ul>
+    <ul id="ingredient-to-add"></ul>
+  </section>
   <br>
-  <section id="ingredients"></section>
+  <label for="recipe_procedure">Recipe procedure:</label>
+  <textarea id="recipe_procedure"
+    type="text"
+    name="recipe[procedure]">
+    <%= recipe.escape("procedure") %></textarea>
   <br>
   <label for="recipe_is_private">Recipe privacy level:</label>
   <select id="recipe_is_private"
