@@ -1,6 +1,6 @@
 <label for="ingredient-name">Ingredient:</label>
 <select id="ingredient-name"
-  name="ingredient[name]">
+  name="ingredient[id]">
   <% ingredients.forEach(function(el){%>
     <option value="<%= el.id %>">
       <%= el.escape("name") %>

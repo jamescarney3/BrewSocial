@@ -6,11 +6,11 @@ BrewSocial.Views.IngredientListItemShow = Backbone.CompositeView.extend({
   },
   initialize: function(options){
     this.listenTo(this.collection, "sync", this.render);
-    this.subListIndex = options.subListIndex;
+    this.parent = options.parent;
   },
   removeIngredient: function(event){
     event.preventDefault();
-    this.remove();
+    this.parent.removeSubview("#added-ingredients", this);
   },
   render: function(){
     var content = this.template({ingredient: this.model,
