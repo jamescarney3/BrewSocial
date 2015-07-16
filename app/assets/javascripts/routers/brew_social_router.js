@@ -6,19 +6,68 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     this.ingredients = options.ingredients;
   },
   routes: {
+    "users":"usersIndex",
+    "users/new":"usersNew",
     "users/:id":"userShow",
     "recipes/new":"recipeNew",
-    "recipes/:id":"recipeShow"
+    "recipes/:id":"recipeShow",
+    "session/new": "signIn"
+  },
+  signIn: function(callback){
+    alert("sign in called");
+    debugger;
+    if(!this._requireSignedOut(callback)) { return; }
+    var view = new BrewSocial.Views.SignIn({
+      callback: callback
+    });
+
+    this._swapView(view);
   },
   userShow: function(id){
+    var callback = this.userShow.bind(this, id);
+    if (!this._requireSignedIn(callback)) { return; }
+
     var user = this.users.getOrFetch(id);
     var view = new BrewSocial.Views.UserShow({model: user});
-    this.$rootEl.html(view.render().$el);
+
+    this._swapView(view);
+  },
+  usersNew: function(){
+    alert("users new called!");
+    if (!this._requireSignedOut()) { return; }
+    debugger; // THIS IS WHERE THINGS WORK UP UNTIL.
+    var user = new this.users.model();
+    var view = new BrewSocial.Views.UsersForm({
+      users: this.users,
+      model: user
+    });
+    this._swapView(view);
+  },
+  _requireSignedIn: function(callback){
+    if (!BrewSocial.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      this.signIn(callback);
+      return false;
+    };
+    return true;
+  },
+  _requireSignedOut: function(callback){
+    if (BrewSocial.currentUser.isSignedIn()) {
+      alert("require signed out");
+      callback = callback || this._goHome.bind(this);
+      callback();
+      return false;
+    };
+
+    return true;
+  },
+  _goHome: function(){
+    Backbone.history.navigate("", {trigger: true});
   },
   recipeShow: function(id){
     var recipe = this.recipes.getOrFetch(id);
     var view = new BrewSocial.Views.RecipeShow({model: recipe});
-    this.$rootEl.html(view.render().$el);
+    this._swapView(view);
   },
   recipeNew: function(){
     var ingredients = this.ingredients;
@@ -26,6 +75,11 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     var view = new BrewSocial.Views.RecipeForm({model: recipe,
       collection: this.recipes,
       ingredients: this.ingredients});
-    this.$rootEl.html(view.render().$el);
-  }
+    this._swapView(view);
+  },
+  _swapView: function (view) {
+  this._currentView && this._currentView.remove();
+  this._currentView = view;
+  this.$rootEl.html(view.render().$el);
+}
 });

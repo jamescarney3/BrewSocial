@@ -1,28 +1,29 @@
-<% if signed_in? %>
-  <form action="<%= session_url %>" method="POST">
-    <input type="hidden"
-      name="authenticity_token"
-      value="<%= form_authenticity_token %>">
-    <input type="hidden"
-      name="_method"
-      value="DELETE">
+<header id="header"></header>
+<main id="content"></main>
 
-    <button>Sign Out, <%= current_user.username %></button>
-  </form>
-<% else %>
-  <form action="<%= new_session_url %>" method="GET">
-    <input type="hidden"
-      name="authenticity_token"
-      value="<%= form_authenticity_token %>">
-
-    <button>Sign In</button>
-</form>
-<% end %>
-
-
-<h1>BrewSocial</h1>
-
-<div id="content"></div>
+<!-- # <% if signed_in? %>
+#   <form action="<%= session_url %>" method="POST">
+#     <input type="hidden"
+#       name="authenticity_token"
+#       value="<%= form_authenticity_token %>">
+#     <input type="hidden"
+#       name="_method"
+#       value="DELETE">
+#
+#     <button>Sign Out, <%= current_user.username %></button>
+#   </form>
+# <% else %>
+#   <form action="<%= new_session_url %>" method="GET">
+#     <input type="hidden"
+#       name="authenticity_token"
+#       value="<%= form_authenticity_token %>">
+#
+#     <button>Sign In</button>
+# </form>
+# <% end %>
+#
+#
+# <h1>BrewSocial</h1> -->
 
 <footer>Here's where a footer might be</footer>
 

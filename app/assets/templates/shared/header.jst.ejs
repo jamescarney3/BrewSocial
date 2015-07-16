@@ -1,0 +1,15 @@
+<h1>BrewSocial!</h1>
+
+<% if (BrewSocial.currentUser.isSignedIn()) { %>
+  <section>
+    Hello, <%= BrewSocial.currentUser.escape("username") %> |
+    <button id="sign-out-link">Sign out</button>
+  </section>
+<% } else { %>
+  <section>
+    <button id="sign-in-link">Sign in</button> |
+    <button id="sign-up-link">Sign up</button>
+  </section>
+<% } %>
+
+<hr>

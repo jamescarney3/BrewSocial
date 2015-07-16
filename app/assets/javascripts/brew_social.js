@@ -10,6 +10,12 @@ window.BrewSocial = {
       recipes: new BrewSocial.Collections.Recipes(),
       ingredients: new BrewSocial.Collections.Ingredients()
     });
+
+    this.currentUser = new BrewSocial.Models.CurrentUser();
+    this.currentUser.fetch();
+
+    this.header = new BrewSocial.Views.Header({ el: "#header" });
+
     Backbone.history.start();
   }
 };

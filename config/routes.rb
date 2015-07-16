@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :users
     resources :recipes
     resources :ingredients
+    resource :session, only: [:show, :create, :destroy]
   end
 end

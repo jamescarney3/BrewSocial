@@ -16,6 +16,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     var addedIngredient = this.ingredients.get(nameInput.val());
     var amount = this.$el.find("#recipe-ingredient-amount").val();
     var unit = this.$el.find("#recipe-ingredient-unit").val();
+
     var addedIngredientView = new BrewSocial.Views.IngredientListItemShow({
       model: addedIngredient,
       amount: amount,
@@ -30,6 +31,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     var ingredientIds = [];
+
     this.eachSubview(function(subview, selector){
       if (selector === "#added-ingredients"){
         ingredientIds.push(subview.model.id);
