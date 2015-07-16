@@ -1,7 +1,6 @@
-<%= ingredient.escape("name") %>
+<%= ingredient.escape("name") %>, <%= amount %> <%= unit %>
 <button
   class="remove-ingredient"
-  data-sub-list-index="<%= subListIndex %>"
   data-ingredient-id="<%= ingredient.id %>">
   Remove
 </button>

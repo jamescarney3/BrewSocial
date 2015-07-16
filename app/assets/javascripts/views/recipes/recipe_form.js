@@ -12,11 +12,14 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
 
   addIngredient: function(event){
     event.preventDefault();
-    var input = this.$el.find("#ingredient-name");
-    var addedIngredient = this.ingredients.get(input.val());
-
+    var nameInput = this.$el.find("#ingredient-name");
+    var addedIngredient = this.ingredients.get(nameInput.val());
+    var amount = this.$el.find("#recipe-ingredient-amount").val();
+    var unit = this.$el.find("#recipe-ingredient-unit").val();
     var addedIngredientView = new BrewSocial.Views.IngredientListItemShow({
       model: addedIngredient,
+      amount: amount,
+      unit: unit,
       parent: this
     });
 
@@ -26,8 +29,12 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   submit: function(event){
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
-    // var ingredientIds =
-    debugger;
+    var ingredientIds = [];
+    this.eachSubview(function(subview, selector){
+      if (selector === "#added-ingredients"){
+        ingredientIds.push(subview.model.id);
+      };
+    });
   },
 
   render: function(){
