@@ -1,0 +1,6 @@
+<h1><%= recipe.escape('title') %></h1>
+<ul>
+  <% recipe.ingredients().forEach(function(ingredient){ %>
+    <li><%= ingredient.escape("name") %></li>
+  <% }); %>
+</ul>
