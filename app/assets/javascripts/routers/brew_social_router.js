@@ -6,7 +6,7 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     this.ingredients = options.ingredients;
   },
   routes: {
-    "":"welcomeView",
+    "":"welcomeShow",
     "users":"usersIndex",
     "users/new":"usersNew",
     "users/:id":"userShow",
@@ -14,8 +14,9 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     "recipes/:id":"recipeShow",
     "session/new": "signIn"
   },
-  welcomeView: function(){
-    
+  welcomeShow: function(){
+    var view = new BrewSocial.Views.Welcome();
+    this._swapView(view);
   },
   signIn: function(callback){
     if(!this._requireSignedOut(callback)) { return; }

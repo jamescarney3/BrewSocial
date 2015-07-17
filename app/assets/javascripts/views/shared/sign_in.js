@@ -25,6 +25,9 @@ BrewSocial.Views.SignIn = Backbone.View.extend({
       password: formData.password,
       error: function(){
         alert("Wrong username/password combination.")
+      },
+      success: function(){
+        Backbone.history.navigate("", {trigger: true});
       }
     });
   },

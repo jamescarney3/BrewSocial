@@ -5,8 +5,7 @@ class RecipeIngredient < ActiveRecord::Base
     :recipe,
     class_name: "Recipe",
     foreign_key: :recipe_id,
-    primary_key: :id,
-    dependent: :destroy
+    primary_key: :id
   )
 
   belongs_to(
@@ -14,7 +13,6 @@ class RecipeIngredient < ActiveRecord::Base
     class_name: "Ingredient",
     foreign_key: :ingredient_id,
     primary_key: :id,
-    counter_cache: :recipe_inclusion_count,
-    dependent: :destroy
+    counter_cache: :recipe_inclusion_count
   )
 end

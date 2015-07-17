@@ -1,5 +1,5 @@
 BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
-  template: _.template("<h1><%= recipe.escape('title') %></h1>"),
+  template: JST["recipes/show"],
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
   },

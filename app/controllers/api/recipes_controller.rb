@@ -2,7 +2,6 @@ class Api::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    # render json: @recipe
     render :show
   end
 
@@ -25,4 +24,6 @@ class Api::RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, :style, :procedure, :is_private, :author_id)
   end
+
+
 end
