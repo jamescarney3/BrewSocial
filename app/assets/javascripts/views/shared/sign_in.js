@@ -2,7 +2,6 @@ BrewSocial.Views.SignIn = Backbone.View.extend({
   initialize: function(options){
     this.callback = options.callback;
     this.listenTo(BrewSocial.currentUser, "signIn", this.signInCallback);
-    alert("sign in view initialized");
   },
 
   events: {
@@ -33,7 +32,7 @@ BrewSocial.Views.SignIn = Backbone.View.extend({
     if(this.callback) {
       this.callback();
     } else {
-      Backbone.history.navigate("", { trigger: true });
+      this.remove();
     };
   }
 });

@@ -14,8 +14,6 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     "session/new": "signIn"
   },
   signIn: function(callback){
-    alert("sign in called");
-    debugger;
     if(!this._requireSignedOut(callback)) { return; }
     var view = new BrewSocial.Views.SignIn({
       callback: callback
@@ -33,12 +31,10 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
   usersNew: function(){
-    alert("users new called!");
     if (!this._requireSignedOut()) { return; }
-    debugger; // THIS IS WHERE THINGS WORK UP UNTIL.
     var user = new this.users.model();
     var view = new BrewSocial.Views.UsersForm({
-      users: this.users,
+      collection: this.users,
       model: user
     });
     this._swapView(view);
@@ -53,7 +49,6 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
   },
   _requireSignedOut: function(callback){
     if (BrewSocial.currentUser.isSignedIn()) {
-      alert("require signed out");
       callback = callback || this._goHome.bind(this);
       callback();
       return false;

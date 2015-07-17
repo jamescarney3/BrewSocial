@@ -31,13 +31,11 @@ BrewSocial.Views.Header = Backbone.View.extend({
 
   signIn: function(event){
     event.preventDefault();
-    alert("sign in");
     Backbone.history.navigate("#/session/new", {trigger: true});
   },
 
   signUp: function(event){
     event.preventDefault();
-    alert("sign up");
     Backbone.history.navigate("#/users/new", {trigger: true});
   }
 
