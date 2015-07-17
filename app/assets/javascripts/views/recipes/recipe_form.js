@@ -66,8 +66,6 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
         alert("failed!")
       }
     })
-
-    debugger;
   },
 
   render: function(){
