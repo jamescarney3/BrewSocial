@@ -1,6 +1,14 @@
 <h1><%= recipe.escape('title') %></h1>
+<% if (BrewSocial.currentUser.id === recipe.get('author_id')) { %>
+  <button class="edit-recipe">Edit recipe</button>
+  <button class="delete-recipe">Delete recipe</button>
+<% } %>
+<h2><%= recipe.escape('style') %></h2>
+<h2>Ingredients:</h2>
 <ul>
   <% recipe.ingredients().forEach(function(ingredient){ %>
     <li><%= ingredient.escape("name") %></li>
   <% }); %>
 </ul>
+<h2>Procedure:</h2>
+<p><%= recipe.escape('procedure') %></p>

@@ -9,6 +9,11 @@ class Api::RecipeIngredientsController < ApplicationController
     end
   end
 
+  def index
+    @recipe_ingredients = RecipeIngredient.all
+    render json: @recipe_ingredients
+  end
+
   private
 
   def recipe_ingredient_params

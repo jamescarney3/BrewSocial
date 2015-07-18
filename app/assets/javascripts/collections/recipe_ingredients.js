@@ -1,4 +1,4 @@
-BrewSocial.Collections.Ingredients = Backbone.Collection.extend({
+BrewSocial.Collections.RecipeIngredients = Backbone.Collection.extend({
   model: BrewSocial.Models.RecipeIngredient,
   url: "/api/recipe_ingredients",
   getOrFetch: function(id){

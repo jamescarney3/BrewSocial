@@ -69,7 +69,10 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    this.ingredients.fetch();
+    this.ingredients.fetch({
+      error: function(ingreds, response){
+      }
+    });
     var content = this.template({recipe: this.model});
     this.$el.html(content);
 
