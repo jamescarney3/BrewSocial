@@ -45,15 +45,16 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     });
 
     this.model.set(recipeAttrs);
+    var recipe = this.model;
 
-    newRecipe.save({},{
+    recipe.save({},{
       success: function(){
         ingredientsAttrs.forEach(function(attrs){
-          attrs.recipe_id = newRecipe.id;
-          var newRecipeIngredient = new BrewSocial.Models.RecipeIngredient(attrs);
-          newRecipeIngredient.save();
+          attrs.recipe_id = recipe.id;
+          var recipeIngredient = new BrewSocial.Models.RecipeIngredient(attrs);
+          recipeIngredient.save();
         });
-        Backbone.history.navigate(("recipes/" + newRecipe.id), {trigger: true})
+        Backbone.history.navigate(("recipes/" + recipe.id), {trigger: true})
       },
       error: function(){
         alert("failed!")
@@ -63,7 +64,6 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
 
   render: function(){
     console.log("form rendering");
-    debugger;
     this.ingredients.fetch();
     var content = this.template({recipe: this.model});
     this.$el.html(content);

@@ -24,6 +24,16 @@ class Api::RecipesController < ApplicationController
     end
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+    if @recipe.save
+      render :show
+    else
+      render json: @recipe.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy

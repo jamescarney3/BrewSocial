@@ -13,7 +13,6 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
   },
 
   parse: function(response){
-    debugger;
     if(response.ingredient_list){
       this._ingredientList = response.ingredient_list;
       delete response.ingredient_list;
