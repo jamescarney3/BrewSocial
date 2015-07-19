@@ -54,6 +54,8 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
           var recipeIngredient = new BrewSocial.Models.RecipeIngredient(attrs);
           recipeIngredient.save();
         });
+        // Line 59 is executing before the last recipe ingredient association is
+        // saved, so the show page is missing the last recipe ingredient
         Backbone.history.navigate(("recipes/" + recipe.id), {trigger: true})
       },
       error: function(){
