@@ -8,6 +8,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   initialize: function(options){
     this.listenTo(this.model, "sync", this.render);
     this.ingredients = options.ingredients;
+    this.syncIngredients;
   },
 
   addIngredient: function(event){
@@ -43,22 +44,14 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
       };
     });
 
-    var newRecipe = new BrewSocial.Models.Recipe(recipeAttrs);
+    this.model.set(recipeAttrs);
 
     newRecipe.save({},{
       success: function(){
-        alert("recipe saved!")
-        // give this recipe some ingredients
         ingredientsAttrs.forEach(function(attrs){
           attrs.recipe_id = newRecipe.id;
           var newRecipeIngredient = new BrewSocial.Models.RecipeIngredient(attrs);
-          newRecipeIngredient.save({},{
-            success: function(){
-              alert("ingredient saved!");
-            },
-            error: function(model, request){
-            }
-          });
+          newRecipeIngredient.save();
         });
         Backbone.history.navigate(("recipes/" + newRecipe.id), {trigger: true})
       },
@@ -69,17 +62,18 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    this.ingredients.fetch({
-      error: function(ingreds, response){
-      }
-    });
+    console.log("form rendering");
+    debugger;
+    this.ingredients.fetch();
     var content = this.template({recipe: this.model});
     this.$el.html(content);
 
-    var newIngredientView = new BrewSocial.Views.IngredientInput({
-      collection: this.ingredients
-    });
-    this.addSubview("#ingredient-to-add", newIngredientView);
+    if (!this.newIngredientView) {
+      this.newIngredientView = new BrewSocial.Views.IngredientInput({
+        collection: this.ingredients
+      });
+      this.addSubview("#ingredient-to-add", this.newIngredientView);
+    };
 
     this.attachSubviews();
     return this;

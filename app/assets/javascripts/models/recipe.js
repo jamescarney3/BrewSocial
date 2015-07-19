@@ -5,17 +5,18 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
     return { recipe: _.clone(this.attributes) }
   },
 
-  ingredients: function(){
-    if (!this._ingredients){
-      this._ingredients = new BrewSocial.Collections.Ingredients(null, {recipe: this});
+  ingredientList: function(){
+    if (!this._ingredientList){
+      this._ingredientList = {};
     };
-    return this._ingredients;
+    return this._ingredientList;
   },
 
   parse: function(response){
-    if(response.ingredients){
-      this.ingredients().set(response.ingredients, {parse: true})
-      delete response.ingredients;
+    debugger;
+    if(response.ingredient_list){
+      this._ingredientList = response.ingredient_list;
+      delete response.ingredient_list;
     };
     return response;
   }

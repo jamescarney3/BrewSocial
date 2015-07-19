@@ -12,6 +12,10 @@ BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
     this.model.destroy();
     Backbone.history.navigate("", {trigger: true});
   },
+  recipeEdit: function(event){
+    event.preventDefault();
+    Backbone.history.navigate("recipes/" + this.model.id + "/edit");
+  },
   render: function(){
     var content = this.template({recipe: this.model});
     this.$el.html(content);

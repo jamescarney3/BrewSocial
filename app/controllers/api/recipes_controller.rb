@@ -10,6 +10,11 @@ class Api::RecipesController < ApplicationController
     render json: @recipe
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+    render :show
+  end
+
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save

@@ -6,8 +6,8 @@
 <h2><%= recipe.escape('style') %></h2>
 <h2>Ingredients:</h2>
 <ul>
-  <% recipe.ingredients().forEach(function(ingredient){ %>
-    <li><%= ingredient.escape("name") %></li>
+  <% _.each(recipe.ingredientList(), function(ing) { %>
+    <li><%= ing.name %>, <%= ing.amount %> <%= ing.unit %></li>
   <% }); %>
 </ul>
 <h2>Procedure:</h2>
