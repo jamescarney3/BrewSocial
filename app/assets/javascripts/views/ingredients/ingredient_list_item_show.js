@@ -5,19 +5,19 @@ BrewSocial.Views.IngredientListItemShow = Backbone.CompositeView.extend({
     "click .remove-ingredient":"removeIngredient"
   },
   initialize: function(options){
-    this.listenTo(this.collection, "sync", this.render);
+    this.ingredient = this.collection.getOrFetch(this.model.get("ingredient_id"));
+    this.listenTo(this.ingredient, "sync", this.render);
     this.parent = options.parent;
-    this.amount = options.amount;
-    this.unit = options.unit;
   },
   removeIngredient: function(event){
     event.preventDefault();
     this.parent.removeSubview("#added-ingredients", this);
   },
   render: function(){
-    var content = this.template({ingredient: this.model,
-      amount: this.amount,
-      unit: this.unit
+    console.log("list item rendering for model id " + this.model.id);
+    var content = this.template({
+      recipeIngredient: this.model,
+      ingredient: this.ingredient
     });
     this.$el.html(content);
     return this;

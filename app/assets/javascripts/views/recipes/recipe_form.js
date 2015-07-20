@@ -6,9 +6,9 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     "click .add-ingredient":"addIngredient"
   },
   initialize: function(options){
-    this.listenTo(this.model, "sync", this.render);
     this.ingredients = options.ingredients;
-    this.syncIngredients;
+    this.syncIngredients();
+    this.listenTo(this.model, "sync", this.render);
   },
 
   addIngredient: function(event){
@@ -18,14 +18,32 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     var amount = this.$el.find("#recipe-ingredient-amount").val();
     var unit = this.$el.find("#recipe-ingredient-unit").val();
 
-    var addedIngredientView = new BrewSocial.Views.IngredientListItemShow({
-      model: addedIngredient,
-      amount: amount,
-      unit: unit,
-      parent: this
+    this.appendIngredient(addedIngredient, amount, unit);
+  },
+
+  syncIngredients: function(){
+    this.recipeIngredients = new BrewSocial.Collections.RecipeIngredients;
+    var that = this;
+    this.recipeIngredients.fetch({
+      data: {recipe_id: this.model.id},
+      success: function(){
+        that.recipeIngredients.forEach(function(recIng){
+          var amount = recIng.attributes.amount;
+          var unit = recIng.attributes.unit;
+          that.appendIngredient(recIng, amount, unit);
+        });
+      }
     });
 
-    this.addSubview("#added-ingredients", addedIngredientView);
+
+
+    // this.model.ingredientList().forEach(function(el){
+    //   var addedIngredient = ingredients.get(el.ingredient_id);
+    //   var amount = el.amount;
+    //   var unit = el.unit;
+    //
+    //   this.appendIngredient(addedIngredient, amount, unit);
+    // }.bind(this));
   },
 
   submit: function(event){
@@ -54,8 +72,6 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
           var recipeIngredient = new BrewSocial.Models.RecipeIngredient(attrs);
           recipeIngredient.save();
         });
-        // Line 59 is executing before the last recipe ingredient association is
-        // saved, so the show page is missing the last recipe ingredient
         Backbone.history.navigate(("recipes/" + recipe.id), {trigger: true})
       },
       error: function(){
@@ -64,8 +80,19 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     })
   },
 
+  appendIngredient: function(ingredient, amount, unit){
+    var addedIngredientView = new BrewSocial.Views.IngredientListItemShow({
+      model: ingredient,
+      collection: this.ingredients,
+      amount: amount,
+      unit: unit,
+      parent: this
+    });
+
+    this.addSubview("#added-ingredients", addedIngredientView);
+  },
+
   render: function(){
-    console.log("form rendering");
     this.ingredients.fetch();
     var content = this.template({recipe: this.model});
     this.$el.html(content);

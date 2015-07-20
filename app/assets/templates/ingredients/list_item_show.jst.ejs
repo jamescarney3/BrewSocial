@@ -1,4 +1,6 @@
-<%= ingredient.escape("name") %>, <%= amount %> <%= unit %>
+<%= ingredient.escape("name") %>,
+<%= recipeIngredient.escape("amount") %>
+<%= recipeIngredient.escape("unit") %>
 <button
   class="remove-ingredient"
   data-ingredient-id="<%= ingredient.id %>">

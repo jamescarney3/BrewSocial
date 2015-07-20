@@ -10,7 +10,11 @@ class Api::RecipeIngredientsController < ApplicationController
   end
 
   def index
-    @recipe_ingredients = RecipeIngredient.all
+    if !!params[:recipe_id]
+      @recipe_ingredients = RecipeIngredient.where(recipe_id: params[:recipe_id])
+    else
+      @recipe_ingredients = RecipeIngredient.all
+    end
     render json: @recipe_ingredients
   end
 
@@ -18,6 +22,10 @@ class Api::RecipeIngredientsController < ApplicationController
 
   def recipe_ingredient_params
     params.require(:recipe_ingredient).permit(:recipe_id, :ingredient_id, :amount, :unit)
+  end
+
+  def search_params
+    #does nothing yet....
   end
 
 end
