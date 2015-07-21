@@ -66,7 +66,7 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
   },
   recipeShow: function(id){
     var recipe = this.recipes.getOrFetch(id);
-    var view = new BrewSocial.Views.RecipeShow({model: recipe});
+    var view = new BrewSocial.Views.RecipeShow({model: recipe, ingredients: this.ingredients});
     this._swapView(view);
   },
   recipeNew: function(){

@@ -14,7 +14,7 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
   },
 
   resetIngredients: function(){
-    while (this.recipeIngredients() > 0) {
+    while (this.recipeIngredients().length > 0) {
       this.recipeIngredients().first().destroy();
     };
   },

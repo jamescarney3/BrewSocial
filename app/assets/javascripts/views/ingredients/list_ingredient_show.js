@@ -1,18 +1,11 @@
-BrewSocial.Views.IngredientListItemShow = Backbone.CompositeView.extend({
-  template: JST["ingredients/list_item_show"],
+BrewSocial.Views.ListIngredientShow = Backbone.CompositeView.extend({
+  template: JST["ingredients/list_ingredient_show"],
   tagName: "li",
-  events: {
-    "click .remove-ingredient":"removeIngredient"
-  },
   initialize: function(options){
     this.amount = options.amount;
     this.unit = options.unit;
     this.parent = options.parent;
     this.listenTo(this.model, "sync", this.render);
-  },
-  removeIngredient: function(event){
-    event.preventDefault();
-    this.parent.removeSubview("#added-ingredients", this);
   },
   render: function(){
     var content = this.template({

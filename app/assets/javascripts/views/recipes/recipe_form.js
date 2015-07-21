@@ -33,39 +33,31 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
 
   submit: function(event){
     event.preventDefault();
-
-    debugger;
-
-    this.eachSubview(function(subview, selector){
-      if (selector === "#added-ingredients"){
-        ingredientsAttrs.push({
-          ingredient_id: subview.model.id,
-          amount: subview.amount,
-          unit: subview.unit
-        });
-      };
-    });
-
-    this.model.set(recipeAttrs);
+    var view = this;
     var recipe = this.model;
 
-    recipe.save({},{
+    var recipeAttrs = this.$el.serializeJSON().recipe;
+    recipeAttrs.author_id = BrewSocial.currentUser.id;
+    this.model.set(recipeAttrs);
+
+    recipe.save({}, {
       success: function(){
-        ingredientsAttrs.forEach(function(attrs){
-          attrs.recipe_id = recipe.id;
-          var recipeIngredient = new BrewSocial.Models.RecipeIngredient(attrs);
-          recipeIngredient.save();
+        recipe.resetIngredients();
+        view.eachSubview(function(subview, selector){
+          if (selector === "#added-ingredients"){
+            recipe.addIngredient(subview.model, subview.amount, subview.unit);
+          };
         });
-        Backbone.history.navigate(("recipes/" + recipe.id), {trigger: true})
+        Backbone.history.navigate("/recipes/" + recipe.id, {trigger: true});
       },
       error: function(){
-        alert("failed!")
+        console.log("uh oh, something went wrong!");
       }
     })
   },
 
   appendIngredient: function(ingredient, amount, unit){
-    var addedIngredientView = new BrewSocial.Views.IngredientListItemShow({
+    var addedIngredientView = new BrewSocial.Views.FormIngredientShow({
       model: ingredient,
       collection: this.ingredients,
       amount: amount,

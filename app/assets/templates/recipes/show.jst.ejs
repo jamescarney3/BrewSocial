@@ -5,10 +5,7 @@
 <% } %>
 <h2><%= recipe.escape('style') %></h2>
 <h2>Ingredients:</h2>
-<ul>
-  <% _.each(recipe.ingredientList(), function(ing) { %>
-    <li><%= ing.name %>, <%= ing.amount %> <%= ing.unit %></li>
-  <% }); %>
+<ul id="ingredients">
 </ul>
 <h2>Procedure:</h2>
 <p><%= recipe.escape('procedure') %></p>
