@@ -10,11 +10,7 @@ class Api::RecipeIngredientsController < ApplicationController
   end
 
   def index
-    if !!params[:recipe_id]
-      @recipe_ingredients = RecipeIngredient.where(recipe_id: params[:recipe_id])
-    else
-      @recipe_ingredients = RecipeIngredient.all
-    end
+    @recipe_ingredients = RecipeIngredient.all
     render json: @recipe_ingredients
   end
 

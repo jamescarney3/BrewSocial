@@ -24,7 +24,6 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     var view = new BrewSocial.Views.SignIn({
       callback: callback
     });
-
     this._swapView(view);
   },
   userShow: function(id){
