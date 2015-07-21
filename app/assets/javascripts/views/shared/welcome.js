@@ -6,7 +6,6 @@ BrewSocial.Views.Welcome = Backbone.CompositeView.extend({
     this.recipes.fetch();
     this.listenTo(options.recipes, "sync", this.render);
     this.listenTo(this.ingredients, "sync", this.loadFeature);
-    debugger;
   },
   loadFeature: function(){
     var featuredRecipe = this.recipes.sample();

@@ -1,9 +1,10 @@
 BrewSocial.Views.UserShow = Backbone.CompositeView.extend({
-  template: _.template("<h1><%= user.escape('username') %></h1>"),
+  template: JST["users/show"],
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
   },
   render: function(){
+    debugger;
     var content = this.template({user: this.model});
     this.$el.html(content);
     return this;

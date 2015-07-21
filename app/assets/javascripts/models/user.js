@@ -3,6 +3,23 @@ BrewSocial.Models.User = Backbone.Model.extend({
 
   toJSON: function(){
     return { user: _.clone(this.attributes) }
+  },
+
+  authoredRecipes: function(){
+    if(!this._authoredRecipes){
+      this._authoredRecipes = new BrewSocial.Collections.Recipes();
+    }
+    return this._authoredRecipes;
+  },
+
+  parse: function(response){
+    if(response.authored_recipes){
+      this._authoredRecipes = new BrewSocial.Collections.Recipes(
+        response.authored_recipes
+      );
+      delete response.authored_recipes;
+    };
+    return response;
   }
 });
 
@@ -56,10 +73,10 @@ BrewSocial.Models.CurrentUser = BrewSocial.Models.User.extend({
   fireSessionEvent: function(){
     if(this.isSignedIn()){
       this.trigger("signIn");
-      console.log("currentUser is signed in! ", this);
+      // console.log("currentUser is signed in! ", this);
     }else{
       this.trigger("signOut");
-      console.log("currentUser is signed out!", this);
+      // console.log("currentUser is signed out!", this);
     };
   }
 });

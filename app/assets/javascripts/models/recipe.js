@@ -32,7 +32,7 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
 
   author: function(){
     if (!this._author){
-      this._author = {}
+      this._author = {};
     };
     return this._author;
   },
