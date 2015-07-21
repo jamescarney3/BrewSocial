@@ -65,7 +65,7 @@
    display: block;
    float: right;
  }
- .button-list > button:hover, .home-button:hover {
+ .button-list > a:hover, .home-button:hover {
    background: black;
  }
 

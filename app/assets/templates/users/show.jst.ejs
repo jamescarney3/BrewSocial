@@ -3,11 +3,14 @@
   <button>Edit Profile</button>
 <% } %>
 <section class="user-authored-recipes">
+  <h3><%= user.escape('username') %>'s Recipes</h3>
   <% if(user.authoredRecipes()){ %>
     <ul>
     <% user.authoredRecipes().forEach(function(recipe){ %>
       <li><a href="<%= "#/recipes/" + recipe.id %>"><%= recipe.escape("title") %></a></li>
     <% }); %>
     </ul>
+  <% } else { %>
+    <message><%= user.escape('username') %> has not authored any recipes yet.</message>
   <% } %>
 </section>

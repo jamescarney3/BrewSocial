@@ -9,9 +9,16 @@
 
 User.create(username: "Stannis", password: "password")
 User.create(username: "JonSnow", password: "nothing")
+User.create(username: "Hodor", password: "hodorhodor")
+User.create(username: "SampleUser", password: "samplepassword")
 
 rec1 = Recipe.create(author_id: 1, title: "Fratricide ESB", style: "ESB", procedure: "Steep, mash, boil, bitter, kill brother with blood magic, pitch yeast, pirmary ferment, secondary ferment, prime, bottle.", is_private: false)
+
 rec2 = Recipe.create(author_id: 2, title: "Wall Ice", style: "Ice Lager", procedure: "It's cold up here, so we'd have to skim the ice off whether we wanted to or not. Ferment cold.", is_private: true)
+
+rec3 = Recipe.create(author_id: 3, title: "Hodor", style: "Hodor", procedure: "Hodor, Hodor, Hodor, Hodor Hodor. Hodor.", is_private: true)
+
+rec4 = Recipe.create(author_id: 1, title: "Blackwater IPA", style: "IPA", procedure: "Steep, mash, plan disastrous sea attack on capitol city, boil, bitter, pitch yeast, retreat shamefully, primary ferment, prime, bottle ", is_private: true)
 
 Ingredient.create(name: "Schill Vienna Malt (crushed)", role: 1)
 Ingredient.create(name: "Breiss Caramel Malt (crushed)", role: 1)
@@ -31,3 +38,18 @@ rec1.recipe_ingredients.create({ingredient_id: 1, amount: 5, unit: "lbs"})
 rec1.recipe_ingredients.create({ingredient_id: 2, amount: 2, unit: "lbs"})
 rec1.recipe_ingredients.create({ingredient_id: 6, amount: 3, unit: "oz"})
 rec1.recipe_ingredients.create({ingredient_id: 11, amount: 5, unit: "oz"})
+
+rec2.recipe_ingredients.create({ingredient_id: 3, amount: 5, unit: "lbs"})
+rec2.recipe_ingredients.create({ingredient_id: 4, amount: 2, unit: "lbs"})
+rec2.recipe_ingredients.create({ingredient_id: 7, amount: 3, unit: "oz"})
+rec2.recipe_ingredients.create({ingredient_id: 10, amount: 5, unit: "oz"})
+
+rec3.recipe_ingredients.create({ingredient_id: 3, amount: 5, unit: "lbs"})
+rec3.recipe_ingredients.create({ingredient_id: 4, amount: 2, unit: "lbs"})
+rec3.recipe_ingredients.create({ingredient_id: 7, amount: 3, unit: "oz"})
+rec3.recipe_ingredients.create({ingredient_id: 11, amount: 5, unit: "oz"})
+
+rec4.recipe_ingredients.create({ingredient_id: 1, amount: 4, unit: "lbs"})
+rec4.recipe_ingredients.create({ingredient_id: 2, amount: 3, unit: "lbs"})
+rec4.recipe_ingredients.create({ingredient_id: 8, amount: 5, unit: "oz"})
+rec4.recipe_ingredients.create({ingredient_id: 10, amount: 5, unit: "oz"})
