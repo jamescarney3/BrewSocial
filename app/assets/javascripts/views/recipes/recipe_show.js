@@ -35,7 +35,6 @@ BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
       unit: unit,
       parent: this
     });
-    // debugger;
 
     this.addSubview("#ingredients", addedIngredientView);
   },

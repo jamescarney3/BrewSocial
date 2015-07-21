@@ -5,3 +5,7 @@ json.recipe_ingredients do
     json.extract! recipe_ingredient, :id, :ingredient_id, :amount, :unit
   end
 end
+
+json.author do
+  json.extract! @recipe.author, :id, :username
+end

@@ -17,7 +17,8 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
   },
   welcomeShow: function(){
     var view = new BrewSocial.Views.Welcome({
-      recipes: this.recipes
+      recipes: this.recipes,
+      ingredients: this.ingredients
     });
     this._swapView(view);
   },
