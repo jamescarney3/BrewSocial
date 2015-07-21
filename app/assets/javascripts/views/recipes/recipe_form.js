@@ -7,8 +7,8 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   },
   initialize: function(options){
     this.ingredients = options.ingredients;
-    this.syncIngredients();
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync", this.syncIngredients);
   },
 
   addIngredient: function(event){
@@ -22,35 +22,19 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   },
 
   syncIngredients: function(){
-    this.recipeIngredients = new BrewSocial.Collections.RecipeIngredients;
-    var that = this;
-    this.recipeIngredients.fetch({
-      data: {recipe_id: this.model.id},
-      success: function(){
-        that.recipeIngredients.forEach(function(recIng){
-          var amount = recIng.attributes.amount;
-          var unit = recIng.attributes.unit;
-          that.appendIngredient(recIng, amount, unit);
-        });
-      }
-    });
-
-
-
-    // this.model.ingredientList().forEach(function(el){
-    //   var addedIngredient = ingredients.get(el.ingredient_id);
-    //   var amount = el.amount;
-    //   var unit = el.unit;
-    //
-    //   this.appendIngredient(addedIngredient, amount, unit);
-    // }.bind(this));
+    var view = this;
+    this.model.recipeIngredients().forEach(function(recIng){
+      var ingredient = this.ingredients.getOrFetch(recIng.get("ingredient_id"));
+      this.appendIngredient(
+        ingredient, recIng.get("amount"), recIng.get("unit")
+      );
+    }.bind(this));
   },
 
   submit: function(event){
     event.preventDefault();
-    var recipeAttrs = this.$el.serializeJSON().recipe;
-    recipeAttrs.author_id = BrewSocial.currentUser.id;
-    var ingredientsAttrs = [];
+
+    debugger;
 
     this.eachSubview(function(subview, selector){
       if (selector === "#added-ingredients"){

@@ -13,21 +13,29 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
     });
   },
 
+  resetIngredients: function(){
+    while (this.recipeIngredients() > 0) {
+      this.recipeIngredients().first().destroy();
+    };
+  },
+
   toJSON: function(){
     return { recipe: _.clone(this.attributes) }
   },
 
-  ingredientList: function(){
-    if (!this._ingredientList){
-      this._ingredientList = {};
+  recipeIngredients: function(){
+    if (!this._recipeIngredients){
+      this._recipeIngredients = {};
     };
-    return this._ingredientList;
+    return this._recipeIngredients;
   },
 
   parse: function(response){
-    if(response.ingredient_list){
-      this._ingredientList = response.ingredient_list;
-      delete response.ingredient_list;
+    if(response.recipe_ingredients){
+      this._recipeIngredients = new BrewSocial.Collections.RecipeIngredients(
+        response.recipe_ingredients, {}
+      );
+      delete response.recipe_ingredients;
     };
     return response;
   }
