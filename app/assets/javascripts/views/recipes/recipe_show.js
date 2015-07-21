@@ -2,7 +2,8 @@ BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
   template: JST["recipes/show"],
   events: {
     "click .delete-recipe":"recipeDelete",
-    "click .edit-recipe":"recipeEdit"
+    "click .edit-recipe":"recipeEdit",
+    "click .add-recipe":"recipeAdd"
   },
   initialize: function(options){
     this.ingredients = options.ingredients;
@@ -17,6 +18,14 @@ BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
   recipeEdit: function(event){
     event.preventDefault();
     Backbone.history.navigate("recipes/" + this.model.id + "/edit", {trigger: true});
+  },
+  recipeAdd: function(event){
+    event.preventDefault();
+    var view = this;
+    BrewSocial.currentUser.addRecipe(this.model, function(){
+      view.model.users().add(BrewSocial.currentUser);
+      view.render();
+    });
   },
   syncIngredients: function(){
     var view = this;
@@ -39,9 +48,9 @@ BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
     this.addSubview("#ingredients", addedIngredientView);
   },
   render: function(){
-
     var content = this.template({recipe: this.model});
     this.$el.html(content);
+    this.attachSubviews();
     return this;
   }
 

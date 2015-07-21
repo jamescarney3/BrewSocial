@@ -9,12 +9,17 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     "":"welcomeShow",
     "users":"usersIndex",
     "users/new":"usersNew",
+    "users/example":"userExample", // see useless example function below
     "users/:id":"userShow",
     "recipes/new":"recipeNew",
     "recipes/:id":"recipeShow",
     "recipes/:id/edit":"recipeEdit",
     "session/new": "signIn"
   },
+  userExample: function(){
+    console.log("I fired!");
+  },
+  // useless example, see rails router for corresponding route
   welcomeShow: function(){
     var view = new BrewSocial.Views.Welcome({
       recipes: this.recipes,

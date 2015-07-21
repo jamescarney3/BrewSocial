@@ -9,3 +9,9 @@ end
 json.author do
   json.extract! @recipe.author, :id, :username
 end
+
+json.users do
+  json.array! @recipe.users do |user|
+    json.extract! user, :id, :username
+  end
+end

@@ -37,6 +37,13 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
     return this._author;
   },
 
+  users: function(){
+    if(!this._users){
+      this._users = new BrewSocial.Collections.Users();
+    };
+    return this._users;
+  },
+
   parse: function(response){
     if(response.recipe_ingredients){
       this._recipeIngredients = new BrewSocial.Collections.RecipeIngredients(
@@ -51,6 +58,14 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
       );
       delete response.author;
     };
+
+    if(response.users){
+      this._users = new BrewSocial.Collections.Users(
+        response.users
+      );
+      delete response.users;
+    };
+
     return response;
   }
 });

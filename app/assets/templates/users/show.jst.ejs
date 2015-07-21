@@ -3,7 +3,7 @@
   <button>Edit Profile</button>
 <% } %>
 <section class="user-authored-recipes">
-  <h3><%= user.escape('username') %>'s Recipes</h3>
+  <h3><%= user.escape('username') %>'s Authored Recipes</h3>
   <% if(user.authoredRecipes()){ %>
     <ul>
     <% user.authoredRecipes().forEach(function(recipe){ %>
@@ -12,5 +12,17 @@
     </ul>
   <% } else { %>
     <message><%= user.escape('username') %> has not authored any recipes yet.</message>
+  <% } %>
+</section>
+<section class="user-added-recipes">
+  <h3><%= user.escape('username') %>'s Recipe Box</h3>
+  <% if(user.recipes()){ %>
+    <ul>
+    <% user.recipes().forEach(function(recipe){ %>
+      <li><a href="<%= "#/recipes/" + recipe.id %>"><%= recipe.escape("title") %></a></li>
+    <% }); %>
+    </ul>
+  <% } else { %>
+    <message><%= user.escape('username') %> has not added any recipes yet.</message>
   <% } %>
 </section>

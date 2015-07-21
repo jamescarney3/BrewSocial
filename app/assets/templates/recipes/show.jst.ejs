@@ -9,3 +9,6 @@
 </ul>
 <h2>Procedure:</h2>
 <p><%= recipe.escape('procedure') %></p>
+<% if(BrewSocial.currentUser.id != recipe.get('author_id') && recipe.users().pluck("id").indexOf(BrewSocial.currentUser.id) == -1){ %>
+  <button class="add-recipe">Add to RecipeBox</button>
+<% } %>

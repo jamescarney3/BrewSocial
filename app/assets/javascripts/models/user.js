@@ -5,11 +5,28 @@ BrewSocial.Models.User = Backbone.Model.extend({
     return { user: _.clone(this.attributes) }
   },
 
+  addRecipe: function(recipe, callback){
+    var newRecipeAdd = new BrewSocial.Models.RecipeAdd({
+      recipe_id: recipe.id,
+      user_id: this.id
+    });
+    newRecipeAdd.save({},{
+      success: callback
+    });
+  },
+
   authoredRecipes: function(){
     if(!this._authoredRecipes){
       this._authoredRecipes = new BrewSocial.Collections.Recipes();
     }
     return this._authoredRecipes;
+  },
+
+  recipes: function(){
+    if(!this._recipes){
+      this._recipe = new BrewSocial.Collections.Recipes();
+    }
+    return this._recipes;
   },
 
   parse: function(response){
@@ -19,6 +36,12 @@ BrewSocial.Models.User = Backbone.Model.extend({
       );
       delete response.authored_recipes;
     };
+    if(response.recipes){
+      this._recipes = new BrewSocial.Collections.Recipes(
+        response.recipes
+      );
+      delete response.recipes;
+    }
     return response;
   }
 });
