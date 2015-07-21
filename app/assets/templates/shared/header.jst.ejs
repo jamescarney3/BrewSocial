@@ -2,18 +2,20 @@
   <section class="header-nav">
   <h1>BrewSocial</h1>
     <section class="home-button">
-      <button id="home-link">Home</button>
+      <a id="home-link" href="#">Home</a>
     </section>
     <% if (BrewSocial.currentUser.isSignedIn()) { %>
       <section class="button-list">
         <label class="greeting">Signed in as: <%= BrewSocial.currentUser.escape("username") %></label> |
-        <button id="sign-out-link">Sign out</button> |
-        <button id="my-profile-link">My Profile</button>
+        <a id="sign-out-link" href="#">Sign out</a> |
+        <a id="my-profile-link" href="<%=
+          "#/users/" + BrewSocial.currentUser.id
+        %>">My Profile</a>
       </section>
     <% } else { %>
       <section class="button-list">
-        <button id="sign-in-link">Sign in</button> |
-        <button id="sign-up-link">Sign up</button>
+        <a id="sign-in-link" href="#">Sign in</a> |
+        <a id="sign-up-link" href="#">Sign up</a>
       </section>
     <% } %>
   </section>
