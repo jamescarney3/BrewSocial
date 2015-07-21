@@ -13,3 +13,82 @@
  *= require_tree .
  *= require_self
  */
+ /* --- RESET --- */
+
+ html, body, header, nav, h1, a, ul, li,
+ strong, main, section, img, div, h2, p,
+ form, fieldset, label, input, textarea,
+ button, article, footer, small {
+   margin: 0;
+   padding: 0;
+   /*border: 0;*/
+   outline: 0;
+   font: inherit;
+   box-sizing: inherit;
+   text-align: inherit;
+   /*text-decoration: inherit;*/
+   /*vertical-align: inherit;*/
+   color: inherit;
+   background: transparent;
+ }
+
+ body {
+   font-family: sans-serif;
+ }
+ /* HEADER */
+ .header{
+   padding: 20px;
+   background: #aaa;
+   color: white;
+ }
+ .header-nav {
+   width: 900px;
+   margin: auto;
+   display: block;
+ }
+ .header-nav > h1 {
+   font-size: 36px;
+   font-weight: bold;
+   -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+ }
+ .button-list{
+   display: block;
+   float left;
+ }
+ .home-button{
+   display: block;
+   float: right;
+ }
+ .button-list > button:hover, .home-button:hover {
+   background: black;
+ }
+
+ /* CONTENT */
+ #content {
+   width: 900px;
+   padding: 20px;
+   border: 1px solid #ccc;
+   margin: auto;
+   display: block;
+ }
+
+ #featured-recipe {
+   border: 3px solid #ccc;
+   display: block;
+   width: 400px;
+ }
+
+/* FOOTER */
+#footer {
+  width: 900px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: auto;
+  display: block;
+}

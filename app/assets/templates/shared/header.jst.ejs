@@ -1,19 +1,20 @@
-<h1>BrewSocial!</h1>
-
-<% if (BrewSocial.currentUser.isSignedIn()) { %>
-  <section>
-    Hello, <%= BrewSocial.currentUser.escape("username") %> |
-    <button id="sign-out-link">Sign out</button>
+<section class="header">
+  <section class="header-nav">
+  <h1>BrewSocial</h1>
+    <section class="home-button">
+      <button id="home-link">Home</button>
+    </section>
+    <% if (BrewSocial.currentUser.isSignedIn()) { %>
+      <section class="button-list">
+        <label class="greeting">Signed in as: <%= BrewSocial.currentUser.escape("username") %></label> |
+        <button id="sign-out-link">Sign out</button> |
+        <button id="my-profile-link">My Profile</button>
+      </section>
+    <% } else { %>
+      <section class="button-list">
+        <button id="sign-in-link">Sign in</button> |
+        <button id="sign-up-link">Sign up</button>
+      </section>
+    <% } %>
   </section>
-<% } else { %>
-  <section>
-    <button id="sign-in-link">Sign in</button> |
-    <button id="sign-up-link">Sign up</button>
-  </section>
-<% } %>
-<section>
-  <button id="sign-in-link">My Profile</button> |
-  <button id="sign-up-link">Home</button>
 </section>
-
-<hr>
