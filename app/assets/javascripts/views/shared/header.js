@@ -8,7 +8,8 @@ BrewSocial.Views.Header = Backbone.View.extend({
   events: {
     "click #sign-out-link": "signOut",
     "click #sign-in-link": "signIn",
-    "click #sign-up-link": "signUp"
+    "click #sign-up-link": "signUp",
+    "click #sign-in-as-guest-link": "signInAsGuest"
   },
 
   template: JST['shared/header'],
@@ -37,6 +38,15 @@ BrewSocial.Views.Header = Backbone.View.extend({
   signUp: function(event){
     event.preventDefault();
     Backbone.history.navigate("#/users/new", {trigger: true});
+  },
+
+  signInAsGuest: function(event){
+    event.preventDefault();
+    BrewSocial.currentUser.signIn({
+      username: "Stannis",
+      password: "password"
+    });
+
   }
 
 });
