@@ -18,8 +18,15 @@
   <h3><%= user.escape('username') %>'s Recipe Box</h3>
   <% if(user.recipes()){ %>
     <ul>
-    <% user.recipes().forEach(function(recipe){ %>
-      <li><a href="<%= "#/recipes/" + recipe.id %>"><%= recipe.escape("title") %></a></li>
+    <% user.recipeAdds().forEach(function(recipeAdd){ %>
+      <li>
+        <a href="<%= "#/recipes/" + recipeAdd.escape("recipe_id") %>">
+        <%= user.recipes().get(recipeAdd.escape("recipe_id")).escape("title") %>
+        </a>
+        <% if(user.isCurrentUser()){ %>
+          <button class="recipe-remove" data-recipe-add-id="<%= recipeAdd.id %>">Remove</button>
+        <% }; %>
+      </li>
     <% }); %>
     </ul>
   <% } else { %>

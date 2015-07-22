@@ -5,6 +5,18 @@ BrewSocial.Models.User = Backbone.Model.extend({
     return { user: _.clone(this.attributes) }
   },
 
+  isCurrentUser: function(){
+    if(!BrewSocial.currentUser){
+      return false;
+    }else{
+      if(this.id == BrewSocial.currentUser.id){
+        return true;
+      }else{
+        return false;
+      };
+    };
+  },
+
   addRecipe: function(recipe, callback){
     var newRecipeAdd = new BrewSocial.Models.RecipeAdd({
       recipe_id: recipe.id,
@@ -13,6 +25,11 @@ BrewSocial.Models.User = Backbone.Model.extend({
     newRecipeAdd.save({},{
       success: callback
     });
+  },
+
+  removeAddedRecipe: function(id){
+    var recipeAdd = this.recipeAdds().get(id);
+    recipeAdd.destroy();
   },
 
   authoredRecipes: function(){
@@ -29,6 +46,14 @@ BrewSocial.Models.User = Backbone.Model.extend({
     return this._recipes;
   },
 
+  recipeAdds: function(){
+    if(!this._recipe_adds){
+      this._recipe_adds = new BrewSocial.Collections.RecipeAdds();
+    }
+    console.log("_recipe_adds", this._recipe_adds)
+    return this._recipe_adds;
+  },
+
   parse: function(response){
     if(response.authored_recipes){
       this._authoredRecipes = new BrewSocial.Collections.Recipes(
@@ -41,7 +66,11 @@ BrewSocial.Models.User = Backbone.Model.extend({
         response.recipes
       );
       delete response.recipes;
-    }
+    };
+    if(response.recipe_adds){
+      this.recipeAdds().set(response.recipe_adds);
+      delete response.recipe_adds;
+    };
     return response;
   }
 });

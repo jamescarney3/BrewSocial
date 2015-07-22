@@ -38,8 +38,9 @@
  /* HEADER */
  .header{
    padding: 20px;
-   background: #aaa;
+   background: #ccc;
    color: white;
+   border: 1px solid #999;
  }
  .header-nav {
    width: 900px;
@@ -73,13 +74,13 @@
  #content {
    width: 900px;
    padding: 20px;
-   border: 1px solid #ccc;
+   border: 1px solid #999;
    margin: auto;
    display: block;
  }
 
  #featured-recipe {
-   border: 3px solid #ccc;
+   border: 3px solid #999;
    display: block;
    width: 400px;
  }
@@ -88,7 +89,7 @@
 #footer {
   width: 900px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #999;
   margin: auto;
   display: block;
 }
