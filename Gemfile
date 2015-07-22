@@ -19,6 +19,8 @@ gem 'figaro'
 
 gem 'omniauth-twitter'
 
+gem 'paperclip', "~> 4.3"
+
 group :development, :test do
 
   gem 'byebug'
