@@ -15,6 +15,10 @@ gem 'bcrypt'
 
 gem 'backbone-on-rails'
 
+gem 'figaro'
+
+gem 'omniauth-twitter'
+
 group :development, :test do
 
   gem 'byebug'

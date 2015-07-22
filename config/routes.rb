@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     resources :recipe_adds
     resource :session, only: [:show, :create, :destroy]
   end
+
+  get "/auth/:provider/callback", to: "api/sessions#omniauth"
 end
