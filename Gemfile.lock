@@ -121,6 +121,10 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.2)
+    pg_search (1.0.4)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -199,6 +203,7 @@ DEPENDENCIES
   omniauth-twitter
   paperclip (~> 4.3)
   pg
+  pg_search
   rails (= 4.2.0)
   rails_12factor
   sass-rails (~> 5.0)
