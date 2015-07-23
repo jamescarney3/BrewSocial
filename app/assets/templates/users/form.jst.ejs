@@ -4,15 +4,26 @@
 
   <label>
     Username
-    <input type="text" name="user[username]">
+    <input type="text" name="user[username]" id="input-user-username">
   </label>
 
   <br>
 
   <label>
     Password
-    <input type="password" name="user[password]">
+    <input type="password" name="user[password]" id="input-user-password">
   </label>
+
+  <br>
+
+  <label>
+    Avatar
+    <input type="file" name="user[avatar]" id="input-user-avatar">
+  </label>
+
+  <br>
+
+  <img src="<%= BrewSocial.missingImage %>" id="preview-user-avatar" width="60">
 
   <br>
 

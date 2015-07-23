@@ -5,6 +5,26 @@ BrewSocial.Models.User = Backbone.Model.extend({
     return { user: _.clone(this.attributes) }
   },
 
+  saveFormData: function(formData, options){
+    var method = this.isNew() ? "POST" : "PUT";
+    var model = this;
+    debugger;
+    $.ajax({
+      url: _.result(model, "url"),
+      type: method,
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(resp){
+        BrewSocial.currentUser.signIn(options.credentials);
+        Backbone.history.navigate("", {trigger: true});
+      },
+      error: function(resp){
+        options.error && options.error(model, resp, options);
+      }
+    });
+  },
+
   isCurrentUser: function(){
     if(!BrewSocial.currentUser){
       return false;
@@ -49,8 +69,7 @@ BrewSocial.Models.User = Backbone.Model.extend({
   recipeAdds: function(){
     if(!this._recipe_adds){
       this._recipe_adds = new BrewSocial.Collections.RecipeAdds();
-    }
-    console.log("_recipe_adds", this._recipe_adds)
+    };
     return this._recipe_adds;
   },
 

@@ -1,7 +1,7 @@
 BrewSocial.Views.Header = Backbone.View.extend({
 
   initialize: function(options){
-    this.listenTo(BrewSocial.currentUser, "signIn signOut", this.render);
+    this.listenTo(BrewSocial.currentUser, "signIn signOut change", this.render);
     this.render();
   },
 
