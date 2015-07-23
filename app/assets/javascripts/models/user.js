@@ -8,7 +8,6 @@ BrewSocial.Models.User = Backbone.Model.extend({
   saveFormData: function(formData, options){
     var method = this.isNew() ? "POST" : "PUT";
     var model = this;
-    debugger;
     $.ajax({
       url: _.result(model, "url"),
       type: method,
@@ -61,7 +60,7 @@ BrewSocial.Models.User = Backbone.Model.extend({
 
   recipes: function(){
     if(!this._recipes){
-      this._recipe = new BrewSocial.Collections.Recipes();
+      this._recipes = new BrewSocial.Collections.Recipes();
     }
     return this._recipes;
   },
