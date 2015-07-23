@@ -75,15 +75,11 @@ BrewSocial.Models.User = Backbone.Model.extend({
 
   parse: function(response){
     if(response.authored_recipes){
-      this._authoredRecipes = new BrewSocial.Collections.Recipes(
-        response.authored_recipes
-      );
+      this.authoredRecipes().set(response.authored_recipes);
       delete response.authored_recipes;
     };
     if(response.recipes){
-      this._recipes = new BrewSocial.Collections.Recipes(
-        response.recipes
-      );
+      this.recipes().set(response.recipes);
       delete response.recipes;
     };
     if(response.recipe_adds){
