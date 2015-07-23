@@ -3,22 +3,14 @@ BrewSocial.Views.Welcome = Backbone.CompositeView.extend({
   initialize: function(options){
     this.ingredients = options.ingredients;
     this.recipes = options.recipes;
-    this.recipes.fetch();
-    this.listenTo(options.recipes, "sync", this.render);
-    this.listenTo(this.ingredients, "sync", this.loadFeature);
+    this.loadFeatured();
   },
-  loadFeature: function(){
-    var featuredRecipe = this.recipes.sample();
-    var view = this;
-    featuredRecipe.fetch({
-      success: function(){
-        var featuredRecipeShow = new BrewSocial.Views.FeaturedRecipeShow({
-          model: featuredRecipe,
-          ingredients: view.ingredients
-        });
-        view.addSubview("#featured-recipe", featuredRecipeShow);
-      }
+  loadFeatured: function(){
+    var featuredRecipeShow = new BrewSocial.Views.FeaturedRecipeShow({
+      recipes: this.recipes,
+      ingredients: this.ingredients
     });
+    this.addSubview("#featured-recipe", featuredRecipeShow);
   },
   render: function(){
     this.$el.html(this.template());

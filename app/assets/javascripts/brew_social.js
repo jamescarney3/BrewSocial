@@ -4,6 +4,7 @@ window.BrewSocial = {
   Views: {},
   Routers: {},
   initialize: function(){
+
     new BrewSocial.Routers.Router({
       $rootEl: $("#content"),
       users: new BrewSocial.Collections.Users(),

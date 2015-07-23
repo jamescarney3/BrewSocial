@@ -16,7 +16,7 @@ class Api::RecipeIngredientsController < ApplicationController
 
   def show
     @recipe_ingredient = RecipeIngredient.find(params[:id])
-    render json: @recipe_ingredient
+    render :show
   end
 
   def destroy
@@ -24,7 +24,7 @@ class Api::RecipeIngredientsController < ApplicationController
     @recipe.destroy
     render json: @recipe
   end
-  
+
   private
 
   def recipe_ingredient_params

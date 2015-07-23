@@ -35,6 +35,10 @@
  body {
    font-family: sans-serif;
  }
+
+ img {
+   display: block;
+ }
  /* HEADER */
  .header{
    padding: 20px;
@@ -101,5 +105,12 @@
   width: 200px;
   height: 200px;
   margin: 10px;
+  border: 2px solid #999;
+}
+
+/* USER FORM */
+#preview-user-avatar{
+  width: 60px;
+  height: 60px;
   border: 2px solid #999;
 }
