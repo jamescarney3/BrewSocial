@@ -3,7 +3,7 @@ class Recipe < ActiveRecord::Base
 
   multisearchable against: [:title, :procedure]
 
-  pg_search_scope :search_by_ingredient, associated_against: {
+  pg_search_scope :search_by_ingredients, associated_against: {
     ingredients: :name
   }
 
