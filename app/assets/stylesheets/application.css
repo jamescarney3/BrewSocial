@@ -95,3 +95,11 @@
   margin: auto;
   display: block;
 }
+
+/* PROFILE */
+.profile-picture{
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border: 2px solid #999;
+}
