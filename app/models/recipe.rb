@@ -1,4 +1,12 @@
 class Recipe < ActiveRecord::Base
+  include PgSearch
+
+  multisearchable against: [:title, :procedure]
+
+  pg_search_scope :search_by_ingredient, associated_against: {
+    ingredients: :name
+  }
+
   validates :author_id, :title, :style, :procedure, presence: true
   validates :is_private, inclusion: {in: [true, false]}
 
