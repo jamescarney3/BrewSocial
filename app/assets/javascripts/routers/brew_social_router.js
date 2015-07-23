@@ -69,9 +69,11 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
 
     return true;
   },
+
   _goHome: function(){
     Backbone.history.navigate("", {trigger: true});
   },
+
   recipeShow: function(id){
     var recipe = this.recipes.getOrFetch(id);
     var view = new BrewSocial.Views.RecipeShow({model: recipe, ingredients: this.ingredients});

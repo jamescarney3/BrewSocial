@@ -5,7 +5,14 @@
 <% } %>
 <h2><%= recipe.escape('style') %></h2>
 <h2>Ingredients:</h2>
-<ul id="ingredients">
+<ul>
+  <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
+    <li>
+      <%= recipeIngredient.escape("ingredient_name") %>,
+      <%= recipeIngredient.escape("amount") %>
+      <%= recipeIngredient.escape("unit") %>
+    </li>
+  <% }); %>
 </ul>
 <h2>Procedure:</h2>
 <p><%= recipe.escape('procedure') %></p>

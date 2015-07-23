@@ -4,7 +4,7 @@
 <ul id="ingredients">
   <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
     <li>
-      <%= recipeIngredient.ingredient().escape("name") %>,
+      <%= recipeIngredient.escape("ingredient_name") %>,
       <%= recipeIngredient.escape("amount") %>
       <%= recipeIngredient.escape("unit") %>
     </li>

@@ -8,7 +8,7 @@ BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
   initialize: function(options){
     this.ingredients = options.ingredients;
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model, "sync", this.syncIngredients);
+    this.listenTo(this, "recipeAdd", this.render);
   },
   recipeDelete: function(event){
     event.preventDefault();
@@ -27,30 +27,10 @@ BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
       view.render();
     });
   },
-  syncIngredients: function(){
-    var view = this;
-    this.model.recipeIngredients().forEach(function(recIng){
-      var ingredient = this.ingredients.getOrFetch(recIng.get("ingredient_id"));
-      this.appendIngredient(
-        ingredient, recIng.get("amount"), recIng.get("unit")
-      );
-    }.bind(this));
-  },
-  appendIngredient: function(ingredient, amount, unit){
-    var addedIngredientView = new BrewSocial.Views.ListIngredientShow({
-      model: ingredient,
-      collection: this.ingredients,
-      amount: amount,
-      unit: unit,
-      parent: this
-    });
 
-    this.addSubview("#ingredients", addedIngredientView);
-  },
   render: function(){
     var content = this.template({recipe: this.model});
     this.$el.html(content);
-    this.attachSubviews();
     return this;
   }
 
