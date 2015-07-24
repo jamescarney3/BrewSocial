@@ -6,6 +6,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     "click .add-ingredient":"addIngredient"
   },
   initialize: function(options){
+    this.$el.addClass("group");
     this.ingredients = options.ingredients;
     this.ingredients.fetch();
     this.listenToOnce(this.model, "sync", function(){

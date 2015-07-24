@@ -4,7 +4,7 @@
   <section class="header-nav group">
     <% if (BrewSocial.currentUser.isSignedIn()) { %>
       <section class="button-list group">
-        <label class="greeting">Signed in as: <%= BrewSocial.currentUser.escape("username") %></label>
+        <div class="greeting">Signed in as: <%= BrewSocial.currentUser.escape("username") %></div>
         <a id="sign-out-link" href="#">Sign out</a>
         <a id="my-profile-link" href="<%=
           "#/users/" + BrewSocial.currentUser.id

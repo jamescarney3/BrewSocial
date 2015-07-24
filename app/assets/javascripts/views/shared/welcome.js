@@ -1,7 +1,7 @@
 BrewSocial.Views.Welcome = Backbone.CompositeView.extend({
   template: JST["shared/welcome"],
   initialize: function(options){
-    this.$el.addClass("splash");
+    this.$el.addClass("splash group");
     this.ingredients = options.ingredients;
     this.recipes = options.recipes;
     this.loadFeatured();

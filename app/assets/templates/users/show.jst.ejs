@@ -3,6 +3,7 @@
 <% if(BrewSocial.currentUser.id == user.id){ %>
   <button>Edit Profile</button>
 <% } %>
+<br>
 <section class="user-authored-recipes">
   <h3><%= user.escape('username') %>'s Authored Recipes</h3>
   <% if(user.authoredRecipes()){ %>

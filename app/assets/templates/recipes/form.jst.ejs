@@ -1,4 +1,4 @@
-<h2>Create Recipe</h2>
+<h2 class="form-header">Create Recipe</h2>
 
   <label for="recipe_title">Recipe title:</label>
   <input id="recipe_title"
@@ -12,10 +12,12 @@
     name="recipe[style]"
     value="<%= recipe.escape("style") %>">
   <br>
-  <section id="ingredients">Ingredients:
+  <label>Ingredients:
+  <section id="ingredients">
     <ul id="added-ingredients"></ul>
     <ul id="ingredient-to-add"></ul>
   </section>
+  </label>
   <br>
   <label for="recipe_procedure">Recipe procedure:</label>
   <textarea id="recipe_procedure"
@@ -28,5 +30,5 @@
     <option value="false">Public</option>
     <option value="true">Private</option>
   </select>
-
+<br>
 <button class="recipe-submit">Submit</button>
