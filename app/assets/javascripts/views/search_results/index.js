@@ -6,7 +6,7 @@ BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", function(){
       this.syncResults();
       this.render();
-      });
+    });
   },
   syncResults: function(){
     var view = this;

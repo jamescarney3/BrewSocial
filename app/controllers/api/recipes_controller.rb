@@ -1,7 +1,11 @@
 class Api::RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    if params[:query]
+      @recipes = Recipe.search_by_ingredients(params[:query])
+    else
+      @recipes = Recipe.all
+    end
     render json: @recipes
   end
 
