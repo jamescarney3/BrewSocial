@@ -1,5 +1,6 @@
 BrewSocial.Models.Recipe = Backbone.Model.extend({
   urlRoot: "/api/recipes",
+  apiUrlRoot: "#/recipes/",
 
   addIngredient: function(ingredient, amount, unit, callback){
     var join = new BrewSocial.Models.RecipeIngredient({
@@ -62,4 +63,6 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
 
     return response;
   }
+}, {
+  modelType: "Recipe"
 });

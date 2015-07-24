@@ -1,5 +1,6 @@
 BrewSocial.Models.User = Backbone.Model.extend({
   urlRoot: "/api/users",
+  apiUrlRoot: "#/users/",
 
   toJSON: function(){
     return { user: _.clone(this.attributes) }
@@ -87,6 +88,8 @@ BrewSocial.Models.User = Backbone.Model.extend({
     };
     return response;
   }
+}, {
+  modelType: "User"
 });
 
 BrewSocial.Models.CurrentUser = BrewSocial.Models.User.extend({

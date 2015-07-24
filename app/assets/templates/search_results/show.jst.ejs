@@ -1,0 +1,10 @@
+<li>
+  <a href="<%= result.apiUrlRoot + result.id %>">
+    <%= result.constructor.modelType %>:
+    <% if(result.constructor.modelType == "User"){ %>
+      <%= result.escape("username") %>
+    <% } else if(result.constructor.modelType == "Recipe"){ %>
+      <%= result.escape("title") %>
+    <% } %>
+  </a>
+</li>

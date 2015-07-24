@@ -7,15 +7,18 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
   },
   routes: {
     "":"welcomeShow",
+    "search/:query":"search",
     "users":"usersIndex",
     "users/new":"usersNew",
     "users/example":"userExample", // see useless example function below
     "users/:id":"userShow",
     "recipes/new":"recipeNew",
+    "recipes/search":"recipeSearch",
     "recipes/:id":"recipeShow",
     "recipes/:id/edit":"recipeEdit",
     "session/new": "signIn"
   },
+
   userExample: function(){
     console.log("I fired!");
   },
@@ -27,6 +30,16 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     });
     this._swapView(view);
   },
+
+  search: function(query){
+    var searchResults = new BrewSocial.Collections.SearchResults();
+    var view = new BrewSocial.Views.SearchResultsIndex({
+      collection: searchResults,
+      query: query
+    });
+    this._swapView(view);
+  },
+
   signIn: function(callback){
     if(!this._requireSignedOut(callback)) { return; }
     var view = new BrewSocial.Views.SignIn({
@@ -34,12 +47,14 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     });
     this._swapView(view);
   },
+
   userShow: function(id){
     var user = this.users.getOrFetch(id);
     var view = new BrewSocial.Views.UserShow({model: user});
 
     this._swapView(view);
   },
+
   usersNew: function(){
     if (!this._requireSignedOut()) { return; }
     var user = new this.users.model();
@@ -49,6 +64,39 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     });
     this._swapView(view);
   },
+
+  recipeShow: function(id){
+    var recipe = this.recipes.getOrFetch(id);
+    var view = new BrewSocial.Views.RecipeShow({model: recipe, ingredients: this.ingredients});
+    this._swapView(view);
+  },
+
+  recipeNew: function(){
+    var ingredients = this.ingredients;
+    var recipe = new BrewSocial.Models.Recipe();
+    var view = new BrewSocial.Views.RecipeForm({
+      model: recipe,
+      collection: this.recipes,
+      ingredients: this.ingredients});
+    this._swapView(view);
+  },
+
+  recipeEdit: function(id){
+    var ingredients = this.ingredients;
+    var recipe = this.recipes.getOrFetch(id);
+    var view = new BrewSocial.Views.RecipeForm({
+      model: recipe,
+      collection: this.recipes,
+      ingredients: this.ingredients});
+    this._swapView(view);
+  },
+
+  _swapView: function (view) {
+  this._currentView && this._currentView.remove();
+  this._currentView = view;
+  this.$rootEl.html(view.render().$el);
+  },
+
   _requireSignedIn: function(callback){
     if (!BrewSocial.currentUser.isSignedIn()) {
       callback = callback || this._goHome.bind(this);
@@ -57,6 +105,7 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     };
     return true;
   },
+
   _requireSignedOut: function(callback){
     if (BrewSocial.currentUser.isSignedIn()) {
       callback = callback || this._goHome.bind(this);
@@ -69,34 +118,5 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
 
   _goHome: function(){
     Backbone.history.navigate("", {trigger: true});
-  },
-
-  recipeShow: function(id){
-    var recipe = this.recipes.getOrFetch(id);
-    var view = new BrewSocial.Views.RecipeShow({model: recipe, ingredients: this.ingredients});
-    this._swapView(view);
-  },
-  recipeNew: function(){
-    var ingredients = this.ingredients;
-    var recipe = new BrewSocial.Models.Recipe();
-    var view = new BrewSocial.Views.RecipeForm({
-      model: recipe,
-      collection: this.recipes,
-      ingredients: this.ingredients});
-    this._swapView(view);
-  },
-  recipeEdit: function(id){
-    var ingredients = this.ingredients;
-    var recipe = this.recipes.getOrFetch(id);
-    var view = new BrewSocial.Views.RecipeForm({
-      model: recipe,
-      collection: this.recipes,
-      ingredients: this.ingredients});
-    this._swapView(view);
-  },
-  _swapView: function (view) {
-  this._currentView && this._currentView.remove();
-  this._currentView = view;
-  this.$rootEl.html(view.render().$el);
-}
+  }
 });

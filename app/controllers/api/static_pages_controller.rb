@@ -4,13 +4,13 @@ class Api::StaticPagesController < ApplicationController
     @search_results = PgSearch
       .multisearch(params[:query])
 
-    render json: @search_results
+    render :search
   end
 
   def search_by_ingredients
     @search_results = Recipe.search_by_ingredients(params[:query])
 
-    render json: @search_results
+    render :search
   end
 
 end
