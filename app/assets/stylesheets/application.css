@@ -31,29 +31,51 @@
    /*vertical-align: inherit;*/
    color: inherit;
    background: transparent;
+   text-decoration: none;
+ }
+
+ .group:after {
+   content: "";
+   display: block;
+   clear: both;
  }
 
  body {
    font-family: sans-serif;
+   background: #eee;
+ }
+
+ wrapper {
+   background: white;
+   display: block;
+   width: 900px;
+   margin: auto;
+   border: 2px solid #888;
+   box-shadow:
+   5px 0px 10px -2px #aaa,
+   -5px 0px 10px -2px #aaa,
+   0px 5px 10px -2px #aaa
+   ;
  }
 
  img {
    display: block;
  }
+
  /* HEADER */
  .header{
-   padding: 20px;
-   background: #ccc;
    color: white;
-   border: 2px solid #999;
- }
- .header-nav {
-   width: 900px;
-   margin: auto;
    display: block;
  }
- .header-nav > h1 {
+ .header-nav {
+   clear: both;
+   background: #888;
+ }
+ .header > h1 {
+   display: block;
+   float: left;
    font-size: 36px;
+   padding: 15px;
    font-weight: bold;
    -webkit-touch-callout: none;
    -webkit-user-select: none;
@@ -62,41 +84,54 @@
    -ms-user-select: none;
    user-select: none;
    cursor: default;
+   color: black;
  }
- .button-list{
+
+ .header > img {
+  float: right;
+  padding: 5px;
+  height: 66px;
+ }
+
+ .header-nav .button-list {
    display: block;
    float: left;
  }
- .home-button{
+
+ .header-nav a, .header-nav .greeting {
    display: block;
+   float: left;
+   padding: 5px 15px;
+ }
+
+ .header-nav .home-link{
    float: right;
  }
- .button-list > a:hover, .home-button:hover {
-   background: black;
+
+ .header-nav a:hover{
+   color: #ccc;
+   text-decoration: underline;
  }
+
 
  /* CONTENT */
  #content {
-   width: 900px;
    padding: 20px;
-   border: 2px solid #999;
    border-top: none;
    margin: auto;
    display: block;
  }
 
  #featured-recipe {
-   border: 4px solid #999;
+   border: 2px solid #888;
    display: block;
    width: 400px;
  }
 
 /* FOOTER */
 #footer {
-  width: 900px;
   padding: 20px;
-  border: 2px solid #999;
-  border-top: none;
+  border-top: 2px solid #888;
   margin: auto;
   display: block;
 }

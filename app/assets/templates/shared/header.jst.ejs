@@ -1,24 +1,23 @@
 <section class="header">
-  <section class="header-nav">
-  <h1>BrewSocial</h1>
-    <section class="home-button">
-      <a id="home-link" href="#">Home</a>
-    </section>
+  <h1 class+"header-title">BrewSocial</h1>
+  <img class="header-icon" src="assets/hopcones.png">
+  <section class="header-nav group">
     <% if (BrewSocial.currentUser.isSignedIn()) { %>
-      <section class="button-list">
-        <label class="greeting">Signed in as: <%= BrewSocial.currentUser.escape("username") %></label> |
-        <a id="sign-out-link" href="#">Sign out</a> |
+      <section class="button-list group">
+        <label class="greeting">Signed in as: <%= BrewSocial.currentUser.escape("username") %></label>
+        <a id="sign-out-link" href="#">Sign out</a>
         <a id="my-profile-link" href="<%=
           "#/users/" + BrewSocial.currentUser.id
-        %>">My Profile</a> |
+        %>">My Profile</a>
         <a id="new-recipe-link" href="#/recipes/new">New Recipe</a>
       </section>
     <% } else { %>
-      <section class="button-list">
-        <a id="sign-in-link" href="#">Sign in</a> |
-        <a id="sign-up-link" href="#">Sign up</a> |
+      <section class="button-list group">
+        <a id="sign-in-link" href="#">Sign in</a>
+        <a id="sign-up-link" href="#">Sign up</a>
         <a id="sign-in-as-guest-link" href="#">Sign in as guest</a>
       </section>
     <% } %>
+    <a id="home-link" class="home-link" href="#">Home</a>
   </section>
 </section>
