@@ -1,6 +1,7 @@
 BrewSocial.Collections.Ingredients = Backbone.Collection.extend({
   model: BrewSocial.Models.Ingredient,
   url: "/api/ingredients",
+  comparator: "name",
   getOrFetch: function(id){
     var mod = this.get(id);
 

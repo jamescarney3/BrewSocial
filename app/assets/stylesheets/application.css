@@ -76,7 +76,7 @@
    float: left;
    font-size: 36px;
    padding: 15px;
-   font-weight: bold;
+   font-weight: 800;
    -webkit-touch-callout: none;
    -webkit-user-select: none;
    -khtml-user-select: none;
@@ -101,11 +101,12 @@
  .header-nav a, .header-nav .greeting {
    display: block;
    float: left;
-   padding: 5px 15px;
+   padding: 5px 0px 5px 20px;
  }
 
  .header-nav .home-link{
    float: right;
+   padding-right: 20px;
  }
 
  .header-nav a:hover{
