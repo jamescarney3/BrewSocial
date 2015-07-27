@@ -23,6 +23,7 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     console.log("I fired!");
   },
   // useless example, see rails router for corresponding route
+
   welcomeShow: function(){
     var view = new BrewSocial.Views.Welcome({
       recipes: this.recipes,

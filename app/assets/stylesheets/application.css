@@ -18,7 +18,7 @@
  html, body, header, nav, h1, a, ul, li,
  strong, main, section, img, div, h2, p,
  form, fieldset, label, input, textarea,
- button, article, footer, small {
+ button, article, footer, small, figure {
    margin: 0;
    padding: 0;
    outline: 0;
@@ -187,24 +187,56 @@
   font-weight: bold;
 }
 
+
+/* FEATURED RECIPES CAROUSEL */
+.featured{
+  width: 400px;
+  display: block;
+  float: left;
+  margin-right: 20px;
+}
+#featured-recipe-wrapper {
+  margin-top: 5px;
+  display: block;
+  width: 400px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #888;
+}
+ .featured-recipe {
+  display: block;
+  padding: 5px;
+  float: left;
+  width: 390px;
+ }
+ #featured-recipe-container {
+   display: block;
+   position: relative;
+   left: 0;
+   transition: 300ms;
+ }
+ .featured-recipe h1{
+   font-size: 24px;
+   font-weight: bold;
+   margin-bottom: 5px;
+ }
+ .featured-recipe h1:hover{
+   text-decoration: underline;
+   color: #888;
+ }
+
+/* SEARCH FIELDS */
 .splash .search-fields {
   display: block;
   float: left;
-  margin-top: 5px;
-  margin-left: 5px;
   width: 400px;
 }
-.splash .featured-recipe-wrapper {
+.search-fields #search-field {
   margin-top: 5px;
-  float: left;
-  display: block;
-  width: 400px;
+  margin-bottom: 5px;
 }
- #featured-recipe {
-  border: 2px solid #888;
-  display: block;
-  padding: 5px;
- }
+
 
 /* FOOTER */
 #footer {

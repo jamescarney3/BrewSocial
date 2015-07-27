@@ -1,7 +1,7 @@
 BrewSocial.Collections.RecipeIngredients = Backbone.Collection.extend({
   model: BrewSocial.Models.RecipeIngredient,
   url: "/api/recipe_ingredients",
-  getOrFetch: function(id, callback){
+  getOrFetch: function(id){
     var mod = this.get(id);
 
     var mods = this;
@@ -13,7 +13,6 @@ BrewSocial.Collections.RecipeIngredients = Backbone.Collection.extend({
       mod.fetch({
         success: function(){
           mods.add(mod);
-          callback(mod);
         }
       });
     };

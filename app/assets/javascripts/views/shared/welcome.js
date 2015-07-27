@@ -8,11 +8,17 @@ BrewSocial.Views.Welcome = Backbone.CompositeView.extend({
     this.loadMultiSearch();
     this.loadRecipeIngredientSearch();
   },
+  loadFeaturedOLD: function(){
+    // var featuredRecipeShow = new BrewSocial.Views.FeaturedRecipeShow({
+    //   recipes: this.recipes,
+    //   ingredients: this.ingredients
+    // });
+    // this.addSubview("#featured-recipe", featuredRecipeShow);
+  },
   loadFeatured: function(){
-    var featuredRecipeShow = new BrewSocial.Views.FeaturedRecipeShow({
-      recipes: this.recipes,
-      ingredients: this.ingredients
-    });
+    var recipes = new BrewSocial.Collections.Recipes();
+    recipes.grabRandom(3);
+    var featuredRecipeShow = new BrewSocial.Views.FeaturedRecipeShow({collection: recipes});
     this.addSubview("#featured-recipe", featuredRecipeShow);
   },
   loadMultiSearch: function(){

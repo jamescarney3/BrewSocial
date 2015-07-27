@@ -49,6 +49,12 @@ class Api::RecipesController < ApplicationController
     render json: @recipe
   end
 
+  def random
+    ids = Recipe.pluck("id").sample(params[:num].to_i)
+    @recipes = Recipe.find(ids)
+    render :random
+  end
+
   private
 
   def recipe_params

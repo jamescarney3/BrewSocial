@@ -1,9 +1,20 @@
-<h1><%= recipe.escape('title') %></h1>
-<h2><%= recipe.escape('style') %></h2>
-<ul id="ingredients">
-  <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
-    <li>
-      <%= recipeIngredient.escape("ingredient_name") %>
-    </li>
-  <% }); %>
-</ul>
+<figure class="group" id="featured-recipe-wrapper">
+  <ul id="featured-recipe-container" class="group">
+    <% recipes.forEach(function(recipe){ %>
+      <li class="featured-recipe">
+        <h1><a href="<%= recipe.apiUrlRoot + recipe.id %>"><%= recipe.escape('title') %></a></h1>
+        <h2><%= recipe.escape('style') %></h2>
+        <ul id="ingredients">
+          <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
+            <li>
+              <%= recipeIngredient.escape("ingredient_name") %>
+            </li>
+          <% }); %>
+        </ul>
+      </li>
+    <% }); %>
+  </ul>
+</figure>
+
+<button id="prev">Prev</button>
+<button id="next">Next</button>
