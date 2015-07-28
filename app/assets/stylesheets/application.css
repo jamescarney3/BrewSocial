@@ -89,6 +89,10 @@
    font-weight: bold;
  }
 
+ button:hover {
+   cursor: pointer;
+ }
+
  label{
    display: block;
    clear: both;
@@ -224,6 +228,11 @@
  .featured-recipe h1:hover{
    text-decoration: underline;
    color: #888;
+ }
+
+ .button-container{
+   width: 105px;
+   margin: auto;
  }
 
 /* SEARCH FIELDS */
