@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     large: "300x300>",
     medium: "150x150>",
     thumb: "60x60>"
-  }, default_url: "missing.png"
+  }, default_url: "beer.png"
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 

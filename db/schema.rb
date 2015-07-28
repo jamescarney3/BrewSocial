@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723203901) do
+ActiveRecord::Schema.define(version: 20150728180403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,13 +59,17 @@ ActiveRecord::Schema.define(version: 20150723203901) do
   add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
-    t.integer  "author_id",  null: false
-    t.string   "title",      null: false
-    t.string   "style",      null: false
-    t.text     "procedure",  null: false
-    t.boolean  "is_private", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "author_id",          null: false
+    t.string   "title",              null: false
+    t.string   "style",              null: false
+    t.text     "procedure",          null: false
+    t.boolean  "is_private",         null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "recipes", ["author_id"], name: "index_recipes_on_author_id", using: :btree

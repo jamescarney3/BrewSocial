@@ -4,6 +4,8 @@
   <button class="delete-recipe">Delete recipe</button>
 <% } %>
 <h2><%= recipe.escape('style') %></h2>
+<br>
+<img src="<%= recipe.escape('image_url') %>">
 <h2>Ingredients:</h2>
 <ul>
   <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>

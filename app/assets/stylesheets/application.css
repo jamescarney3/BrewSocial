@@ -99,10 +99,6 @@
    margin-top: 5px;
  }
 
- .amount-input{
-   width: 20px;
- }
-
  .form-header{
    font-size: 16px;
    font-weight: bold;
@@ -254,7 +250,18 @@
   margin: auto;
   display: block;
 }
+/* RECIPE FORM */
 
+.amount-input{
+  display: inline-block;
+  float: none;
+  width: 20px;
+}
+
+.add-ingredient{
+  float: none;
+  display: inline-block;
+}
 /* PROFILE */
 .profile-picture{
   width: 200px;
