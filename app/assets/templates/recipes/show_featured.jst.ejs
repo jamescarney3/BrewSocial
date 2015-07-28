@@ -2,15 +2,18 @@
   <ul id="featured-recipe-container" class="group">
     <% recipes.forEach(function(recipe){ %>
       <li class="featured-recipe">
-        <h1><a href="<%= recipe.apiUrlRoot + recipe.id %>"><%= recipe.escape('title') %></a></h1>
-        <h2><%= recipe.escape('style') %></h2>
-        <ul id="ingredients">
-          <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
-            <li>
-              <%= recipeIngredient.escape("ingredient_name") %>
-            </li>
-          <% }); %>
-        </ul>
+        <img src="<%= recipe.escape("image_url")%>" class="featured-recipe-background">
+        <section class="featured-recipe-text">
+          <h1><a href="<%= recipe.apiUrlRoot + recipe.id %>"><%= recipe.escape('title') %></a></h1>
+          <h2><%= recipe.escape('style') %></h2>
+          <ul id="ingredients">
+            <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
+              <li>
+                <%= recipeIngredient.escape("ingredient_name") %>
+              </li>
+            <% }); %>
+          </ul>
+        </section>
       </li>
     <% }); %>
   </ul>
