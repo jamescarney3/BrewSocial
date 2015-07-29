@@ -1,37 +1,49 @@
-<h2 class="form-header">Create Recipe</h2>
+<h2>Create A Recipe</h2>
 
-  <label for="recipe_title">Recipe title:</label>
-  <input id="recipe_title"
-    type="text"
-    name="recipe[title]"
-    value="<%= recipe.escape("title") %>">
-  <br>
-  <label for="recipe_style">Recipe style:</label>
-  <input id="recipe_style"
-    type="text"
-    name="recipe[style]"
-    value="<%= recipe.escape("style") %>">
-  <br>
+<form>
+
+  <label>
+    Title
+    <input type="text" name="recipe[title]" id="input-recipe-title">
+  </label>
+
+  <label>
+    Style
+    <input type="text" name="recipe[style]" id="input-recipe-style">
+  </label>
+
   <label>Ingredients:
   <section id="ingredients">
     <ul id="added-ingredients"></ul>
     <ul id="ingredient-to-add"></ul>
   </section>
   </label>
+
+  <label>
+    Procedure
+    <textarea name="recipe[procedure]" id="input-recipe-procedure"></textarea>
+  </label>
+
+  <label>
+    Image
+    <input type="file" name="recipe[image]" id="input-recipe-image">
+  </label>
+
   <br>
-  <label for="recipe_procedure">Recipe procedure:</label>
-  <textarea id="recipe_procedure"
-    type="text"
-    name="recipe[procedure]"><%= recipe.escape("procedure") %></textarea>
+
+  <img src="<%= BrewSocial.missingImage %>" id="preview-recipe-image" width="60">
+
   <br>
-  <label for="recipe_is_private">Recipe privacy level:</label>
-  <select id="recipe_is_private"
-    name="recipe[is_private]">
-    <option value="false">Public</option>
-    <option value="true">Private</option>
-  </select>
-  <br>
-  <label for="recipe_image">Image (optional):</label>
-  <input type="file" name="recipe[image]" id="recipe_image">
-  <br>
-  <button class="recipe-submit">Submit</button>
+
+  <label>
+    Privacy
+    <select id="input-recipe-is-private"
+      name="recipe[is_private]">
+      <option value="false">Public</option>
+      <option value="true">Private</option>
+    </select>
+  </label>
+
+  <button class="recipe-submit">Submit Recipe</button>
+
+</form>

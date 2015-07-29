@@ -12,7 +12,6 @@ BrewSocial.Views.UsersForm = Backbone.View.extend({
   submit: function(event){
     event.preventDefault();
 
-
     var username = this.$("#input-user-username").val();
     var password = this.$("#input-user-password").val();
     var avatar = this.$("#input-user-avatar")[0].files[0];

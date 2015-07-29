@@ -5,7 +5,7 @@
 <% } %>
 <h2><%= recipe.escape('style') %></h2>
 <br>
-<img src="<%= recipe.escape('image_url') %>">
+<img src="<%= recipe.escape('image_url') %>" class="recipe-show-image">
 <h2>Ingredients:</h2>
 <ul>
   <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>

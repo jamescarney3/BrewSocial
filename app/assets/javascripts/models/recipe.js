@@ -20,6 +20,25 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
     };
   },
 
+  saveFormData: function(formData, options, callback){
+    var method = this.isNew() ? "POST" : "PUT";
+    var model = this;
+    $.ajax({
+      url: _.result(model, "url"),
+      type: method,
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(resp){
+        debugger;
+        callback(resp);
+      },
+      error: function(resp){
+        options.error && options.error(model, resp, options);
+      }
+    });
+  },
+
   toJSON: function(){
     return { recipe: _.clone(this.attributes) }
   },

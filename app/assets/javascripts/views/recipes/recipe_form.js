@@ -3,7 +3,8 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   tagName: "form",
   events: {
     "click .recipe-submit":"submit",
-    "click .add-ingredient":"addIngredient"
+    "click .add-ingredient":"addIngredient",
+    "change #input-recipe-image":"fileInputChange"
   },
   initialize: function(options){
     this.$el.addClass("group");
@@ -51,7 +52,27 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     this.addSubview("#added-ingredients", subView);
   },
 
-  submit: function(event){
+  fileInputChange: function(event){
+    var view = this;
+    var file = event.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+      view._updatePreview(reader.result);
+    };
+
+    if(file){
+      reader.readAsDataURL(file);
+    }else{
+      view._updatePreview("");
+    };
+  },
+
+  _updatePreview: function(src){
+    this.$el.find("#preview-recipe-image").attr("src", src);
+  },
+
+  submitOld: function(event){
     event.preventDefault();
 
     var view = this;
@@ -66,6 +87,36 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
         recipe.trigger("recipeSave");
         Backbone.history.navigate("recipes/" + recipe.id, {trigger: true});
       }
+    });
+  },
+
+  submit: function(event){
+    event.preventDefault();
+
+    var title = this.$("#input-recipe-title").val();
+    var style = this.$("#input-recipe-style").val();
+    var procedure = this.$("#input-recipe-procedure").val();
+    var image = this.$("#input-recipe-image")[0].files[0];
+    var is_private = this.$("#input-recipe-is-private").val();
+    var author_id = BrewSocial.currentUser.id;
+
+    var formData = new FormData({multipart: true});
+    formData.append("recipe[title]", title);
+    formData.append("recipe[style]", style);
+    formData.append("recipe[procedure]", procedure);
+    formData.append("recipe[is_private]", is_private);
+    formData.append("recipe[author_id]", author_id);
+    if(image){
+      formData.append("recipe[image]", image);
+    };
+
+    var model = this.model;
+
+    this.model.saveFormData(formData, {}, function(resp){
+        debugger;
+        model.set(resp);
+        model.trigger("recipeSave");
+        Backbone.history.navigate("#/recipes/" + model.id, {trigger: true});
     });
   },
 
