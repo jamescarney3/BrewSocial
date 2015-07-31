@@ -2,7 +2,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   template: JST["recipes/form"],
   tagName: "form",
   events: {
-    "click .recipe-submit":"submit",
+    "click #recipe-submit":"submit",
     "click .add-ingredient":"addIngredient",
     "change #input-recipe-image":"fileInputChange"
   },
@@ -13,7 +13,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     this.listenToOnce(this.model, "sync", function(){
       this.render();
       this.syncIngredients();
-      });
+    });
   },
 
   syncIngredients: function(){
@@ -29,7 +29,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
 
   addIngredient: function(event){
     event.preventDefault();
-    
+
     var view = this;
 
     var ingredient_id = this.$el.find("#ingredient-name").val();
@@ -107,7 +107,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     this.$el.html(content);
 
     if (!this.newIngredientView) {
-      this.newIngredientView || new BrewSocial.Views.IngredientInput({ collection: this.ingredients });
+      this.newIngredientView = new BrewSocial.Views.IngredientInput({ collection: this.ingredients });
       this.addSubview("#ingredient-to-add", this.newIngredientView);
     };
 

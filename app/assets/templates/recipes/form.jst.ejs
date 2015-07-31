@@ -7,10 +7,14 @@
     <input type="text" name="recipe[title]" id="input-recipe-title">
   </label>
 
+<br>
+
   <label>
     Style
     <input type="text" name="recipe[style]" id="input-recipe-style">
   </label>
+
+<br>
 
   <label>Ingredients:
   <section id="ingredients">
@@ -19,21 +23,27 @@
   </section>
   </label>
 
+<br>
+
   <label>
     Procedure
     <textarea name="recipe[procedure]" id="input-recipe-procedure"></textarea>
   </label>
 
+<br>
+
   <label>
-    Image
+    Upload a picture of your brew! (optional)
     <input type="file" name="recipe[image]" id="input-recipe-image">
   </label>
 
-  <br>
+<br>
 
-  <img src="<%= BrewSocial.missingImage %>" id="preview-recipe-image" width="60">
+    <label>Image preview:
+    <img src="<%= BrewSocial.missingImage %>" id="preview-recipe-image" width="60">
+  </label>
 
-  <br>
+<br>
 
   <label>
     Privacy
@@ -44,6 +54,8 @@
     </select>
   </label>
 
-  <button class="recipe-submit">Submit Recipe</button>
+<br>
+
+  <button id="recipe-submit">Submit Recipe</button>
 
 </form>
