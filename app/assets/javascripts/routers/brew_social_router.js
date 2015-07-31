@@ -10,25 +10,21 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     "search/:query":"search",
     "users":"usersIndex",
     "users/new":"usersNew",
-    "users/example":"userExample", // see useless example function below
     "users/:id":"userShow",
     "recipes/new":"recipeNew",
     "recipes/search_by_ingredients/:query":"recipeSearchByIngredients",
     "recipes/:id":"recipeShow",
     "recipes/:id/edit":"recipeEdit",
-    "session/new": "signIn"
+    "session/new": "signIn",
+    "users/example":"userExample" // see useless example function below
   },
 
-  userExample: function(){
+  userExample: function(){ // useless example, see rails router for corresponding route
     console.log("I fired!");
   },
-  // useless example, see rails router for corresponding route
 
   welcomeShow: function(){
-    var view = new BrewSocial.Views.Welcome({
-      recipes: this.recipes,
-      ingredients: this.ingredients
-    });
+    var view = new BrewSocial.Views.Welcome();
     this._swapView(view);
   },
 

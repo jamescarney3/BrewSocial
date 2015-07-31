@@ -1,23 +1,40 @@
 <h1><%= recipe.escape('title') %></h1>
+
 <% if (BrewSocial.currentUser.id === recipe.get('author_id')) { %>
   <button class="edit-recipe">Edit recipe</button>
   <button class="delete-recipe">Delete recipe</button>
 <% } %>
+
 <h2><%= recipe.escape('style') %></h2>
+
 <br>
+
 <img src="<%= recipe.escape('image_url') %>">
+
+<br>
+
 <h2>Ingredients:</h2>
 <ul>
+
   <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
+
     <li>
       <%= recipeIngredient.escape("ingredient_name") %>,
       <%= recipeIngredient.escape("amount") %>
       <%= recipeIngredient.escape("unit") %>
     </li>
+
   <% }); %>
+
 </ul>
+
+<br>
+
 <h2>Procedure:</h2>
 <p><%= recipe.escape('procedure') %></p>
+
+<br>
+
 <% if(BrewSocial.currentUser.id != recipe.get('author_id') && recipe.users().pluck("id").indexOf(BrewSocial.currentUser.id) == -1){ %>
   <button class="add-recipe">Add to RecipeBox</button>
 <% } %>

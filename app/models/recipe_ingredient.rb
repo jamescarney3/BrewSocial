@@ -15,4 +15,5 @@ class RecipeIngredient < ActiveRecord::Base
     primary_key: :id,
     counter_cache: :recipe_inclusion_count
   )
+  
 end

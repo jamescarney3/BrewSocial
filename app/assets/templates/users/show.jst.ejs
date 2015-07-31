@@ -1,37 +1,58 @@
 <h1><%= user.escape('username') %></h1>
+
 <img src="<%= user.escape('avatar_url') %>" class="profile-picture">
+
 <% if(BrewSocial.currentUser.id == user.id){ %>
   <button>Edit Profile</button>
 <% } %>
+
 <br>
+
 <section class="user-authored-recipes">
   <h3><%= user.escape('username') %>'s Authored Recipes</h3>
+
   <% if(user.authoredRecipes()){ %>
+
     <ul>
-    <% user.authoredRecipes().forEach(function(recipe){ %>
-      <li><a href="<%= "#/recipes/" + recipe.id %>"><%= recipe.escape("title") %></a></li>
-    <% }); %>
+      <% user.authoredRecipes().forEach(function(recipe){ %>
+        <li><a href="<%= "#/recipes/" + recipe.id %>"><%= recipe.escape("title") %></a></li>
+      <% }); %>
     </ul>
+
   <% } else { %>
+
     <message><%= user.escape('username') %> has not authored any recipes yet.</message>
+
   <% } %>
 </section>
+
+<br>
+
 <section class="user-added-recipes">
   <h3><%= user.escape('username') %>'s Recipe Box</h3>
+
   <% if(user.recipes()){ %>
+
     <ul>
-    <% user.recipeAdds().forEach(function(recipeAdd){ %>
-      <li>
-        <a href="<%= "#/recipes/" + recipeAdd.escape("recipe_id") %>">
-        <%= user.recipes().get(recipeAdd.escape("recipe_id")).escape("title") %>
-        </a>
-        <% if(user.isCurrentUser()){ %>
-          <button class="recipe-remove" data-recipe-add-id="<%= recipeAdd.id %>">Remove</button>
-        <% }; %>
-      </li>
-    <% }); %>
+      <% user.recipeAdds().forEach(function(recipeAdd){ %>
+
+        <li>
+          <a href="<%= "#/recipes/" + recipeAdd.escape("recipe_id") %>">
+            <%= user.recipes().get(recipeAdd.escape("recipe_id")).escape("title") %>
+          </a>
+
+          <% if(user.isCurrentUser()){ %>
+            <button class="recipe-remove" data-recipe-add-id="<%= recipeAdd.id %>">Remove</button>
+          <% }; %>
+          
+        </li>
+
+      <% }); %>
     </ul>
+
   <% } else { %>
+
     <message><%= user.escape('username') %> has not added any recipes yet.</message>
+
   <% } %>
 </section>

@@ -29,6 +29,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
 
   addIngredient: function(event){
     event.preventDefault();
+    
     var view = this;
 
     var ingredient_id = this.$el.find("#ingredient-name").val();
@@ -72,24 +73,6 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     this.$el.find("#preview-recipe-image").attr("src", src);
   },
 
-  submitOld: function(event){
-    event.preventDefault();
-
-    var view = this;
-    var recipe = this.model;
-
-    var recipeAttrs = this.$el.serializeJSON().recipe;
-    recipeAttrs.author_id = BrewSocial.currentUser.id;
-    this.model.set(recipeAttrs);
-
-    recipe.save({}, {
-      success: function(){
-        recipe.trigger("recipeSave");
-        Backbone.history.navigate("recipes/" + recipe.id, {trigger: true});
-      }
-    });
-  },
-
   submit: function(event){
     event.preventDefault();
 
@@ -113,10 +96,9 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     var model = this.model;
 
     this.model.saveFormData(formData, {}, function(resp){
-        debugger;
-        model.set(resp);
-        model.trigger("recipeSave");
-        Backbone.history.navigate("#/recipes/" + model.id, {trigger: true});
+      model.set(resp);
+      model.trigger("recipeSave");
+      Backbone.history.navigate("#/recipes/" + model.id, {trigger: true});
     });
   },
 
@@ -125,14 +107,12 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     this.$el.html(content);
 
     if (!this.newIngredientView) {
-      this.newIngredientView = new BrewSocial.Views.IngredientInput({
-        collection: this.ingredients
-      });
-
+      this.newIngredientView || new BrewSocial.Views.IngredientInput({ collection: this.ingredients });
       this.addSubview("#ingredient-to-add", this.newIngredientView);
     };
 
     this.attachSubviews();
+
     return this;
   }
 });

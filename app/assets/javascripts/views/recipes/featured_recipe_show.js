@@ -6,6 +6,7 @@ BrewSocial.Views.FeaturedRecipeShow = Backbone.CompositeView.extend({
     "click #next":"nextRecipe"
   },
   initialize: function(){
+    // View methods to be reinstated when page is styled
     this.listenTo(this.collection, "update", function(){
       this.render();
       this.maxIdx = this.collection.length - 1;
@@ -16,21 +17,21 @@ BrewSocial.Views.FeaturedRecipeShow = Backbone.CompositeView.extend({
     this.activeIdx = 0;
   },
   setup: function(){
-    this.$wrapper = this.$el.find("#featured-recipe-wrapper");
-    this.$container = this.$wrapper.find("#featured-recipe-container");
-    this.$container.css("width", this.$wrapper.width() * this.collection.length);
+    // this.$wrapper = this.$el.find("#featured-recipe-wrapper");
+    // this.$container = this.$wrapper.find("#featured-recipe-container");
+    // this.$container.css("width", this.$wrapper.width() * this.collection.length);
   },
   prevRecipe: function(){
-    if(this.activeIdx > 0){
-      this.activeIdx -= 1;
-      this.$container.css("left", -(this.$wrapper.width() * this.activeIdx) + "px");
-    };
+    // if(this.activeIdx > 0){
+    //   this.activeIdx -= 1;
+    //   this.$container.css("left", -(this.$wrapper.width() * this.activeIdx) + "px");
+    // };
   },
   nextRecipe: function(){
-    if(this.activeIdx < this.maxIdx){
-      this.activeIdx += 1;
-      this.$container.css("left", -(this.$wrapper.width() * this.activeIdx) + "px");
-    };
+    // if(this.activeIdx < this.maxIdx){
+    //   this.activeIdx += 1;
+    //   this.$container.css("left", -(this.$wrapper.width() * this.activeIdx) + "px");
+    // };
   },
   render: function(){
     var content = this.template({recipes: this.collection});

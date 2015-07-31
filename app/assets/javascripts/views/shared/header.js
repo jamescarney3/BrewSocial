@@ -9,7 +9,8 @@ BrewSocial.Views.Header = Backbone.View.extend({
     "click #sign-out-link": "signOut",
     "click #sign-in-link": "signIn",
     "click #sign-up-link": "signUp",
-    "click #sign-in-as-guest-link": "signInAsGuest"
+    "click #sign-in-as-guest-link": "signInAsGuest",
+    "click #search" : "search"
   },
 
   template: JST['shared/header'],
@@ -46,7 +47,29 @@ BrewSocial.Views.Header = Backbone.View.extend({
       username: "Stannis",
       password: "password"
     });
+  },
 
-  }
+  search: function(event){
+    event.preventDefault();
+
+    // Need to: build in logic based on radio buttons for what kind of search
+    // to do. Will also need to update which columns in recipes table are
+    // searchable.
+
+    // FROM MULTISEARCH FORM:
+    // var query = this.$("#search-field").val();
+    //
+    // if(query != ""){
+    //   Backbone.history.navigate("search/" + query, {trigger: true});
+    // };
+
+    // FROM SEARCH BY INGREDIENTS
+    // var query = this.$("#search-field").val();
+    //
+    // if(query != ""){
+    //   Backbone.history.navigate("#/recipes/search_by_ingredients/" + query, {trigger: true});
+    // };
+
+  },
 
 });

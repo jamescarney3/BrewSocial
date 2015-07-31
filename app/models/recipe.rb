@@ -51,11 +51,4 @@ class Recipe < ActiveRecord::Base
     source: :user
   )
 
-  def add_ingredient(ingredient, amount, unit)
-    self.recipe_ingredients << RecipeIngredient.new(
-      ingredient_id: ingredient.id,
-      amount: amount,
-      unit: unit)
-    ingredient
-  end
 end
