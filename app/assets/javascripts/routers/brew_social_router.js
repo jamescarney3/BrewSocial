@@ -119,7 +119,6 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
       callback();
       return false;
     };
-
     return true;
   },
 
