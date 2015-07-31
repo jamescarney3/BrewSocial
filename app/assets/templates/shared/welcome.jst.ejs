@@ -12,7 +12,9 @@ an online brewing community.
 
 <section class="content-nav">
   <ul>
-    <li><a href="#">My Profile</a></li>
+    <li><a id="profile-link" href="
+      <%= BrewSocial.currentUser.id ? "#/users/" + BrewSocial.currentUser.id : "#/session/new" %>
+        ">My Profile</a></li>
     <li><a href="#">Submit a Recipe</a></li>
     <li><a href="#">Browse Recipes</a></li>
     <li><a href="#">Find a User</a></li>
