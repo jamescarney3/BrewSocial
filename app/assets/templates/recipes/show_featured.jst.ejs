@@ -1,11 +1,11 @@
-<figure class="group" id="featured-recipe-wrapper">
-  <ul id="featured-recipe-container" class="group">
+<figure class="featured-recipe-container">
+  <ul id="featured-recipes>
     <% recipes.forEach(function(recipe){ %>
       <li class="featured-recipe">
-        <img src="<%= recipe.escape("image_url")%>" class="featured-recipe-background">
-        <section class="featured-recipe-text">
-          <h1><a href="<%= recipe.apiUrlRoot + recipe.id %>"><%= recipe.escape('title') %></a></h1>
-          <h2><%= recipe.escape('style') %></h2>
+        <img src="<%= recipe.escape("image_url")%>">
+        <section>
+          <h1><a href="<%= recipe.apiUrlRoot + recipe.id %>"><%= recipe.escape("title") %></a></h1>
+          <h2><%= recipe.escape("style") %></h2>
           <ul id="ingredients">
             <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
               <li>
@@ -18,7 +18,8 @@
     <% }); %>
   </ul>
 </figure>
-<section class="button-container group">
+
+<section>
   <button id="prev">Prev</button>
   <button id="next">Next</button>
 </section>
