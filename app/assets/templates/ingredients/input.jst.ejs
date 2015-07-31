@@ -1,15 +1,21 @@
-<label for="ingredient-name">Ingredient:</label>
-<select id="ingredient-name"
-  name="ingredient[id]">
-  <% ingredients.forEach(function(el){%>
-    <option value="<%= el.id %>">
-      <%= el.escape("name") %>
-    </option>
-  <% }); %>
-</select>
+<label for="ingredient-name">Ingredient:
+  <select id="ingredient-name" name="ingredient[id]">
+
+    <% ingredients.forEach(function(el){%>
+
+      <option value="<%= el.id %>">
+        <%= el.escape("name") %>
+      </option>
+
+    <% }); %>
+
+  </select>
+</label>
+
 <input id="recipe-ingredient-amount"
   name="recipe-ingredient[amount]"
   class="amount-input">
+
 <select id="recipe-ingredient-unit">
   <option value="lbs">lbs</option>
   <option value="oz">oz</option>
@@ -26,4 +32,5 @@
   <option value="cL">cL</option>
   <option value="mL">mL</option>
 </select>
-<button class="add-ingredient">Add</button>
+
+<button id="add-ingredient">Add</button>

@@ -3,7 +3,7 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   tagName: "form",
   events: {
     "click #recipe-submit":"submit",
-    "click .add-ingredient":"addIngredient",
+    "click #add-ingredient":"addIngredient",
     "change #input-recipe-image":"fileInputChange"
   },
   initialize: function(options){

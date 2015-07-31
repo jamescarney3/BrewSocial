@@ -5,7 +5,6 @@ BrewSocial.Views.IngredientInput = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render);
   },
   render: function(){
-    debugger;
     var content = this.template({ingredients: this.collection});
     this.$el.html(content);
     return this;
