@@ -7,15 +7,15 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
   },
   routes: {
     "":"welcomeShow",
-    "search/:query":"search",
     "users":"usersIndex",
     "users/new":"usersNew",
     "users/:id":"userShow",
     "recipes/new":"recipeNew",
-    "recipes/search_by_ingredients/:query":"recipeSearchByIngredients",
     "recipes/:id":"recipeShow",
     "recipes/:id/edit":"recipeEdit",
     "session/new": "signIn",
+    "search_recipes/:searchType/:query":"recipeSearch",
+    // "search/:query":"search",
     "users/example":"userExample" // see useless example function below
   },
 
@@ -28,19 +28,20 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  search: function(query){
-    var searchResults = new BrewSocial.Collections.SearchResults();
-    var view = new BrewSocial.Views.SearchResultsIndex({
-      collection: searchResults,
-      query: query
-    });
-    this._swapView(view);
-  },
+  // search: function(query){
+  //   var searchResults = new BrewSocial.Collections.SearchResults();
+  //   var view = new BrewSocial.Views.SearchResultsIndex({
+  //     collection: searchResults,
+  //     query: query
+  //   });
+  //   this._swapView(view);
+  // },
 
-  recipeSearchByIngredients: function(query){
+  recipeSearch: function(searchType, query){
     var searchResults = new BrewSocial.Collections.Recipes();
     var view = new BrewSocial.Views.SearchResultsIndex({
       collection: searchResults,
+      searchType: searchType,
       query: query
     });
     this._swapView(view);

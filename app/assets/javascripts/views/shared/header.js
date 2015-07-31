@@ -52,6 +52,16 @@ BrewSocial.Views.Header = Backbone.View.extend({
   search: function(event){
     event.preventDefault();
 
+    var query = this.$("#search-recipes").val();
+    if(query == ""){ return; }; // no blank searches, please!
+
+    var searchType = this.$("#search-type :checked").val();
+
+    Backbone.history.navigate(
+      "#/search_recipes/" + searchType + "/" + query,
+      {trigger: true}
+    );
+
     // Need to: build in logic based on radio buttons for what kind of search
     // to do. Will also need to update which columns in recipes table are
     // searchable.

@@ -32,5 +32,19 @@ BrewSocial.Collections.Recipes = Backbone.Collection.extend({
         collection.set(resp, {parse: true});
       }
     });
+  },
+
+  search: function(searchType, query){
+    var method = "GET";
+    var collection = this;
+    var resp = $.ajax({
+      url: ("/api/recipes/" + searchType + "/" + query),
+      type: method,
+      processData: false,
+      contentType: false,
+      success: function(resp){
+        collection.set(resp, {parse: true});
+      }
+    });
   }
 });

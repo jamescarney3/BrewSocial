@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     end
     # ^^ this is just an example that goes to a useless example route
     get "/search", to: "static_pages#search"
-    get "recipes/search_by_ingredients", to: "static_pages#search_by_ingredients"
     get "recipes/random/:num", to: "recipes#random"
+    get "recipes/:search_type/:query", to: "static_pages#search_recipes"
     resources :recipes
     resources :ingredients
     resources :recipe_ingredients

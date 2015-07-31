@@ -7,6 +7,14 @@ class Recipe < ActiveRecord::Base
     ingredients: :name
   }
 
+  pg_search_scope :search_by_name, against: :title
+
+  pg_search_scope :search_by_style, against: :style
+
+  pg_search_scope :search_by_all,
+    against: [:title, :style, :procedure],
+    associated_against: {ingredients: :name}
+
   validates :author_id, :title, :style, :procedure, presence: true
   validates :is_private, inclusion: {in: [true, false]}
 
