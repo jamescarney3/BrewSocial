@@ -1,6 +1,23 @@
 <section class="header">
-  <h1 class+"header-title">BrewSocial</h1>
-  <img class="header-icon" src="<%= BrewSocial.hopcones %>">
+  <a href="#">
+    <img class="header-icon" src="<%= BrewSocial.logo %>">
+  </a>
+
+<br>
+
+  <section>
+    <h2>Search Recipes</h2>
+    <form>
+      By:
+      <input type="radio" name="search-type" value="name">Name |
+      <input type="radio" name="search-type" value="style">Style |
+      <input type="radio" name="search-type" value="ingredient">Ingredient
+      <input type="text" id="search-recipes">
+    </form>
+  </section>
+
+<br>
+
   <section class="header-nav group">
     <% if (BrewSocial.currentUser.isSignedIn()) { %>
       <section class="button-list group">
@@ -18,6 +35,8 @@
         <a id="sign-in-as-guest-link" href="#">Sign in as guest</a>
       </section>
     <% } %>
-    <a id="home-link" class="home-link" href="#">Home</a>
   </section>
+  
 </section>
+
+<hr>
