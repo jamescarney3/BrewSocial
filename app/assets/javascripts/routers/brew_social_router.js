@@ -36,6 +36,13 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
   //   });
   //   this._swapView(view);
   // },
+  userBrowse: function(){
+    // var searchResults = new BrewSocial.Collections.Users();
+    // var view = new BrewSocial.Views.UserSearch({
+    //   collection: searchResults
+    // });
+    // this._swapView(view);
+  },
 
   recipeSearch: function(searchType, query){
     var searchResults = new BrewSocial.Collections.Recipes();
