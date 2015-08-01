@@ -35,6 +35,6 @@
 
 <br>
 
-<% if(BrewSocial.currentUser.id != recipe.get('author_id') && recipe.users().pluck("id").indexOf(BrewSocial.currentUser.id) == -1){ %>
+<% if(BrewSocial.currentUser.id && BrewSocial.currentUser.id != recipe.get("author_id") && recipe.users().pluck("id").indexOf(BrewSocial.currentUser.id) == -1){ %>
   <button class="add-recipe">Add to RecipeBox</button>
 <% } %>

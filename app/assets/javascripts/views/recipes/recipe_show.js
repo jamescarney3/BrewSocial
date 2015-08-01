@@ -10,7 +10,7 @@ BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this, "recipeAdd", this.render);
   },
-  
+
   recipeDelete: function(event){
     event.preventDefault();
     this.model.destroy();
@@ -32,6 +32,7 @@ BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
   },
 
   render: function(){
+    debugger;
     var content = this.template({recipe: this.model});
     this.$el.html(content);
     return this;
