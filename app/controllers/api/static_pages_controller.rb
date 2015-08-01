@@ -32,7 +32,7 @@ class Api::StaticPagesController < ApplicationController
 
   def scrub_for_privacy
     @search_results = @search_results.select do |el|
-      el.is_private == false || el.author_id == current_user.id
+      el.is_private == false || (current_user && el.author_id == current_user.id)
     end
   end
 
