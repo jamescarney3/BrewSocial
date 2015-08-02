@@ -1,5 +1,6 @@
 class Ingredient < ActiveRecord::Base
-  validates :name, :role, presence: true
+  validates :name, presence: true
+  #validates :role, presence: true
 
   enum role: [:other, :malt, :hops, :yeast, :adjunct]
 
