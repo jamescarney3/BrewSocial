@@ -27,7 +27,8 @@ class Api::StaticPagesController < ApplicationController
   end
 
   def search_users
-
+    @search_results = User.search_by_name(params[:query])
+    render :user_results
   end
 
   def scrub_for_privacy

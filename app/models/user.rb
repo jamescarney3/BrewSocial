@@ -2,6 +2,16 @@ class User < ActiveRecord::Base
   include PgSearch
   multisearchable against: [:username]
 
+  pg_search_scope :search_by_name,
+    against: :username,
+    using: {
+      tsearch: {
+        dictionary: "english",
+        prefix: true
+      }
+      # trigram: {}
+    }
+
   validates :username, :password_digest, :session_token, presence: true
   validates :username, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}

@@ -17,5 +17,19 @@ BrewSocial.Collections.Users = Backbone.Collection.extend({
       });
     };
     return mod;
+  },
+
+  search: function(searchType, query){
+    var method = "GET";
+    var collection = this;
+    var resp = $.ajax({
+      url: ("/api/users/browse/" + query),
+      type: method,
+      processData: false,
+      contentType: false,
+      success: function(resp){
+        collection.set(resp, {parse: true});
+      }
+    });
   }
 });

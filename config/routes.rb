@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get 'ex', :example
     end
     # ^^ this is just an example that goes to a useless example route
-    get "/search", to: "static_pages#search"
+    get "/users/browse/:query", to: "static_pages#search_users"
     get "recipes/random/:num", to: "recipes#random"
     get "recipes/:search_type/:query", to: "static_pages#search_recipes"
     resources :recipes
