@@ -6,107 +6,185 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-User.create(username: "Stannis",
+stannis = User.create!(
+  username: "Stannis",
   password: "password",
   avatar: File.new("#{Rails.root}/app/assets/images/seed_avatars/stannis.png")
-  )
-User.create(username: "JonSnow",
+)
+jon = User.create!(
+  username: "JonSnow",
   password: "nothing",
   avatar: File.new("#{Rails.root}/app/assets/images/seed_avatars/jonsnow.png")
-  )
-User.create(username: "Hodor",
+)
+hodor = User.create!(
+  username: "Hodor",
   password: "hodorhodor",
   avatar: File.new("#{Rails.root}/app/assets/images/seed_avatars/hodor.png")
-  )
-User.create(username: "SampleUser", password: "samplepassword")
-
-rec1 = Recipe.create(author_id: 1,
-title: "Fratricide ESB",
-style: "ESB",
-procedure: "Mash at 154F (68C) 60 mins, increase to 168F (76C) 5 minutes, recirculate. Run off wort, sparge with 170F water, boil 90 mins. Equinox & Fuggles at 15 mins, Cascade at 60 mins. Cool & transfer to fermenter, aerate, pitch yeast. Kill Renly with blood magic. Ferment at 70F (21C) until yeast activity diminishes, prime and rack to secondary and bottle when beer falls clear.",
-is_private: false,
-image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+)
+danerys = User.create!(
+  username: "Danerys",
+  password: "dragons",
+  avatar: File.new("#{Rails.root}/app/assets/images/seed_avatars/danerys.png")
+)
+cersei = User.create!(
+  username: "Cersei",
+  password: "lannister",
+  avatar: File.new("#{Rails.root}/app/assets/images/seed_avatars/cersei.png")
+)
+sample = User.create!(
+  username: "Nobody",
+  password: "password",
+  avatar: File.new("#{Rails.root}/app/assets/images/seed_avatars/nobody.png")
 )
 
-rec2 = Recipe.create(author_id: 2,
+rec1 = Recipe.create!(
+  author: stannis,
+  title: "Fratricide ESB",
+  style: "ESB",
+  procedure: "Mash at 154F (68C) 60 mins, increase to 168F (76C) 5 minutes, recirculate. Run off wort, sparge with 170F water, boil 90 mins. Equinox & Fuggles at 15 mins, Cascade at 60 mins. Cool & transfer to fermenter, aerate, pitch yeast. Kill Renly with blood magic. Ferment at 70F (21C) until yeast activity diminishes, prime and rack to secondary and bottle when beer falls clear.",
+  is_private: false,
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+)
+
+rec2 = Recipe.create!(
+  author: jon,
   title: "Night's Watch Eisbock",
   style: "Eisbock",
   procedure: "Mash at 152F 90 mins, boil 120 mins. Amarillo at 110 minutes. Transfer to fermenter, add water to bring volume to 5 gallons, cool & pitch yeast. Ferment until yeast activity subsides, defend wall from all-out wildling attack. Lager at 30F 4 weeks, skimming ice regularly, bottle or keg.",
   is_private: true,
-  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew6.png")
-  )
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+)
 
-rec3 = Recipe.create(author_id: 3,
+rec3 = Recipe.create!(
+  author: jon,
   title: "Weirwood",
   style: "Saison",
   procedure: "Mash grains at 152F for 90 mins, boil fpr 75 mins (Nelson Sauvin at 60 mins, orange and coriander at 70 mins). Cool to room temp, aerate, and add water to bring volume to 5 gal. Primary & secondary ferment 3 weeks each at 75F, prime & condition in swing-top bottles.",
   is_private: true,
-  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew2.png")
-  )
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+)
 
-rec4 = Recipe.create(author_id: 1,
+rec4 = Recipe.create!(
+  author: stannis,
   title: "Blackwater",
   style: "Schwarzbier",
   procedure: "Infusion mash at 152F (67C) for 90 mins, boil 90 mins, .67oz Citra 85 mins to 90 mins. Lead disastrous naval attack on capitol city, retreat shamefully. Ferment 2 weeks at 64F, secondary ferment 2 weeks, prime and keg or bottle condition 2 weeks.",
   is_private: true,
-  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew1.png")
-  )
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+)
 
-Ingredient.create(name: "Schill Vienna Malt (crushed)", role: 1)
-Ingredient.create(name: "Breiss Caramel Malt (crushed)", role: 1)
-Ingredient.create(name: "Breiss 2-Row Brewer's Malt (crushed)", role: 1)
-Ingredient.create(name: "Maillard Amber Malt (extract syrup)", role: 1)
-Ingredient.create(name: "Munton's Amber Malt (dme)", role: 1)
-Ingredient.create(name: "Breiss Golden Light (dme)", role: 1)
-Ingredient.create(name: "Breiss Goldpils Vienna Malt (dme)", role: 1)
-Ingredient.create(name: "Simpsons Chocolate Malt (crushed)", role: 1)
-Ingredient.create(name: "Rahr White Wheat Malt (crushed)", role: 1)
-Ingredient.create(name: "Weyermann Rye Malt (crushed)", role: 1)
+rec5 = Recipe.create!(
+  author: danerys,
+  title: "Dragonfire",
+  style: "Cider",
+  procedure: "Grind and press apples, add ginger, pepper extract, and ale yeast. Ferment 2 weeks at 60-70 degrees, begin systematically eliminating enemies via ignition, secondary ferment 2 weeks, prime and condition in dark glass growlers.",
+  is_private: false,
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/dragonfire.png")
+)
+
+rec6 = Recipe.create!(
+  author: cersei,
+  title: "Red Keep",
+  style: "Irish Red Ale",
+  procedure: "Steep grains as desired at 160F for 1 hr, boil and bitter 15 min Williamette hops, Fuggles 0 min (aromatic only). Ferment at 60F, bear your brothers bastards, prime and bottle condition at 52F for 30 days.",
+  is_private: false,
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+)
+
+rec7 = Recipe.create!(
+  author: hodor,
+  title: "Hodor",
+  style: "Hodor",
+  procedure: "Hodor hodor, hodorhodor. Hodor hodor hodor hodor hodor; hodor hodorhodor. Hodor hodor. Hodorhodor hodor hodorhodorhodor. Hodor, hodor hodor.",
+  is_private: false,
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+)
+
+ingredient_1 = Ingredient.create!(name: "Schill Vienna Malt (crushed)")
+ingredient_2 = Ingredient.create!(name: "Breiss Caramel Malt (crushed)")
+ingredient_3 = Ingredient.create!(name: "Breiss 2-Row Brewer's Malt (crushed)")
+ingredient_4 = Ingredient.create!(name: "Maillard Amber Malt (extract syrup)")
+ingredient_5 = Ingredient.create!(name: "Munton's Amber Malt (dme)")
+ingredient_6 = Ingredient.create!(name: "Breiss Golden Light (dme)")
+ingredient_7 = Ingredient.create!(name: "Breiss Goldpils Vienna Malt (dme)")
+ingredient_8 = Ingredient.create!(name: "Simpsons Chocolate Malt (crushed)")
+ingredient_9 = Ingredient.create!(name: "Rahr White Wheat Malt (crushed)")
+ingredient_10 = Ingredient.create!(name: "Weyermann Rye Malt (crushed)")
+
+ingredient_11 = Ingredient.create!(name: "Citra Hops (pellet)")
+ingredient_12 = Ingredient.create!(name: "Equinox Hops (pellet)")
+ingredient_13 = Ingredient.create!(name: "Simcoe Hops (whole leaf)")
+ingredient_14 = Ingredient.create!(name: "Amarillo Hops (whole leaf)")
+ingredient_15 = Ingredient.create!(name: "Fuggles Hops (whole leaf)")
+ingredient_16 = Ingredient.create!(name: "Calypso Hops (pellet)")
+ingredient_17 = Ingredient.create!(name: "Cascade Hops (whole leaf)")
+ingredient_19 = Ingredient.create!(name: "Nelson Sauvin Hops (pellet)")
+ingredient_20 = Ingredient.create!(name: "Polaris Hops (pellet)")
+
+ingredient_21 = Ingredient.create!(name: "Danstar American West Coast Ale Yeast (dry)")
+ingredient_22 = Ingredient.create!(name: "White Labs Platinum Strain Yeast (dry)")
+ingredient_23 = Ingredient.create!(name: "Safale S-04 Ale Yeast (dry)")
+ingredient_24 = Ingredient.create!(name: "White Labs WLP565 Saison Yeast (liquid)")
+
+ingredient_25 = Ingredient.create!(name: "Cherries (dried)")
+ingredient_26 = Ingredient.create!(name: "Orange Peel (fresh)")
+ingredient_27 = Ingredient.create!(name: "Coriander (seeds)")
+ingredient_28 = Ingredient.create!(name: "Coriander (crushed)")
+ingredient_29 = Ingredient.create!(name: "Vanilla (dried)")
+
+ingredient_30 = -> { raise 'No ingredient 30.'}
+
+ingredient_31 = Ingredient.create!(name: "Ginger (fresh)")
+ingredient_32 = Ingredient.create!(name: "Bird chili (extract)")
+ingredient_33 = Ingredient.create!(name: "Apples (from Highgarden)")
 
 
-Ingredient.create(name: "Citra Hops (pellet)", role: 2)
-Ingredient.create(name: "Equinox Hops (pellet)", role: 2)
-Ingredient.create(name: "Simcoe Hops (whole leaf)", role: 2)
-Ingredient.create(name: "Amarillo Hops (whole leaf)", role: 2)
-Ingredient.create(name: "Fuggles Hops (whole leaf)", role: 2)
-Ingredient.create(name: "Calypso Hops (pellet)", role: 2)
-Ingredient.create(name: "Cascade Hops (whole leaf)", role: 2)
-Ingredient.create(name: "Waimea Hops (pellet)", role: 2)
-Ingredient.create(name: "Nelson Sauvin Hops (pellet)", role: 2)
-Ingredient.create(name: "Polaris Hops (pellet)", role: 2)
+ingredient_34 = Ingredient.create!(name: "British Crystal Malt (crushed)")
+ingredient_35 = Ingredient.create!(name: "Roasted Barley")
+ingredient_36 = Ingredient.create!(name: "Caramel Crystal Malt (crushed)")
+ingredient_37 = Ingredient.create!(name: "Irish Ale Yeast (dry)")
+ingredient_38 = Ingredient.create!(name: "Williamette Hops (whole leaf)")
+ingredient_39 = Ingredient.create!(name: "Pale Liquid Malt Extract")
 
-Ingredient.create(name: "Danstar American West Coast Ale Yeast (dry)", role: 3)
-Ingredient.create(name: "Danstar Windsor Ale Yeast (dry)", role: 3)
-Ingredient.create(name: "White Labs Platinum Strain Yeast (dry)", role: 3)
-Ingredient.create(name: "Safale S-04 Ale Yeast (dry)", role: 3)
-Ingredient.create(name: "White Labs WLP565 Saison Yeast (liquid)", role: 3)
+ingredient_40 = Ingredient.create!(name: "Hodor")
 
-Ingredient.create(name: "Cherries (dried)", role: 3)
-Ingredient.create(name: "Orange Peel (fresh)", role: 3)
-Ingredient.create(name: "Coriander (seeds)", role: 3)
-Ingredient.create(name: "Coriander (crushed)", role: 3)
-Ingredient.create(name: "Vanilla (dried)", role: 3)
+rec1.recipe_ingredients.create!({ingredient: ingredient_3, amount: 9, unit: "lbs"})
+rec1.recipe_ingredients.create!({ingredient: ingredient_6, amount: 1, unit: "lbs"})
+rec1.recipe_ingredients.create!({ingredient: ingredient_12, amount: 0.5, unit: "oz"})
+rec1.recipe_ingredients.create!({ingredient: ingredient_15, amount: 1, unit: "oz"})
+rec1.recipe_ingredients.create!({ingredient: ingredient_17, amount: 0.75, unit: "oz"})
+rec1.recipe_ingredients.create!({ingredient: ingredient_22, amount: 11, unit: "g"})
 
-rec1.recipe_ingredients.create({ingredient_id: 3, amount: 9, unit: "lbs"})
-rec1.recipe_ingredients.create({ingredient_id: 6, amount: 1, unit: "lbs"})
-rec1.recipe_ingredients.create({ingredient_id: 12, amount: 0.5, unit: "oz"})
-rec1.recipe_ingredients.create({ingredient_id: 15, amount: 1, unit: "oz"})
-rec1.recipe_ingredients.create({ingredient_id: 17, amount: 0.75, unit: "oz"})
-rec1.recipe_ingredients.create({ingredient_id: 22, amount: 11, unit: "g"})
+rec2.recipe_ingredients.create!({ingredient: ingredient_3, amount: 5, unit: "lbs"})
+rec2.recipe_ingredients.create!({ingredient: ingredient_14, amount: 0.75, unit: "oz"})
+rec2.recipe_ingredients.create!({ingredient: ingredient_24, amount: 7, unit: "g"})
 
-rec2.recipe_ingredients.create({ingredient_id: 3, amount: 5, unit: "lbs"})
-rec2.recipe_ingredients.create({ingredient_id: 14, amount: 0.75, unit: "oz"})
-rec2.recipe_ingredients.create({ingredient_id: 24, amount: 7, unit: "g"})
+rec3.recipe_ingredients.create!({ingredient: ingredient_7, amount: 12, unit: "lbs"})
+rec3.recipe_ingredients.create!({ingredient: ingredient_19, amount: 1.5, unit: "oz"})
+rec3.recipe_ingredients.create!({ingredient: ingredient_27, amount: 1, unit: "tsp"})
+rec3.recipe_ingredients.create!({ingredient: ingredient_29, amount: 1, unit: "tsp"})
+rec3.recipe_ingredients.create!({ingredient: ingredient_25, amount: 7, unit: "g"})
 
-rec3.recipe_ingredients.create({ingredient_id: 7, amount: 12, unit: "lbs"})
-rec3.recipe_ingredients.create({ingredient_id: 19, amount: 1.5, unit: "oz"})
-rec3.recipe_ingredients.create({ingredient_id: 27, amount: 1, unit: "tsp"})
-rec3.recipe_ingredients.create({ingredient_id: 29, amount: 1, unit: "tsp"})
-rec3.recipe_ingredients.create({ingredient_id: 25, amount: 7, unit: "g"})
+rec4.recipe_ingredients.create!({ingredient: ingredient_7, amount: 7, unit: "lbs"})
+rec4.recipe_ingredients.create!({ingredient: ingredient_8, amount: 1.5, unit: "lbs"})
+rec4.recipe_ingredients.create!({ingredient: ingredient_9, amount: 4, unit: "oz"})
+rec4.recipe_ingredients.create!({ingredient: ingredient_11, amount: 0.67, unit: "oz"})
+rec4.recipe_ingredients.create!({ingredient: ingredient_3, amount: 11, unit: "g"})
 
-rec4.recipe_ingredients.create({ingredient_id: 7, amount: 7, unit: "lbs"})
-rec4.recipe_ingredients.create({ingredient_id: 8, amount: 1.5, unit: "lbs"})
-rec4.recipe_ingredients.create({ingredient_id: 9, amount: 4, unit: "oz"})
-rec4.recipe_ingredients.create({ingredient_id: 11, amount: 0.67, unit: "oz"})
-rec4.recipe_ingredients.create({ingredient_id: 23, amount: 11, unit: "g"})
+rec5.recipe_ingredients.create!(ingredient: ingredient_31, amount: 20, unit: "oz")
+rec5.recipe_ingredients.create!(ingredient: ingredient_32, amount: 1, unit: "oz")
+rec5.recipe_ingredients.create!(ingredient: ingredient_33, amount: 10, unit: "lbs")
+rec5.recipe_ingredients.create!(ingredient: ingredient_21, amount: 6, unit: "g")
+
+rec6.recipe_ingredients.create!(ingredient: ingredient_34, amount: 0.6, unit: "lbs")
+rec6.recipe_ingredients.create!(ingredient: ingredient_35, amount: 0.25, unit: "lbs")
+rec6.recipe_ingredients.create!(ingredient: ingredient_36, amount: 0.25, unit: "lbs")
+rec6.recipe_ingredients.create!(ingredient: ingredient_37, amount: 7.5, unit: "g")
+rec6.recipe_ingredients.create!(ingredient: ingredient_38, amount: 1, unit: "oz")
+rec6.recipe_ingredients.create!(ingredient: ingredient_39, amount: 6, unit: "lbs")
+rec6.recipe_ingredients.create!(ingredient: ingredient_15, amount: 2, unit: "oz")
+
+rec7.recipe_ingredients.create!(ingredient: ingredient_40, amount: 10, unit: "hodor")
+rec7.recipe_ingredients.create!(ingredient: ingredient_40, amount: 5, unit: "hodor")
+rec7.recipe_ingredients.create!(ingredient: ingredient_40, amount: 1, unit: "hodor")
+rec7.recipe_ingredients.create!(ingredient: ingredient_40, amount: 7, unit: "hodor")
