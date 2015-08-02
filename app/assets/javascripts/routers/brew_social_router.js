@@ -28,14 +28,6 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  // search: function(query){
-  //   var searchResults = new BrewSocial.Collections.SearchResults();
-  //   var view = new BrewSocial.Views.SearchResultsIndex({
-  //     collection: searchResults,
-  //     query: query
-  //   });
-  //   this._swapView(view);
-  // },
   usersBrowse: function(){
     var searchResults = new BrewSocial.Collections.Users();
     var view = new BrewSocial.Views.UsersBrowse({
@@ -86,6 +78,8 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
   },
 
   recipeNew: function(){
+    if (!this._requireSignedIn(this.recipeNew.bind(this))){ return; };
+
     var ingredients = this.ingredients;
     var recipe = new BrewSocial.Models.Recipe();
     var view = new BrewSocial.Views.RecipeForm({

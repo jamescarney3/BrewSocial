@@ -17,6 +17,7 @@ BrewSocial.Views.SignIn = Backbone.View.extend({
 
   submit: function(event){
     event.preventDefault();
+    var view = this;
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON().user;
 
@@ -27,15 +28,19 @@ BrewSocial.Views.SignIn = Backbone.View.extend({
         alert("Wrong username/password combination.")
       },
       success: function(){
-        Backbone.history.navigate("", {trigger: true});
+        if(!view.signInCallback());{
+          Backbone.history.navigate("", {trigger: true});
+        };
       }
     });
   },
   signInCallback: function(event){
     if(this.callback) {
       this.callback();
+      return true;
     } else {
       this.remove();
+      return false;
     };
   }
 });
