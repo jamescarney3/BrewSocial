@@ -2,7 +2,7 @@
   <ul id="featured-recipes>
     <% recipes.forEach(function(recipe){ %>
       <li class="featured-recipe">
-        <img src="<%= recipe.escape("image_url")%>">
+        <img src="<%= recipe.escape("large")%>">
         <section>
           <h1><a href="<%= recipe.apiUrlRoot + recipe.id %>"><%= recipe.escape("title") %></a></h1>
           <h2><%= recipe.escape("style") %></h2>

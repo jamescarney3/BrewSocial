@@ -15,5 +15,5 @@ class Ingredient < ActiveRecord::Base
     through: :recipe_ingredients,
     source: :recipe
   )
-  
+
 end

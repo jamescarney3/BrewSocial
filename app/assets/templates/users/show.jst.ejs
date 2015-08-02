@@ -15,7 +15,7 @@
 
     <ul>
       <% user.authoredRecipes().forEach(function(recipe){ %>
-        <li><a href="<%= "#/recipes/" + recipe.id %>"><%= recipe.escape("title") %></a></li>
+        <li><a href="<%= "/#/recipes/" + recipe.id %>"><%= recipe.escape("title") %></a></li>
       <% }); %>
     </ul>
 
@@ -44,7 +44,7 @@
           <% if(user.isCurrentUser()){ %>
             <button class="recipe-remove" data-recipe-add-id="<%= recipeAdd.id %>">Remove</button>
           <% }; %>
-          
+
         </li>
 
       <% }); %>

@@ -34,6 +34,7 @@ BrewSocial.Views.FeaturedRecipeShow = Backbone.CompositeView.extend({
     // };
   },
   render: function(){
+    debugger;
     var content = this.template({recipes: this.collection});
     this.$el.html(content);
     return this;
