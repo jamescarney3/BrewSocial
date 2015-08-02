@@ -8,8 +8,10 @@ class User < ActiveRecord::Base
       tsearch: {
         dictionary: "english",
         prefix: true
+      },
+      trigram: {
+        threshold: 0.2
       }
-      # trigram: {}
     }
 
   validates :username, :password_digest, :session_token, presence: true
