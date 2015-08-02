@@ -19,9 +19,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true}
 
   has_attached_file :avatar, styles: {
-    large: "300x300#",
-    medium: "150x150#",
-    thumb: "60x60#"
+    large: "300x300>",
+    medium: "150x150>",
+    thumb: "60x60>"
   }, default_url: "beer.png"
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/

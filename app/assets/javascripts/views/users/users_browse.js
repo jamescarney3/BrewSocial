@@ -4,7 +4,7 @@ BrewSocial.Views.UsersBrowse = Backbone.CompositeView.extend({
     "submit #user-search-form":"updateQuery"
   },
   initialize: function(options){
-    this.query = "query";
+    this.query = "default";
     this.syncResults();
     this.render();
   },
@@ -16,7 +16,8 @@ BrewSocial.Views.UsersBrowse = Backbone.CompositeView.extend({
       });
     this.addSubview("#results", this.resultsSubView);
   },
-  updateQuery: function(){
+  updateQuery: function(event){
+    event.preventDefault();
     this.resultsSubView && this.removeSubview("#results", this.resultsSubView);
     this.query = this.$el.find("#user-search-field").val();
     this.syncResults();
