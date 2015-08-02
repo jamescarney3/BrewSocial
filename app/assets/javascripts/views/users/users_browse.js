@@ -1,10 +1,10 @@
 BrewSocial.Views.UsersBrowse = Backbone.CompositeView.extend({
   template: JST["users/browse"],
   events: {
-    "change #user-search-field":"updateQuery"
+    "submit #user-search-form":"updateQuery"
   },
   initialize: function(options){
-    this.query = "aString";
+    this.query = "query";
     this.syncResults();
     this.render();
   },
