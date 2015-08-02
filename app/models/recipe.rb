@@ -3,17 +3,56 @@ class Recipe < ActiveRecord::Base
 
   multisearchable against: [:title, :procedure]
 
-  pg_search_scope :search_by_ingredients, associated_against: {
-    ingredients: :name
-  }
+  pg_search_scope :search_by_ingredients,
+    associated_against: {
+      ingredients: :name
+    },
+    using: {
+      tsearch: {
+        dictionary: "english",
+        prefix: true
+      },
+      trigram: {
+        threshold: 0.2
+      }
+    }
 
-  pg_search_scope :search_by_name, against: :title
+  pg_search_scope :search_by_name,
+    against: :title,
+    using: {
+      tsearch: {
+        dictionary: "english",
+        prefix: true
+      },
+      trigram: {
+        threshold: 0.2
+      }
+    }
 
-  pg_search_scope :search_by_style, against: :style
+  pg_search_scope :search_by_style,
+    against: :style,
+    using: {
+      tsearch: {
+        dictionary: "english",
+        prefix: true
+      },
+      trigram: {
+        threshold: 0.2
+      }
+    }
 
   pg_search_scope :search_by_all,
     against: [:title, :style, :procedure],
-    associated_against: {ingredients: :name}
+    associated_against: {ingredients: :name},
+    using: {
+      tsearch: {
+        dictionary: "english",
+        prefix: true
+      },
+      trigram: {
+        threshold: 0.2
+      }
+    }
 
   validates :author_id, :title, :style, :procedure, presence: true
   validates :is_private, inclusion: {in: [true, false]}
