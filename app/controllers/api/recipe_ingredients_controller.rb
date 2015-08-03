@@ -31,8 +31,4 @@ class Api::RecipeIngredientsController < ApplicationController
     params.require(:recipe_ingredient).permit(:recipe_id, :ingredient_id, :amount, :unit)
   end
 
-  def search_params
-    #does nothing yet....
-  end
-
 end
