@@ -44,7 +44,7 @@ rec1 = Recipe.create!(
   style: "ESB",
   procedure: "Mash at 154F (68C) 60 mins, increase to 168F (76C) 5 minutes, recirculate. Run off wort, sparge with 170F water, boil 90 mins. Equinox & Fuggles at 15 mins, Cascade at 60 mins. Cool & transfer to fermenter, aerate, pitch yeast. Kill Renly with blood magic. Ferment at 70F (21C) until yeast activity diminishes, prime and rack to secondary and bottle when beer falls clear.",
   is_private: false,
-  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew1.png")
 )
 
 rec2 = Recipe.create!(
@@ -53,7 +53,7 @@ rec2 = Recipe.create!(
   style: "Eisbock",
   procedure: "Mash at 152F 90 mins, boil 120 mins. Amarillo at 110 minutes. Transfer to fermenter, add water to bring volume to 5 gallons, cool & pitch yeast. Ferment until yeast activity subsides, defend wall from all-out wildling attack. Lager at 30F 4 weeks, skimming ice regularly, bottle or keg.",
   is_private: true,
-  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew2.png")
 )
 
 rec3 = Recipe.create!(
@@ -62,7 +62,7 @@ rec3 = Recipe.create!(
   style: "Saison",
   procedure: "Mash grains at 152F for 90 mins, boil fpr 75 mins (Nelson Sauvin at 60 mins, orange and coriander at 70 mins). Cool to room temp, aerate, and add water to bring volume to 5 gal. Primary & secondary ferment 3 weeks each at 75F, prime & condition in swing-top bottles.",
   is_private: true,
-  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew3.png")
 )
 
 rec4 = Recipe.create!(
@@ -89,7 +89,7 @@ rec6 = Recipe.create!(
   style: "Irish Red Ale",
   procedure: "Steep grains as desired at 160F for 1 hr, boil and bitter 15 min Williamette hops, Fuggles 0 min (aromatic only). Ferment at 60F, pass off illegitimate children as heirs to the Iron Throne, prime and bottle condition at 52F for 30 days.",
   is_private: false,
-  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew4.png")
 )
 
 rec7 = Recipe.create!(
@@ -249,3 +249,6 @@ rec11.recipe_ingredients.create!(ingredient: ingredient_38, amount: 0.5, unit: "
 rec11.recipe_ingredients.create!(ingredient: ingredient_15, amount: 0.75, unit: "oz")
 rec11.recipe_ingredients.create!(ingredient: ingredient_12, amount: 0.75, unit: "oz")
 rec11.recipe_ingredients.create!(ingredient: ingredient_21, amount: 11, unit: "g")
+
+stannis.recipe_adds.create(recipe_id: 2)
+stannis.recipe_adds.create(recipe_id: 3)

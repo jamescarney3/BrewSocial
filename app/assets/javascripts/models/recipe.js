@@ -30,7 +30,6 @@ BrewSocial.Models.Recipe = Backbone.Model.extend({
       processData: false,
       contentType: false,
       success: function(resp){
-        debugger;
         callback(resp);
       },
       error: function(resp){
