@@ -1,5 +1,5 @@
 json.partial! "api/recipes/recipe", recipe: @recipe
-json.large asset_path(recipe.image.url(:large))
+json.large asset_path(@recipe.image.url(:large))
 
 json.recipe_ingredients do
   json.array! @recipe.recipe_ingredients do |recipe_ingredient|
