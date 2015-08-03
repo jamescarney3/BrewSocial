@@ -1,7 +1,7 @@
 class Api::RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.select{ |recipe| !recipe.is_private || (current_user && recipe.author_id == current_user.id) }
     render json: @recipes
   end
 
@@ -46,7 +46,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def random
-    ids = Recipe.pluck("id").sample(params[:num].to_i)
+    ids = Recipe.where(is_private: false).pluck("id").sample(params[:num].to_i)
     @recipes = Recipe.find(ids)
     render :random
   end
@@ -55,6 +55,12 @@ class Api::RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :style, :procedure, :is_private, :author_id, :image)
+  end
+
+  def _scrub_for_privacy
+    @recipes = @recipes.select do |el|
+      !el.is_private || (current_user && el.author_id == current_user.id)
+    end
   end
 
 end

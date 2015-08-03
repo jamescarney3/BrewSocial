@@ -25,6 +25,8 @@ gem 'aws-sdk', '~> 1.6'
 
 gem 'pg_search'
 
+gem 'kaminari'
+
 
 
 group :development, :test do
