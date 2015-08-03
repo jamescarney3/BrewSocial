@@ -3,7 +3,7 @@
   <a class="search-result-item" href="<%= result.apiUrlRoot + result.id %>">
     <%= result.constructor.modelType %>:
     <% if(result.constructor.modelType == "User"){ %>
-      <%= result.escape("username") %>
+      <%= result.escape("username") %>, (<%= result.escape("recipe_count") %> recipes)
     <% } else if(result.constructor.modelType == "Recipe"){ %>
       <%= result.escape("title") %>
     <% } %>
