@@ -28,7 +28,8 @@ BrewSocial.Collections.Users = Backbone.Collection.extend({
       processData: false,
       contentType: false,
       success: function(resp){
-        collection.set(resp, {parse: true});
+        collection.set(resp.search_results, {parse: true});
+        collection.totalCount = resp.total_count;
       }
     });
   }

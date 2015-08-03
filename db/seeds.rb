@@ -105,7 +105,7 @@ rec8 = Recipe.create!(
   author: stannis,
   title: "Siege Breaker IPA",
   style: "IPA",
-  procedure: "Steep grains at 160F for 1hr, sparge like your life depends on it, and boil to reduce volume to 5gal.  Hop additions: half Citra at 30mins (bittering), second half with 5 mins remaining in boil (aroma). Ferment 3 weeks primary or until someone can finally smuggle additional supplies into Storm's End, transfer to secondary for 3 weeks or until beer falls clear. Prime and bottle.",
+  procedure: "Steep grains at 160F for 1hr, sparge like your life depends on it (it does), and boil to reduce volume to 5gal.  Hop additions: half Citra at 30mins (bittering), second half with 5 mins remaining in boil (aroma). Ferment 3 weeks primary or until someone can finally smuggle additional supplies into Storm's End, transfer to secondary for 3 weeks or until beer falls clear. Prime and bottle.",
   is_private: false,
   image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew9.png")
 )

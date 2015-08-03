@@ -22,7 +22,8 @@ BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var content = this.template();
+    debugger;
+    var content = this.template({results: this.collection});
     this.$el.html(content);
     this.attachSubviews();
     return this;

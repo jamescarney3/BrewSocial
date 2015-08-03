@@ -33,6 +33,7 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
 
   recipeSearch: function(searchType, query, page){
     var searchResults = new BrewSocial.Collections.Recipes();
+    searchResults.pageNum = page;
     var view = new BrewSocial.Views.SearchResultsIndex({
       collection: searchResults,
       searchType: searchType,
