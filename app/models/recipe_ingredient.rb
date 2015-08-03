@@ -12,8 +12,7 @@ class RecipeIngredient < ActiveRecord::Base
     :ingredient,
     class_name: "Ingredient",
     foreign_key: :ingredient_id,
-    primary_key: :id,
-    counter_cache: :recipe_inclusion_count
+    primary_key: :id
   )
-  
+
 end
