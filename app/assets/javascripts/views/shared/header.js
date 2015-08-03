@@ -56,9 +56,10 @@ BrewSocial.Views.Header = Backbone.View.extend({
     if(query == ""){ return; }; // no blank searches, please!
 
     var searchType = this.$("#search-type :checked").val();
+    this.page = 1;
 
     Backbone.history.navigate(
-      "#/search_recipes/" + searchType + "/" + query,
+      "#/search_recipes/" + searchType + "/" + query + "/" + this.page,
       {trigger: true}
     );
 

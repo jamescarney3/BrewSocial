@@ -34,11 +34,11 @@ BrewSocial.Collections.Recipes = Backbone.Collection.extend({
     });
   },
 
-  search: function(searchType, query){
+  search: function(searchType, query, page){
     var method = "GET";
     var collection = this;
     var resp = $.ajax({
-      url: ("/api/recipes/" + searchType + "/" + query),
+      url: ("/api/recipes/" + searchType + "/" + query + "/" + page),
       type: method,
       processData: false,
       contentType: false,

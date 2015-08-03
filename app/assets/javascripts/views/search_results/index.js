@@ -3,7 +3,8 @@ BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
   initialize: function(options){
     this.query = options.query;
     this.searchType = options.searchType;
-    this.collection.search(this.searchType, this.query);
+    this.page = options.page;
+    this.collection.search(this.searchType, this.query, this.page);
     this.listenTo(this.collection, "update", function(){
       this.syncResults();
       this.render();
