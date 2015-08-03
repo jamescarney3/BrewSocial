@@ -7,6 +7,7 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
   },
   routes: {
     "":"welcomeShow",
+    "session/new": "signIn",
     "users":"usersIndex",
     "users/new":"usersNew",
     "users/browse":"usersBrowse",
@@ -14,13 +15,7 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     "recipes/new":"recipeNew",
     "recipes/:id":"recipeShow",
     "recipes/:id/edit":"recipeEdit",
-    "session/new": "signIn",
-    "search_recipes/:searchType/:query":"recipeSearch",
-    "users/example":"userExample" // see useless example function below
-  },
-
-  userExample: function(){ // useless example, see rails router for corresponding route
-    console.log("I fired!");
+    "search_recipes/:searchType/:query":"recipeSearch"
   },
 
   welcomeShow: function(){

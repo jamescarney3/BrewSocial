@@ -1,11 +1,6 @@
 class Api::RecipesController < ApplicationController
 
   def index
-    # if params[:query]
-    #   @recipes = Recipe.search_by_ingredients(params[:query]) # necessary??
-    # else
-    #   @recipes = Recipe.all
-    # end
     @recipes = Recipe.all
     render json: @recipes
   end
@@ -61,6 +56,5 @@ class Api::RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, :style, :procedure, :is_private, :author_id, :image)
   end
-
 
 end

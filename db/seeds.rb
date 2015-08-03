@@ -37,6 +37,7 @@ sample = User.create!(
   avatar: File.new("#{Rails.root}/app/assets/images/seed_avatars/nobody.png")
 )
 
+
 rec1 = Recipe.create!(
   author: stannis,
   title: "Fratricide ESB",
@@ -86,7 +87,7 @@ rec6 = Recipe.create!(
   author: cersei,
   title: "Red Keep",
   style: "Irish Red Ale",
-  procedure: "Steep grains as desired at 160F for 1 hr, boil and bitter 15 min Williamette hops, Fuggles 0 min (aromatic only). Ferment at 60F, bear your brothers bastards, prime and bottle condition at 52F for 30 days.",
+  procedure: "Steep grains as desired at 160F for 1 hr, boil and bitter 15 min Williamette hops, Fuggles 0 min (aromatic only). Ferment at 60F, pass off illegitimate children as heirs to the Iron Throne, prime and bottle condition at 52F for 30 days.",
   is_private: false,
   image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
 )
@@ -97,7 +98,43 @@ rec7 = Recipe.create!(
   style: "Hodor",
   procedure: "Hodor hodor, hodorhodor. Hodor hodor hodor hodor hodor; hodor hodorhodor. Hodor hodor. Hodorhodor hodor hodorhodorhodor. Hodor, hodor hodor.",
   is_private: false,
-  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew8.png")
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew16.png")
+)
+
+rec8 = Recipe.create!(
+  author: stannis,
+  title: "Siege Breaker IPA",
+  style: "IPA",
+  procedure: "Steep grains at 160F for 1hr, sparge like your life depends on it, and boil to reduce volume to 5gal.  Hop additions: half Citra at 30mins (bittering), second half with 5 mins remaining in boil (aroma). Ferment 3 weeks primary or until someone can finally smuggle additional supplies into Storm's End, transfer to secondary for 3 weeks or until beer falls clear. Prime and bottle.",
+  is_private: false,
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew9.png")
+)
+
+rec9 = Recipe.create!(
+  author: jon,
+  title: "Take the Black IPA",
+  style: "Black IPA",
+  procedure: "Steep grains at 154F for 90mins, remove spent grains and boil 2hrs.  Add calypso, cascade, and polaris hops in order with 40, 10, and 5 minutes remaining in boil respectively. Add water to bring volume to 5gal, chill to 70F if necessary before pitching yeast. Ferment 4 weeks, wonder about what happened to Benjen, prime and bottle.",
+  is_private: false,
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew10.png")
+)
+
+rec10 = Recipe.create!(
+  author: stannis,
+  title: "Rightful Successor",
+  style: "IPA",
+  procedure: "Steep grains at 162F for 80 mins, resent Robert, remove spent grains and boil 1hr.  Simcoe at 30 mins remaining, Amarillo at 10 mins remaining. While wort cools to 65F, dispatch ravens to all holds in the kingdom questioning the legitimacy of Robert's 'Children.' Pitch yeast, ferment 5 weeks, prime with sugar if no kingsblood available, bottle and age.",
+  is_private: false,
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew11.png")
+)
+
+rec11 = Recipe.create!(
+  author: jon,
+  title: "For the Watch",
+  style: "IPA",
+  procedure: "Steep grains at 152F for 90mins, sparge, boil to reduce volume to 8gal. When wort reaches 8gal, add Williamette, Fuggles, and Equinox hops with 40, 20, and 10 minutes remaining. Chill wort to 65F, pitch yeast, transfer to primary fermenter. Prime and botle after 4 weeks, condition for another 2 weeks before opening.",
+  is_private: false,
+  image: File.new("#{Rails.root}/app/assets/images/seed_images/homebrew12.png")
 )
 
 ingredient_1 = Ingredient.create!(name: "Schill Vienna Malt (crushed)")
@@ -188,3 +225,27 @@ rec7.recipe_ingredients.create!(ingredient: ingredient_40, amount: 10, unit: "ho
 rec7.recipe_ingredients.create!(ingredient: ingredient_40, amount: 5, unit: "hodor")
 rec7.recipe_ingredients.create!(ingredient: ingredient_40, amount: 1, unit: "hodor")
 rec7.recipe_ingredients.create!(ingredient: ingredient_40, amount: 7, unit: "hodor")
+
+rec8.recipe_ingredients.create!(ingredient: ingredient_34, amount: 5, unit: "lbs")
+rec8.recipe_ingredients.create!(ingredient: ingredient_36, amount: 2, unit: "lbs")
+rec8.recipe_ingredients.create!(ingredient: ingredient_11, amount: 1.5, unit: "oz")
+rec8.recipe_ingredients.create!(ingredient: ingredient_23, amount: 7, unit: "g")
+
+rec9.recipe_ingredients.create!(ingredient: ingredient_1, amount: 5, unit: "lbs")
+rec9.recipe_ingredients.create!(ingredient: ingredient_8, amount: 2, unit: "lbs")
+rec9.recipe_ingredients.create!(ingredient: ingredient_16, amount: 1, unit: "oz")
+rec9.recipe_ingredients.create!(ingredient: ingredient_17, amount: 0.25, unit: "oz")
+rec9.recipe_ingredients.create!(ingredient: ingredient_20, amount: 0.5, unit: "oz")
+rec9.recipe_ingredients.create!(ingredient: ingredient_23, amount: 7, unit: "g")
+
+rec10.recipe_ingredients.create!(ingredient: ingredient_2, amount: 5, unit: "lbs")
+rec10.recipe_ingredients.create!(ingredient: ingredient_13, amount: 0.5, unit: "oz")
+rec10.recipe_ingredients.create!(ingredient: ingredient_14, amount: 0.75, unit: "oz")
+rec10.recipe_ingredients.create!(ingredient: ingredient_22, amount: 7, unit: "g")
+
+rec11.recipe_ingredients.create!(ingredient: ingredient_2, amount: 5, unit: "lbs")
+rec11.recipe_ingredients.create!(ingredient: ingredient_5, amount: 3, unit: "lbs")
+rec11.recipe_ingredients.create!(ingredient: ingredient_38, amount: 0.5, unit: "oz")
+rec11.recipe_ingredients.create!(ingredient: ingredient_15, amount: 0.75, unit: "oz")
+rec11.recipe_ingredients.create!(ingredient: ingredient_12, amount: 0.75, unit: "oz")
+rec11.recipe_ingredients.create!(ingredient: ingredient_21, amount: 11, unit: "g")
