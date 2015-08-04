@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   namespace :api, defaults: { format: :json } do
-    get "/users/browse/:query", to: "static_pages#search_users"
     get "recipes/random/:num", to: "recipes#random"
+    get "/users/browse/:query", to: "static_pages#search_users"
     get "recipes/:search_type/:query/:page", to: "static_pages#search_recipes"
+    get "multisearch/:query/:page", to: "static_pages#multisearch"
     resources :users
     resources :recipes
     resources :ingredients

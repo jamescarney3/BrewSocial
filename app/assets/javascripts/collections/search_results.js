@@ -1,6 +1,6 @@
 BrewSocial.Collections.SearchResults = Backbone.Collection.extend({
 
-	url: "/api/search",
+	url: "/api/multisearch",
 
 	parse: function (resp) {
 		if (resp.total_count) {
@@ -9,6 +9,29 @@ BrewSocial.Collections.SearchResults = Backbone.Collection.extend({
 		}
 
 		return resp.results;
+	},
+
+	search: function(query, page){
+		var method = "GET";
+    var collection = this;
+    var resp = $.ajax({
+      url: ("/api/multisearch/" + query + "/" + page),
+      type: method,
+      processData: false,
+      contentType: false,
+      success: function(resp){
+        collection.set(resp, {parse: true});
+      }
+    });
+	},
+
+	parse: function (resp) {
+		if (resp.total_count) {
+			this.totalCount = resp.total_count;
+
+		}
+
+		return resp.search_results;
 	},
 
 	model: function (attrs) {
