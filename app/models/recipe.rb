@@ -1,7 +1,6 @@
 class Recipe < ActiveRecord::Base
   include PgSearch
-
-  multisearchable against: [:title, :procedure]
+  multisearchable against: [:title, :procedure, :style, :ingredient_names]
 
   pg_search_scope :search_by_ingredients,
     associated_against: {
@@ -97,5 +96,9 @@ class Recipe < ActiveRecord::Base
     through: :recipe_adds,
     source: :user
   )
+
+  def ingredient_names
+    ingredients.map{|ingredient| ingredient.name }
+  end
 
 end
