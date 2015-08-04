@@ -1,3 +1,9 @@
 <h1 class="search-results-header">Displaying page <%= results.pageNum %> of <%= results.totalCount %> Results:</h1>
 <ul class="result-list">
 </ul>
+<% if(results.pageNum != 1){ %>
+  <button id="prev">Previous</button>
+<% } %>
+<% if(results.pageNum * 5 < results.totalCount){ %>
+  <button id="next">Next</button>
+<% } %>

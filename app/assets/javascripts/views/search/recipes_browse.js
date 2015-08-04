@@ -24,7 +24,6 @@ BrewSocial.Views.RecipesBrowse = Backbone.CompositeView.extend({
     this.query = this.$("#recipe-search-field").val();
     if(this.query == ""){ return; };
     this.searchType = this.$("#recipe-search-form :checked").val();
-    debugger;
     this.resultsSubView && this.removeSubview("#results", this.resultsSubView);
     this.executeSearch();
   },

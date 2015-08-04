@@ -1,6 +1,6 @@
 BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
   template: JST["search/index"],
-  
+
   initialize: function(options){
     this.query = options.query;
     this.searchType = options.searchType;
