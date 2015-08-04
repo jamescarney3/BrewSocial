@@ -1,6 +1,11 @@
 BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
   template: JST["search/index"],
 
+  events: {
+    "click #prev":"previousPage",
+    "click #next":"nextPage"
+  },
+
   initialize: function(options){
     this.query = options.query;
     this.searchType = options.searchType;
@@ -21,6 +26,24 @@ BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
       });
       view.addSubview(".result-list", subView);
     });
+  },
+
+  previousPage: function(event){
+    event.preventDefault();
+    var view = this;
+    this.page -= 1;
+    this.collection.pageNum = this.page;
+    this.resetSubviews();
+    this.collection.search(this.searchType, this.query, this.page);
+  },
+
+  nextPage: function(event){
+    event.preventDefault();
+    var view = this;
+    this.page += 1;
+    this.collection.pageNum = this.page;
+    this.resetSubviews();
+    this.collection.search(this.searchType, this.query, this.page);
   },
 
   render: function(){
