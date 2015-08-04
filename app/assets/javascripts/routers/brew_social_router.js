@@ -14,7 +14,7 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     "recipes/new":"recipeNew",
     "recipes/:id":"recipeShow",
     "recipes/:id/edit":"recipeEdit",
-    "search_recipes/:searchType/:query/:page":"recipeSearch",
+    "multisearch/:query":"multisearch",
     "browse/users":"usersBrowse",
     "browse/recipes":"recipesBrowse"
   },
@@ -36,18 +36,15 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     var searchResults = new BrewSocial.Collections.Recipes();
     var view = new BrewSocial.Views.RecipesBrowse({
       collection: searchResults
-    }); //GOTTA MAKE THIS VIEW NOW
+    });
     this._swapView(view);
   },
 
-  recipeSearch: function(searchType, query, page){
-    var searchResults = new BrewSocial.Collections.Recipes();
-    searchResults.pageNum = page;
+  multisearch: function(query){
+    var searchResults = new BrewSocial.Collections.SearchResults();
     var view = new BrewSocial.Views.SearchResultsIndex({
       collection: searchResults,
-      searchType: searchType,
-      query: query,
-      page: page
+      query: query
     });
     this._swapView(view);
   },

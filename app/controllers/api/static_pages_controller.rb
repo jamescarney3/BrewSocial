@@ -32,6 +32,7 @@ class Api::StaticPagesController < ApplicationController
   def multisearch
     @search_results = multiscrub!(PgSearch.multisearch(params[:query]))
     @search_results = PgSearch::Document.where(id: @search_results.map(&:id)).page(params[:page]).per(5)
+
     render :multisearch_results
   end
 

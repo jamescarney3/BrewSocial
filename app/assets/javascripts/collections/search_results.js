@@ -11,7 +11,7 @@ BrewSocial.Collections.SearchResults = Backbone.Collection.extend({
 		return resp.results;
 	},
 
-	search: function(query, page){
+	search: function(searchType, query, page){
 		var method = "GET";
     var collection = this;
     var resp = $.ajax({

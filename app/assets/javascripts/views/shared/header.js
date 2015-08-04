@@ -10,7 +10,7 @@ BrewSocial.Views.Header = Backbone.View.extend({
     "click #sign-in-link": "signIn",
     "click #sign-up-link": "signUp",
     "click #sign-in-as-guest-link": "signInAsGuest",
-    "click #search" : "search"
+    "click #search" : "multisearch"
   },
 
   template: JST['shared/header'],
@@ -49,17 +49,14 @@ BrewSocial.Views.Header = Backbone.View.extend({
     });
   },
 
-  search: function(event){
+  multisearch: function(event){
     event.preventDefault();
 
     var query = this.$("#search-recipes").val();
     if(query == ""){ return; }; // no blank searches, please!
 
-    var searchType = this.$("#search-type :checked").val();
-    this.page = 1;
-
     Backbone.history.navigate(
-      "#/search_recipes/" + searchType + "/" + query + "/" + this.page,
+      "#/multisearch/"  + query,
       {trigger: true}
     );
 
