@@ -1,32 +1,38 @@
-BrewSocial.Views.UsersBrowse = Backbone.CompositeView.extend({
-  template: JST["users/browse"],
+BrewSocial.Views.RecipesBrowse = Backbone.CompositeView.extend({
+  template: JST["search/recipes/browse"],
+
   events: {
-    "submit #user-search-form":"updateQuery"
+    "submit #recipe-search-form":"updateQuery"
   },
+
   initialize: function(options){
     this.query = "default";
-    this.syncResults();
     this.render();
   },
-  syncResults: function(){
+
+  executeSearch: function(){
     this.resultsSubView = new BrewSocial.Views.SearchResultsIndex({
-      searchType: null,
+      searchType: this.searchType,
       query: this.query,
       collection: this.collection
       });
     this.addSubview("#results", this.resultsSubView);
   },
+
   updateQuery: function(event){
     event.preventDefault();
+    this.query = this.$("#recipe-search-field").val();
+    if(this.query == ""){ return; };
+    this.searchType = this.$("#recipe-search-form :checked").val();
+    debugger;
     this.resultsSubView && this.removeSubview("#results", this.resultsSubView);
-    this.query = this.$el.find("#user-search-field").val();
-    this.syncResults();
+    this.executeSearch();
   },
+
   render: function(){
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
     return this;
   }
-
 });

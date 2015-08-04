@@ -10,12 +10,13 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     "session/new": "signIn",
     "users":"usersIndex",
     "users/new":"usersNew",
-    "users/browse":"usersBrowse",
     "users/:id":"userShow",
     "recipes/new":"recipeNew",
     "recipes/:id":"recipeShow",
     "recipes/:id/edit":"recipeEdit",
-    "search_recipes/:searchType/:query/:page":"recipeSearch"
+    "search_recipes/:searchType/:query/:page":"recipeSearch",
+    "browse/users":"usersBrowse",
+    "browse/recipes":"recipesBrowse"
   },
 
   welcomeShow: function(){
@@ -28,6 +29,14 @@ BrewSocial.Routers.Router = Backbone.Router.extend({
     var view = new BrewSocial.Views.UsersBrowse({
       collection: searchResults
     });
+    this._swapView(view);
+  },
+
+  recipesBrowse: function(){
+    var searchResults = new BrewSocial.Collections.Recipes();
+    var view = new BrewSocial.Views.RecipesBrowse({
+      collection: searchResults
+    }); //GOTTA MAKE THIS VIEW NOW
     this._swapView(view);
   },
 

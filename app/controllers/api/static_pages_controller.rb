@@ -24,7 +24,8 @@ class Api::StaticPagesController < ApplicationController
   end
 
   def search_users
-    @search_results = User.search_by_name(params[:query])
+    @search_results = User.search_by_name(params[:query]).
+      page(params[:page]).per(5)
     render :user_results
   end
 

@@ -1,10 +1,12 @@
 BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
-  template: JST["search_results/index"],
+  template: JST["search/index"],
+  
   initialize: function(options){
     this.query = options.query;
     this.searchType = options.searchType;
-    this.page = options.page;
+    this.page = 1;
     this.collection.search(this.searchType, this.query, this.page);
+    this.collection.pageNum = this.page;
     this.listenTo(this.collection, "update", function(){
       this.syncResults();
       this.render();
@@ -22,7 +24,6 @@ BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    debugger;
     var content = this.template({results: this.collection});
     this.$el.html(content);
     this.attachSubviews();

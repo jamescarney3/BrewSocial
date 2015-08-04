@@ -19,7 +19,7 @@ BrewSocial.Collections.Users = Backbone.Collection.extend({
     return mod;
   },
 
-  search: function(searchType, query){
+  search: function(searchType, query, page){
     var method = "GET";
     var collection = this;
     var resp = $.ajax({
@@ -28,8 +28,8 @@ BrewSocial.Collections.Users = Backbone.Collection.extend({
       processData: false,
       contentType: false,
       success: function(resp){
-        collection.set(resp.search_results, {parse: true});
         collection.totalCount = resp.total_count;
+        collection.set(resp.search_results, {parse: true});
       }
     });
   }
