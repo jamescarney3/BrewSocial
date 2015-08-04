@@ -35,6 +35,14 @@
 
 <br>
 
+<h2>Users who have added this recipe:</h2>
+<ul>
+  <% recipe.users().forEach(function(user){ %>
+    <li>
+      <a href="#/users/<%= user.id %>"><%= user.escape("username") %></a>
+    </li>
+  <% }); %>
+</ul>
 <% if(BrewSocial.currentUser.id && BrewSocial.currentUser.id != recipe.get("author_id") && recipe.users().pluck("id").indexOf(BrewSocial.currentUser.id) == -1){ %>
   <button class="add-recipe">Add to RecipeBox</button>
 <% } %>
