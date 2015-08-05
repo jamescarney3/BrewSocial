@@ -16,6 +16,7 @@ window.BrewSocial = {
     this.currentUser.fetch();
 
     this.header = new BrewSocial.Views.Header({ el: "#header" });
+    this.footer = new BrewSocial.Views.Footer({ el: "#footer" });
 
     Backbone.history.start();
   }
