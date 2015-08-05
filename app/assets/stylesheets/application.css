@@ -28,6 +28,7 @@
    text-align: inherit;
    color: inherit;
    background: transparent;
+   opacity: inherit;
    /*text-decoration: none;*/
  }
 
@@ -62,4 +63,52 @@
    -5px 0px 10px -2px #aaa,
    0px 5px 10px -2px #aaa
    ;
+ }
+
+/*ABOUT SPLASH*/
+splash.closed {
+  height: 0;
+  width: 0;
+  background-color: 0;
+}
+
+ splash.open {
+   position: fixed;
+   right: 0;
+   left: 0;
+   margin-right: auto;
+   margin-left: auto;
+   height: 100%;
+   width: 100%;
+   background-color: rgba(255,255,255,0.6);
+   transition: background-color 0.5s ease;
+ }
+
+ splash .content {
+   display: block;
+   margin: auto;
+   margin-top: 150px;
+   width: 600px;
+   padding: 20px;
+   background: #eee;
+   border-radius: 20px;
+   border: 2px solid #888;
+   box-shadow:
+   5px 0px 10px -2px #aaa,
+   -5px 0px 10px -2px #aaa,
+   0px 5px 10px -2px #aaa,
+   0px -5px 10px -2px #aaa
+   ;
+ }
+
+ splash .content p {
+   margin-bottom: 20px;
+ }
+
+ splash .content button {
+   display: block;
+   margin: auto;
+   width: 100px;
+   padding: 5px;
+   text-align: center;
  }
