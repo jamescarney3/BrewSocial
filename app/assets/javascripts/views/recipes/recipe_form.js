@@ -1,6 +1,7 @@
 BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
   template: JST["recipes/form"],
   tagName: "form",
+  className: "recipe-form",
   events: {
     "click #recipe-submit":"submit",
     "click #add-ingredient":"addIngredient",
@@ -36,21 +37,23 @@ BrewSocial.Views.RecipeForm = Backbone.CompositeView.extend({
     var ingredient_name = this.ingredients.get(ingredient_id).get("name");
     var amount = this.$el.find("#recipe-ingredient-amount").val();
     var unit = this.$el.find("#recipe-ingredient-unit").val();
+    if(amount){
+      var recIng = new BrewSocial.Models.RecipeIngredient({
+        ingredient_id: ingredient_id,
+        ingredient_name: ingredient_name,
+        amount: amount,
+        unit: unit
+      });
 
-    var recIng = new BrewSocial.Models.RecipeIngredient({
-      ingredient_id: ingredient_id,
-      ingredient_name: ingredient_name,
-      amount: amount,
-      unit: unit
-    });
+      var subView = new BrewSocial.Views.IngredientRecipeFormShow({
+        model: recIng,
+        parent: view,
+        recipe: this.model
+      });
 
-    var subView = new BrewSocial.Views.IngredientRecipeFormShow({
-      model: recIng,
-      parent: view,
-      recipe: this.model
-    });
+      this.addSubview("#added-ingredients", subView);
 
-    this.addSubview("#added-ingredients", subView);
+    }
   },
 
   fileInputChange: function(event){

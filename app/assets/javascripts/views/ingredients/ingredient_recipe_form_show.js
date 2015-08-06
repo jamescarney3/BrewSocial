@@ -1,6 +1,7 @@
 BrewSocial.Views.IngredientRecipeFormShow = Backbone.CompositeView.extend({
   template: JST["ingredients/recipe_form_show"],
   tagName: "li",
+  className: "group",
   events: {
     "click .remove-ingredient":"removeIngredient"
   },

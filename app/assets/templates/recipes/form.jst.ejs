@@ -2,59 +2,46 @@
 
 <form>
 
-  <label>
-    Title
+  <label class="group">
+    <div class="field-name">Title</div>
     <input type="text" name="recipe[title]" id="input-recipe-title">
   </label>
 
-<br>
-
-  <label>
-    Style
+  <label class="group">
+    <div class="field-name">Style</div>
     <input type="text" name="recipe[style]" id="input-recipe-style">
   </label>
 
-<br>
-
-  <label>Ingredients:
-  <section id="ingredients">
-    <ul id="added-ingredients"></ul>
-    <ul id="ingredient-to-add"></ul>
+  <label class="group">
+  <section id="ingredients">Ingredients:</div>
+    <ul id="added-ingredients" class="group"></ul>
+    <ul id="ingredient-to-add" class="group"></ul>
   </section>
   </label>
 
-<br>
-
-  <label>
-    Procedure
+  <label class="group">
+    <div class="field-name">Procedure</div>
     <textarea name="recipe[procedure]" id="input-recipe-procedure"></textarea>
   </label>
 
-<br>
-
-  <label>
-    Upload a picture of your brew! (optional)
+  <label class="group">
+    <div class="field-name">Upload a picture of your brew! (optional)</div>
     <input type="file" name="recipe[image]" id="input-recipe-image">
   </label>
 
-<br>
-
-    <label>Image preview:
+    <label class="group">
+    <div class="field-name">Image preview:</div>
     <img src="<%= BrewSocial.missingImage %>" id="preview-recipe-image" width="60">
   </label>
 
-<br>
-
-  <label>
-    Privacy
+  <label class="group">
+    <div class="field-name">Privacy Level</div>
     <select id="input-recipe-is-private"
       name="recipe[is_private]">
       <option value="false">Public</option>
       <option value="true">Private</option>
     </select>
   </label>
-
-<br>
 
   <button id="recipe-submit">Submit Recipe</button>
 
