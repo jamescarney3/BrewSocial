@@ -216,6 +216,68 @@ ul#featured-recipes > li > section > h2{
   text-decoration: underline;
 }
 
+/* USER FORM SIGNUP */
+.signup > h2{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.signup > form {
+  display: inline-block;
+}
+
+.signup > form > label{
+  display: block;
+  margin-bottom: 20px;
+}
+
+.signup > form > label > *{
+  display: block;
+  float: left;
+}
+
+.signup > form > label > .field-name {
+  padding: 6px 0px 6px 0px;
+  width: 80px;
+}
+
+.signup > form > label > input {
+  width: 200px;
+}
+
+.signup > form > label > img {
+  width: 210px;
+  min-height: 210px;
+  border: 2px solid #888;
+}
+
+.signup > form > button {
+  margin: auto;
+  text-align: center;
+  width:160px;
+}
+
+.signup > form > .separator {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.signup > form > a{
+  display: block;
+  margin: auto;
+  margin-top: 5px;
+  width: 160px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.signup > form > a:hover{
+  text-decoration: underline;
+  color: #3e7d00;
+}
+
 /* HEADER */
 section.header-top .logo{
   display: block;

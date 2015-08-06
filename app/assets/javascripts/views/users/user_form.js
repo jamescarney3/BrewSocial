@@ -1,12 +1,9 @@
 BrewSocial.Views.UsersForm = Backbone.View.extend({
   template: JST["users/form"],
+  className: "signup",
   events: {
     "submit form":"submit",
     "change #input-user-avatar":"fileInputChange"
-  },
-
-  initialize: function(options){
-    // this.listenTo(this.model, "sync change", this.render);
   },
 
   submit: function(event){
@@ -49,7 +46,7 @@ BrewSocial.Views.UsersForm = Backbone.View.extend({
     if(file){
       reader.readAsDataURL(file);
     }else{
-      view._updatePreview("");
+      view._updatePreview(BrewSocial.missingImage);
     };
   },
 

@@ -1,35 +1,31 @@
-<h2>Sign Up</h2>
+<h2>Sign up for BrewSocial:</h2>
 
 <form>
 
-  <label>
-    Username
+  <label class="group">
+    <div class="field-name">Username</div>
     <input type="text" name="user[username]" id="input-user-username">
   </label>
 
-  <br>
-
-  <label>
-    Password
+  <label class="group">
+    <div class="field-name">Password</div>
     <input type="password" name="user[password]" id="input-user-password">
   </label>
 
-  <br>
 
-  <label>
-    Avatar
+  <label class="group">
+    <div class="field-name">Avatar</div>
     <input type="file" name="user[avatar]" id="input-user-avatar">
   </label>
 
-  <br>
 
-  <img src="<%= BrewSocial.missingImage %>" id="preview-user-avatar" width="60">
+  <label class="group">
+    <div class="field-name">Preview:</div>
+    <img src="<%= BrewSocial.missingImage %>" id="preview-user-avatar" width="100">
+  </label>
 
-  <br>
 
-  <button>Sign Up</button>
-
-  <br>
-
-  OR: <a href="/auth/twitter">Sign up with Twitter</a>
+  <button>Sign Me Up!</button>
+  <div class="separator">Or:</div>
+  <a href="/auth/twitter">Sign Up With Twitter</a>
 </form>

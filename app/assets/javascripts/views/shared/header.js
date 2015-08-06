@@ -47,6 +47,7 @@ BrewSocial.Views.Header = Backbone.View.extend({
       username: "Stannis",
       password: "password"
     });
+    Backbone.history.navigate("", {trigger: true});
   },
 
   multisearch: function(event){
