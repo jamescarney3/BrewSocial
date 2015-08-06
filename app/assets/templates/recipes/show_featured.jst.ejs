@@ -1,11 +1,12 @@
 <figure class="featured-recipe-container">
-  <ul id="featured-recipes>
+  <ul id="featured-recipes">
     <% recipes.forEach(function(recipe){ %>
       <li class="featured-recipe">
         <img src="<%= recipe.escape("large")%>">
         <section>
           <h1><a href="<%= recipe.apiUrlRoot + recipe.id %>"><%= recipe.escape("title") %></a></h1>
           <h2><%= recipe.escape("style") %></h2>
+          <h2>Author: <%= recipe.escape("author_name") %></h2>
           <ul id="ingredients">
             <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
               <li>
@@ -19,7 +20,7 @@
   </ul>
 </figure>
 
-<section>
+<section class="buttons">
   <button id="prev">Prev</button>
   <button id="next">Next</button>
 </section>

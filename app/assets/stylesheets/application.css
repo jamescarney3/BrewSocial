@@ -40,10 +40,6 @@
    clear: both;
  }
 
- img{
-   display: block;
-   max-width: 300px;
- }
  /* GENERAL FORMATTING */
  body {
    font-family: sans-serif;
@@ -109,6 +105,90 @@
 .welcome > .featured{
   display: block;
   float: left;
+  width: 546px;
+  border: 2px solid #888;
+  margin-bottom: 20px;
+}
+
+.welcome > .featured > h2{
+  font-size: 20px;
+  padding: 10px;
+  font-weight: bold;
+  color: #fff;
+  background: #888;
+}
+
+.welcome .featured-recipe-carousel{
+  padding: 10px;
+}
+
+.welcome .featured-recipe-carousel > .featured-recipe-container{
+  display: block;
+  height: 304px;
+  overflow: hidden;
+  position: relative;
+
+}
+
+ul#featured-recipes{
+  display: block;
+  position: absolute;
+  width: 1578px;
+  left: 0px;
+  transition: .75s;
+}
+
+ul#featured-recipes > li {
+  display: block;
+  float: left;
+  width: 526px;
+}
+
+ul#featured-recipes > li > * {
+  display: block;
+  float: left;
+}
+
+ul#featured-recipes > li > section {
+  width: 212px;
+  margin-left: 10px;
+}
+
+ul#featured-recipes > li > section > h1 > a{
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+ul#featured-recipes > li > section > h2{
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.welcome > .featured img{
+  display: block;
+  width: 300px;
+  height: 300px;
+  border: 2px solid #888;
+  line-height: 0;
+}
+
+.welcome > .featured .buttons{
+  display: block;
+  margin-top: 10px;
+}
+
+.welcome > .featured .buttons > #prev{
+  display: block;
+  float: left;
+}
+
+.welcome > .featured .buttons > #next{
+  display: block;
+  float: right;
 }
 
 .welcome > .content-nav{
@@ -140,6 +220,10 @@
 section.header-top .logo{
   display: block;
   float: left;
+}
+
+section.header-top .logo > img{
+  width: 300px;
 }
 
 section.header-top .multisearch-form{
@@ -215,6 +299,7 @@ splash.closed {
   height: 0;
   width: 0;
   background-color: 0;
+  z-index: 10;
 }
 
  splash.open {
@@ -227,6 +312,7 @@ splash.closed {
    width: 100%;
    background-color: rgba(255,255,255,0.6);
    transition: background-color 0.5s ease;
+   z-index: 10;
  }
 
  splash .content {
