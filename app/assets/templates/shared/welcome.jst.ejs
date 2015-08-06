@@ -1,22 +1,22 @@
-<h1>
-Welcome to BrewSocial - discover, share, and discuss homebrew recipes with
-an online brewing community.
-</h1>
+<section class="welcome">
+  <h1>
+  Welcome to BrewSocial - discover, share, and discuss homebrew recipes with
+  an online homebrewing community.
+  </h1>
 
-<br>
+  <section class="featured group">
+    <h2>Featured Recipes:</h2>
+    <section id="featured-recipe"></section>
+  </section>
 
-<section class="featured group">
-  <h2>Featured Recipes:</h2>
-  <section id="featured-recipe"></section>
+  <section class="content-nav">
+    <ul>
+      <li><a id="profile-link" href="
+        <%= BrewSocial.currentUser.id ? "#/users/" + BrewSocial.currentUser.id : "#/session/new" %>
+          ">My Profile</a></li>
+      <li><a href="/#/recipes/new">Submit a Recipe</a></li>
+      <li><a href="/#/browse/recipes">Browse Recipes</a></li>
+      <li><a href="/#/browse/users">Browse Users</a></li>
+    <ul>
+  <section>
 </section>
-
-<section class="content-nav">
-  <ul>
-    <li><a id="profile-link" href="
-      <%= BrewSocial.currentUser.id ? "#/users/" + BrewSocial.currentUser.id : "#/session/new" %>
-        ">My Profile</a></li>
-    <li><a href="/#/recipes/new">Submit a Recipe</a></li>
-    <li><a href="/#/browse/recipes">Browse Recipes</a></li>
-    <li><a href="/#/browse/users">Browse Users</a></li>
-  <ul>
-<section>

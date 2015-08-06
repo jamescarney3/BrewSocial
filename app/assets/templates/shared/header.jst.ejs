@@ -1,31 +1,28 @@
 <section class="header">
-  <a href="/#">
-    <img class="header-icon" src="<%= BrewSocial.logo %>">
-  </a>
+  <section class="header-top">
+    <a href="/#" class="logo">
+      <img class="header-icon" src="<%= BrewSocial.logo %>">
+    </a>
 
-<br>
-
-  <section>
-    <h2>Search BrewSocial for Recipes and Users:</h2>
-    <form>
-      <input type="text" id="search-recipes">
-      <button id="search">Submit</button>
-    </form>
+    <section class="multisearch-form">
+      <h2>Search BrewSocial for Recipes and Users:</h2>
+      <form>
+        <input type="text" id="search-recipes">
+        <button id="search">Submit</button>
+      </form>
+    </section>
   </section>
-
-<br>
 
   <section class="header-nav group">
     <% if (BrewSocial.currentUser.isSignedIn()) { %>
-      Signed in as: <%= BrewSocial.currentUser.escape("username") %>
-      <a id="sign-out-link" href="#">Sign out</a>
+      <span>Signed in as: <%= BrewSocial.currentUser.escape("username") %></span>
+      <a id="sign-out-link" class="right" href="#">Sign out</a>
     <% } else { %>
-    New user? <a id="sign-up-link" href="#">Sign up here.</a>
-    <a id="sign-in-link" href="#">Sign in</a>
-    <a id="sign-in-as-guest-link" href="#">Sign in as guest</a>
+    <span>New user?</span>
+    <a id="sign-up-link" href="#">Sign up here.</a>
+    <a id="sign-in-link" href="#" class="right">Sign in</a>
+    <a id="sign-in-as-guest-link" href="#" class="right">Sign in as guest</a>
     <% } %>
   </section>
 
 </section>
-
-<hr>

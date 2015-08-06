@@ -23,17 +23,15 @@
    padding: 0;
    outline: 0;
    list-style: none;
-   font: inherit;
+   font-family: inherit;
+   font-size: 16px;
+   font-weight: normal;
    box-sizing: inherit;
    text-align: inherit;
    color: inherit;
    background: transparent;
    opacity: inherit;
-   /*text-decoration: none;*/
- }
-
- a{
-   color: blue;
+   text-decoration: none;
  }
 
  .group:after {
@@ -46,7 +44,7 @@
    display: block;
    max-width: 300px;
  }
-
+ /* GENERAL FORMATTING */
  body {
    font-family: sans-serif;
    background: #eee;
@@ -64,6 +62,153 @@
    0px 5px 10px -2px #aaa
    ;
  }
+
+ main {
+   padding: 20px;
+ }
+
+ button{
+   display: block;
+   border-radius: 5px;
+   padding: 5px;
+   background: #888;
+   border: none;
+   font-weight: bold;
+   color: white;
+   border-bottom: 2px solid #aaa;
+ }
+
+ button:hover{
+   background: #3e7d00;
+   cursor: pointer;
+ }
+
+ button:active{
+   border-top: 2px solid #888;
+   border-bottom: none;
+ }
+
+ input{
+   border: 2px solid #888;
+   border-radius: 5px;
+   padding: 4px;
+ }
+
+ input:focus{
+   box-shadow: 0 0 10px 0px #3e7d00;
+ }
+
+/* HOME/WELCOME VIEW */
+
+.welcome > h1{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.welcome > .featured{
+  display: block;
+  float: left;
+}
+
+.welcome > .content-nav{
+  display: block;
+  float: right;
+  width: 300px;
+}
+
+.welcome > .content-nav li{
+  display: block;
+  border: 2px solid #888;
+  margin-bottom: 10px;
+}
+
+.welcome > .content-nav li > a{
+  display: block;
+  padding: 10px;
+  background: #888;
+  color: #fff;
+  font-weight: bold;
+}
+
+.welcome > .content-nav li > a:hover{
+  background: #3e7d00;
+  text-decoration: underline;
+}
+
+/* HEADER */
+section.header-top .logo{
+  display: block;
+  float: left;
+}
+
+section.header-top .multisearch-form{
+  display: block;
+  float: right;
+  margin-right: 20px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+section.header-top .multisearch-form h2{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+section.header-top .multisearch-form input{
+  display: block;
+  float: left;
+  width: 325px;
+  margin-right: 10px;
+}
+
+section.header > .header-nav{
+  background: #888;
+  clear: both;
+}
+
+section.header .header-nav > * {
+  display: block;
+  float: left;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-top: 2px solid #888;
+  border-bottom: 2px solid #888;
+}
+
+section.header .header-nav > .right{
+  float: right;
+}
+
+section.header .header-nav > a:hover {
+  background: #3e7d00;
+  text-decoration: underline;
+  transition: background .1s ease;
+  transition: color .1s ease;
+}
+
+/*FOOTER*/
+footer{
+  border-top: 2px solid #888;
+  padding: 10px;
+  clear: both;
+}
+
+footer > content {
+  display: block;
+  margin: auto;
+  text-align: center;
+  width: 200px;
+  color: #888;
+}
+
+footer > content > a:hover {
+  color: #3e7d00;
+  text-decoration: underline;
+}
 
 /*ABOUT SPLASH*/
 splash.closed {
@@ -103,6 +248,14 @@ splash.closed {
 
  splash .content p {
    margin-bottom: 20px;
+ }
+
+ splash a{
+   color: #3e7d00;
+ }
+
+ splash a:hover{
+   text-decoration: underline;
  }
 
  splash .content button {
