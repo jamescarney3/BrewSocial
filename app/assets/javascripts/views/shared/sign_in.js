@@ -3,7 +3,7 @@ BrewSocial.Views.SignIn = Backbone.View.extend({
     this.callback = options.callback;
     this.listenTo(BrewSocial.currentUser, "signIn", this.signInCallback);
   },
-
+  className: "signin",
   events: {
     "submit form":"submit"
   },

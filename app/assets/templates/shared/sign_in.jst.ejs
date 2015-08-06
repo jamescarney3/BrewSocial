@@ -2,23 +2,18 @@
 
 <form>
 
-  <label>
-    Username
+  <label class="group">
+    <div class="field-name">Username</div>
     <input type="text" name="user[username]">
   </label>
 
-  <br>
-
-  <label>
-    Password
+  <label class="group">
+    <div class="field-name">Password</div>
     <input type="password" name="user[password]">
   </label>
 
-  <br>
-
   <button>Sign In</button>
+  <div class="separator">Or:</div>
+  <a href="/auth/twitter">Sign In With Twitter</a>
 
-  <br>
-
-  OR: <a href="/auth/twitter">Sign in with Twitter</a>
 </form>

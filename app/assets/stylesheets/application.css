@@ -253,27 +253,86 @@ ul#featured-recipes > li > section > h2{
 }
 
 .signup > form > button {
-  margin: auto;
+  margin-left: 80px;
   text-align: center;
-  width:160px;
+  width:202px;
 }
 
 .signup > form > .separator {
   display: block;
   text-align: center;
   margin-top: 5px;
+  margin-left: 80px;
 }
 
 .signup > form > a{
   display: block;
-  margin: auto;
+  margin-left: 80px;
   margin-top: 5px;
-  width: 160px;
+  width: 212px;
   font-weight: bold;
   text-align: center;
 }
 
 .signup > form > a:hover{
+  text-decoration: underline;
+  color: #3e7d00;
+}
+
+/* SESSION SIGN IN USER */
+
+.signin > h2{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.signin > form {
+  display: inline-block;
+}
+
+.signin > form > label{
+  display: block;
+  margin-bottom: 20px;
+}
+
+.signin > form > label > *{
+  display: block;
+  float: left;
+}
+
+.signin > form > label > .field-name {
+  padding: 6px 0px 6px 0px;
+  width: 80px;
+}
+
+.signin > form > label > input {
+  width: 200px;
+}
+
+.signin > form > button {
+  margin-left: 80px;
+  text-align: center;
+  width:202px;
+}
+
+.signin > form > .separator {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 80px;
+}
+
+.signin > form > a{
+  display: block;
+  margin-left: 80px;
+  margin-top: 5px;
+  width: 212px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.signin > form > a:hover{
   text-decoration: underline;
   color: #3e7d00;
 }
