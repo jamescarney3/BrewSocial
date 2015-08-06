@@ -1,48 +1,55 @@
+<description class="group">
 <h1><%= recipe.escape('title') %></h1>
-
-<% if (BrewSocial.currentUser.id === recipe.get('author_id')) { %>
-  <button class="edit-recipe">Edit recipe</button>
-  <button class="delete-recipe">Delete recipe</button>
-<% } %>
 
 <h2><%= recipe.escape('style') %></h2>
 
-<h2>Author: <%= recipe.escape("author_name") %></h2>
+<h3>Author: <a href="/#/users/<%= recipe.escape("author_id") %>"><%= recipe.escape("author_name") %></a></h3>
 
 <img src="<%= recipe.escape('large') %>">
 
-<br>
-
-<h2>Ingredients:</h2>
-<ul>
-
-  <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
-
-    <li>
-      <%= recipeIngredient.escape("ingredient_name") %>,
-      <%= recipeIngredient.escape("amount") %>
-      <%= recipeIngredient.escape("unit") %>
-    </li>
-
-  <% }); %>
-
-</ul>
-
-<br>
-
-<h2>Procedure:</h2>
-<p><%= recipe.escape('procedure') %></p>
-
-<br>
-
-<h2>Users who have added this recipe:</h2>
-<ul>
-  <% recipe.users().forEach(function(user){ %>
-    <li>
-      <a href="#/users/<%= user.id %>"><%= user.escape("username") %></a>
-    </li>
-  <% }); %>
-</ul>
-<% if(BrewSocial.currentUser.id && BrewSocial.currentUser.id != recipe.get("author_id") && recipe.users().pluck("id").indexOf(BrewSocial.currentUser.id) == -1){ %>
-  <button class="add-recipe">Add to RecipeBox</button>
+<% if (BrewSocial.currentUser.id === recipe.get('author_id')) { %>
+  <container class="author-buttons group">
+    <button class="edit-recipe">Edit recipe</button>
+    <span class="button-spacer"></span>
+    <button class="delete-recipe">Delete recipe</button>
+  </container>
 <% } %>
+</description>
+
+<ingredients>
+
+  <h2>Ingredients:</h2>
+  <ul>
+
+    <% recipe.recipeIngredients().forEach(function(recipeIngredient){ %>
+
+      <li>
+        <%= recipeIngredient.escape("ingredient_name") %>,
+        <%= recipeIngredient.escape("amount") %>
+        <%= recipeIngredient.escape("unit") %>
+      </li>
+
+    <% }); %>
+
+  </ul>
+
+  <br>
+
+  <h2>Procedure:</h2>
+  <p><%= recipe.escape('procedure') %></p>
+
+  <br>
+
+  <h2>Users who have added this recipe:</h2>
+  <ul>
+    <% recipe.users().forEach(function(user){ %>
+      <li>
+        <a href="#/users/<%= user.id %>"><%= user.escape("username") %></a>
+      </li>
+    <% }); %>
+  </ul>
+  <% if(BrewSocial.currentUser.id && BrewSocial.currentUser.id != recipe.get("author_id") && recipe.users().pluck("id").indexOf(BrewSocial.currentUser.id) == -1){ %>
+    <button class="add-recipe">Add to RecipeBox</button>
+  <% } %>
+
+</ingredients>

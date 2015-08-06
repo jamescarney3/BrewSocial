@@ -1,5 +1,6 @@
 BrewSocial.Views.RecipeShow = Backbone.CompositeView.extend({
   template: JST["recipes/show"],
+  className: "recipe-show group",
   events: {
     "click .delete-recipe":"recipeDelete",
     "click .edit-recipe":"recipeEdit",

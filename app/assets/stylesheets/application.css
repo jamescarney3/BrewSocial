@@ -16,7 +16,7 @@
  /* --- RESET --- */
 
  html, body, header, nav, h1, a, ul, li,
- strong, main, section, img, div, h2, p,
+ strong, main, section, img, div, h2, h3, p,
  form, fieldset, label, input, textarea,
  button, article, footer, small, figure {
    margin: 0;
@@ -511,6 +511,71 @@ ul#featured-recipes > li > section > h2{
 .user-show > .user-added-recipes > ul > li > button{
   display: block;
   float: right;
+}
+
+/* RECIPE SHOW */
+.recipe-show > description > img {
+  border: 2px solid #888;
+  display: block;
+}
+
+.recipe-show > description > h1 {
+  font-size: 30px;
+  font-weight: bold;
+  max-width: 304px;
+  margin-bottom: 5px;
+}
+
+.recipe-show > description > h2 {
+  font-size: 24px;
+  font-weight: bold;
+  max-width: 304px;
+  margin-bottom: 5px;
+}
+
+.recipe-show > description > h3 > a {
+  font-size: 24px;
+}
+
+.recipe-show > description > h3 {
+  font-size: 24px;
+  max-width: 304px;
+  margin-bottom: 5px;
+}
+
+.recipe-show > description > img {
+  margin-bottom: 5px;
+}
+
+.recipe-show > description > container > * {
+  display: inline-block;
+}
+
+.recipe-show > description > container > .button-spacer {
+  display: inline-block;
+  width: 5px;
+}
+
+.recipe-show > description > container {
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.recipe-show > description {
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+}
+
+.recipe-show > ingredients > h2 {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.recipe-show a:hover {
+  color: #3e7d00;
+  text-decoration: underline;
 }
 
 /* HEADER */
