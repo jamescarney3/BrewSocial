@@ -444,6 +444,75 @@ ul#featured-recipes > li > section > h2{
   width:202px;
 }
 
+/* USER SHOW */
+.user-show > description > img {
+  border: 2px solid #888;
+  display: block;
+}
+
+.user-show > description > h1 {
+  font-size: 30px;
+  font-weight: bold;
+  max-width: 304px;
+}
+
+.user-show > description {
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+}
+
+.user-show > .user-authored-recipes {
+  display: block;
+  float: left;
+  width: 258px;
+  margin-right: 20px;
+}
+
+.user-show > .user-authored-recipes > ul > li {
+  display: block;
+}
+
+.user-show > .user-authored-recipes > ul > li > *{
+  display: block;
+  float: left;
+}
+
+.user-show > .user-authored-recipes > ul > li > a {
+  margin-top: 5px;
+}
+
+.user-show > .user-authored-recipes > ul > li > a:hover {
+  text-decoration: underline;
+  color: #3e7d00;
+}
+
+.user-show > .user-added-recipes {
+  display: block;
+  float: left;
+  width: 258px;
+}
+
+.user-show > .user-added-recipes > ul > li {
+  display: block;
+}
+
+.user-show > .user-added-recipes > ul > li > a{
+  margin-top: 5px;
+  display: block;
+  float: left;
+}
+
+.user-show > .user-added-recipes > ul > li > a:hover {
+  text-decoration: underline;
+  color: #3e7d00;
+}
+
+.user-show > .user-added-recipes > ul > li > button{
+  display: block;
+  float: right;
+}
+
 /* HEADER */
 section.header-top .logo{
   display: block;

@@ -1,6 +1,6 @@
 BrewSocial.Views.UserShow = Backbone.CompositeView.extend({
   template: JST["users/show"],
-
+  className: "user-show group",
   events: {
     "click button.recipe-remove":"removeAddedRecipe"
   },

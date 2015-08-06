@@ -1,14 +1,12 @@
-<h1><%= user.escape('username') %></h1>
-
-<img src="<%= user.escape('avatar_url') %>" class="profile-picture">
-
+<description class="group">
+  <h1><%= user.escape('username') %></h1>
+  <img src="<%= user.escape('avatar_url') %>" class="profile-picture">
+</description>
 <!--
 <% if(BrewSocial.currentUser.id == user.id){ %>
   <button>Edit Profile</button>
 <% } %>
 -->
-
-<br>
 
 <section class="user-authored-recipes">
   <h3><%= user.escape('username') %>'s Authored Recipes</h3>
@@ -17,7 +15,7 @@
 
     <ul>
       <% user.authoredRecipes().forEach(function(recipe){ %>
-        <li><a href="<%= "/#/recipes/" + recipe.id %>"><%= recipe.escape("title") %></a></li>
+        <li class="group"><a href="<%= "/#/recipes/" + recipe.id %>"><%= recipe.escape("title") %></a></li>
       <% }); %>
     </ul>
 
@@ -28,8 +26,6 @@
   <% } %>
 </section>
 
-<br>
-
 <section class="user-added-recipes">
   <h3><%= user.escape('username') %>'s Recipe Box</h3>
 
@@ -38,7 +34,7 @@
     <ul>
       <% user.recipeAdds().forEach(function(recipeAdd){ %>
 
-        <li>
+        <li class="group">
           <a href="<%= "#/recipes/" + recipeAdd.escape("recipe_id") %>">
             <%= user.recipes().get(recipeAdd.escape("recipe_id")).escape("title") %>
           </a>
