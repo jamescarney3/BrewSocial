@@ -1,6 +1,6 @@
 BrewSocial.Views.RecipesBrowse = Backbone.CompositeView.extend({
   template: JST["search/recipes/browse"],
-
+  className: "browse group",
   events: {
     "submit #recipe-search-form":"updateQuery"
   },

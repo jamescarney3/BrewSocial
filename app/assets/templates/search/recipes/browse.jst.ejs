@@ -3,12 +3,13 @@
 <form id="recipe-search-form">
   <input type="text" id="recipe-search-field">
   <button id="recipe-search-button">Search</button>
-  <br>
-  By:
-  <input type="radio" name="search-type" value="name">Name |
-  <input type="radio" name="search-type" value="style">Style |
-  <input type="radio" name="search-type" value="ingredient">Ingredient |
-  <input type="radio" name="search-type" value="all" checked="true">All fields
+  <filters class="group">
+    By:
+    <input type="radio" name="search-type" value="name">Name |
+    <input type="radio" name="search-type" value="style">Style |
+    <input type="radio" name="search-type" value="ingredient">Ingredient |
+    <input type="radio" name="search-type" value="all" checked="true">All fields
+  </filters>
 </form>
 
 <section id="results"></section>

@@ -636,6 +636,90 @@ section.header .header-nav > a:hover {
   transition: color .1s ease;
 }
 
+/* SEARCH BROWSE */
+.browse > h2{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.browse > form > input#recipe-search-field {
+  display: inline-block;
+  float: left;
+  width: 200px;
+}
+
+.browse > form > input#user-search-field {
+  display: inline-block;
+  float: left;
+  width: 200px;
+}
+
+.browse > form > filters {
+  clear: both;
+  display: block;
+  padding-top: 10px;
+}
+
+.browse > form > button {
+  display: block;
+  float: left;
+  margin-left: 5px;
+}
+
+.search-results {
+  display: block;
+  margin-top: 20px;
+}
+
+.search-results > .button-container {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.search-results > .button-container > button {
+  display: block;
+  float: left;
+}
+
+.search-results > .button-container > button#prev {
+  margin-right: 10px;
+}
+
+.search-results > h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.search-results > ul > div > li {
+  display: block;
+  margin-top: 10px;
+}
+
+.search-results > ul > div > li:hover {
+  background: #eee;
+}
+
+.search-results > ul > div > li > img {
+  display: block;
+  float: left;
+  height: 60px;
+  width: 60px;
+  border: 2px solid #888;
+}
+
+.search-results > ul > div > li > a {
+  display: block;
+  float: left;
+  margin: 10px;
+}
+
+.search-results > ul > div > li > a:hover {
+  color: #3e7d00;
+  text-decoration: underline;
+}
+
 /*FOOTER*/
 footer{
   border-top: 2px solid #888;

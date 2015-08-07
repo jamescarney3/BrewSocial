@@ -1,6 +1,6 @@
 BrewSocial.Views.UsersBrowse = Backbone.CompositeView.extend({
   template: JST["search/users/browse"],
-
+  className: "browse group",
   events: {
     "submit #user-search-form":"updateQuery"
   },
@@ -25,7 +25,7 @@ BrewSocial.Views.UsersBrowse = Backbone.CompositeView.extend({
     this.query = this.$("#user-search-field").val();
     this.executeSearch();
   },
-  
+
   render: function(){
     var content = this.template();
     this.$el.html(content);

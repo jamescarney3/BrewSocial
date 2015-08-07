@@ -1,6 +1,6 @@
 BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
   template: JST["search/index"],
-
+  className: "search-results group",
   events: {
     "click #prev":"previousPage",
     "click #next":"nextPage"
