@@ -1,81 +1,37 @@
 # BrewSocial
+[www.brewsocial.co][live]
+[live]: http://www.brewsocial.co
 
-[Heroku link][heroku]
+## About
+BrewSocial is a recipe sharing application for homebrewers based loosely on AllRecipes. Any user can browse or search for recipes and registered users, and registered users can publish their own recipes to the database.
 
-[heroku]: https://brewsocial.herokuapp.com/
+my capstone project for the App Academy May-August 2015 cohort in New York. This application is based loosely on AllRecipes with a focus on homebrewing, one of my other hobbies. I built BrewSocial mainly with Ruby on Rails and Backbone.js. It also uses the OmniAuth Twitter gem to handle user sign ups and sign ins with Twitter, the Paperclip gem to handle file uploads, the AWS-SDK for file storage, as well as the PgSearch and Kaminari gems to streamline database queries and pagination of the results. This project lives on my GitHub at [link to github], and I can be reached personally at jmcarneyiii@gmail.com.
 
-## Minimum Viable Product
-BrewSocial is a clone of AllRecipes built on Rails and Backbone. Users can:
+## Features
+- Multiple search methods for limiting to results to recipes only, users only, both recipes and users, and recipes by attributes and/or ingredients
+- Users can sign up and sign in with Twitter
+- Responsive recipe creation/edit form creates, destroys, and shows recipe-ingredient association models in real time
+- Users can choose a privacy setting on own recipes to limit their visibility to other users
+- Redirects users to sign in page for certain features if not signed in
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
+## Implementation
+### General
+- Responsive design/UI with CSS and jQuery
+- Client-side Backbone.js in concert with REST-based Rails API
+- Stores recipe and user pictures with AWS
+- File uploads with Paperclip gem
+- PostgreSQL database search queries handled by pg_search gem
+- Search result pagination with Kaminari gem
+### Libraries
+- JavaScript: Backbone.js, Underscore, jQuery, jquery.serialize.JSON
+- Ruby gems: paperclip, aws-sdk, figaro, backbone-on-rails, jbuilder, bcrypt, pg_search, kaminari
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [ ] Create profiles
-- [x] Create public recipes
-- [x] Create private recipes
-- [ ] View user profiles
-- [?] View owned recipes
-- [?] View other users' public recipes
-- [ ] Comment on recipes
-- [ ] Follow other users
-- [ ] Search for recipes by ingredients
-- [ ] Search for other users by username
-
-## Design Docs
-* [View Wireframes][views]
-* [DB schema][schema]
-
-[views]: ./docs/views.md
-[schema]: ./docs/schema.md
-
-## Implementation Timeline
-
-### Phase 1: User authentication, recipe creation (~1 day)
-I'll implement user authentication based on the model we studied during the
-dedicated rails unit. By the end of phase 1 users will be able to sign up, sign
-in, and log out, and create recipes. Before moving to phase 2 I will deploy the
-application to Heroku.
-
-
-### Phase 2: Viewing recipes and user profiles (~2 days)
-I'll add views for a dashboard, a homepage, users' profiles, and recipes. Logged in users
-will be able to follow other users from their profile pages, and add recipes to
-their dashboards from recipes' views.
-
-
-
-### Phase 3: Recipe comments and lists (~1-2 days)
-I'll allow logged in users to leave comments on a recipe from its display page,
-and to comment on existing comments. Once the rails relationships are set up
-I'll handle the display of new comments in real time with backbone.
-
-
-### Phase 4: Searching for recipes (~2 days)
-I plan to implement a search function for users to find public recipes in the
-database by ingredients. I'll initially use a simple rails view, but I would
-like to handle ultimately handle the search via ajax using backbone.
-
-
-### Phase 5: Notifications (~2 days)
-For phase 5 I'll include a backbone subview in the dashboard to display
-notifications to users when another user follows them, comments on one of their
-authored recipes, and when a user they follow comments on, creates, or adds a
-recipe.
-
-
-### Bonus Features (TBD)
-- [ ] Separate lists for recipes to-brew, in progress, and completed
-- [ ] Side-scrolling recipe lists on user profiles
-- [ ] User avatars
-- [ ] Detailed user stats on profile pages
-- [ ] Detailed recipe stats on recipe show pages
-- [ ] Activity feed
-- [ ] Recipe photos
-- [ ] Typeahead search bar
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
+## Next Steps
+- [ ] Add additional descriptive user attributes (e.g. location, bio)
+- [ ] Allow users to comment on recipes
+- [ ] Allow users to rate recipes
+- [ ] Display aggregate ratings on recipes' show pages
+- [ ] Display aggregate ratings of a user's recipes on that user's profile page
+- [ ] Allow user-to-user follow associations
+- [ ] Handle ingredients additions on recipe form with autocompleting text input instead of dropdown
+- [ ] Add unrecognized ingredients to the database, but only use them to autocomplete the addition input if they appear in some threshold number of recipes
