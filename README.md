@@ -13,6 +13,7 @@ BrewSocial is a recipe sharing application for homebrewers based loosely on AllR
 - Redirects users to sign in page for certain features if not signed in
 
 ## Implementation
+
 ### General
 - Responsive design/UI with CSS and jQuery
 - Client-side Backbone.js in concert with REST-based Rails API
@@ -20,6 +21,7 @@ BrewSocial is a recipe sharing application for homebrewers based loosely on AllR
 - File uploads with Paperclip gem
 - PostgreSQL database search queries handled by pg_search gem
 - Search result pagination with Kaminari gem
+
 ### Libraries
 - JavaScript: Backbone.js, Underscore, jQuery, jquery.serialize.JSON
 - Ruby gems: paperclip, aws-sdk, figaro, backbone-on-rails, jbuilder, bcrypt, pg_search, kaminari
