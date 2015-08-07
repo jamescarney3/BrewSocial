@@ -5,8 +5,6 @@
 ## About
 BrewSocial is a recipe sharing application for homebrewers based loosely on AllRecipes. Any user can browse or search for recipes and registered users, and registered users can publish their own recipes to the database.
 
-my capstone project for the App Academy May-August 2015 cohort in New York. This application is based loosely on AllRecipes with a focus on homebrewing, one of my other hobbies. I built BrewSocial mainly with Ruby on Rails and Backbone.js. It also uses the OmniAuth Twitter gem to handle user sign ups and sign ins with Twitter, the Paperclip gem to handle file uploads, the AWS-SDK for file storage, as well as the PgSearch and Kaminari gems to streamline database queries and pagination of the results. This project lives on my GitHub at [link to github], and I can be reached personally at jmcarneyiii@gmail.com.
-
 ## Features
 - Multiple search methods for limiting to results to recipes only, users only, both recipes and users, and recipes by attributes and/or ingredients
 - Users can sign up and sign in with Twitter
