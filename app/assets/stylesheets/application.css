@@ -473,6 +473,10 @@ ul#featured-recipes > li > section > h2{
   display: block;
 }
 
+.user-show > .user-authored-recipes > h3 {
+  font-weight: bold;
+}
+
 .user-show > .user-authored-recipes > ul > li > *{
   display: block;
   float: left;
@@ -491,6 +495,10 @@ ul#featured-recipes > li > section > h2{
   display: block;
   float: left;
   width: 258px;
+}
+
+.user-show > .user-added-recipes > h3 {
+  font-weight: bold;
 }
 
 .user-show > .user-added-recipes > ul > li {
