@@ -1,6 +1,14 @@
-<h1 class="search-results-header">Displaying page <%= results.pageNum %> of <%= results.totalCount %> Results:</h1>
+<% if(results.totalCount > 0){ %>
+  <h1 class="search-results-header">Displaying page <%= results.pageNum %> of <%= results.totalCount %> Results:</h1>
+<% }else{ %>
+  <h1 class="search-results-header">Query "<%= query %>" returned no results.</h1>
+<% } %>
+
+
+
 <ul class="result-list">
 </ul>
+
 <container class="button-container group">
   <% if(results.pageNum != 1){ %>
     <button id="prev">Previous</button>
