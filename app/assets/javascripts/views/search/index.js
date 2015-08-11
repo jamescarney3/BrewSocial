@@ -10,7 +10,11 @@ BrewSocial.Views.SearchResultsIndex = Backbone.CompositeView.extend({
     this.query = options.query;
     this.searchType = options.searchType;
     this.page = 1;
-    this.collection.search(this.searchType, this.query, this.page);
+    if(!options.preSearch){
+      this.collection.search(this.searchType, this.query, this.page);
+    }else{
+      this.collection.preSearch();
+    };
     this.collection.pageNum = this.page;
     this.listenTo(this.collection, "update", function(){
       this.syncResults();

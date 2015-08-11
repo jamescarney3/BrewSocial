@@ -1,19 +1,23 @@
-<% if(results.totalCount > 0){ %>
+<% if(!query && results.modelName == "Recipe"){ %>
+  <h1 class="search-results-header">Most recently uploaded recipes:</h1>
+<% }else if(!query && results.modelName == "User"){ %>
+  <h1 class="search-results-header">Most recently registered users:</h1>
+<% }else if(results.totalCount > 0){ %>
   <h1 class="search-results-header">Displaying page <%= results.pageNum %> of <%= results.totalCount %> Results:</h1>
 <% }else{ %>
   <h1 class="search-results-header">Query "<%= query %>" returned no results.</h1>
 <% } %>
 
-
-
 <ul class="result-list">
 </ul>
 
-<container class="button-container group">
-  <% if(results.pageNum != 1){ %>
-    <button id="prev">Previous</button>
-  <% } %>
-  <% if(results.pageNum * 5 < results.totalCount){ %>
-    <button id="next">Next</button>
-  <% } %>
-</container>
+<% if(query){ %>
+  <container class="button-container group">
+    <% if(results.pageNum != 1){ %>
+      <button id="prev">Previous</button>
+    <% } %>
+    <% if(results.pageNum * 5 < results.totalCount){ %>
+      <button id="next">Next</button>
+    <% } %>
+  </container>
+<% } %>

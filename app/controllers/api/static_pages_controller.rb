@@ -23,9 +23,19 @@ class Api::StaticPagesController < ApplicationController
     render :recipe_results
   end
 
+  def presearch_recipes
+    @search_results = Recipe.order("id desc").limit(5).page(1).per(5)
+    render :recipe_results
+  end
+
   def search_users
     @search_results = User.search_by_name(params[:query]).
       page(params[:page]).per(5)
+    render :user_results
+  end
+
+  def presearch_users
+    @search_results = User.order("id desc").limit(5).page(1).per(5)
     render :user_results
   end
 

@@ -651,6 +651,10 @@ section.header .header-nav > a:hover {
   margin-bottom: 20px;
 }
 
+.browse > form {
+  display: block;
+}
+
 .browse > form > input#recipe-search-field {
   display: inline-block;
   float: left;
@@ -678,6 +682,7 @@ section.header .header-nav > a:hover {
 .search-results {
   display: block;
   margin-top: 20px;
+  clear: both;
 }
 
 .search-results > .button-container {

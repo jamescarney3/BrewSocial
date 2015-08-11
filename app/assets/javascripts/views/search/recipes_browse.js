@@ -7,7 +7,16 @@ BrewSocial.Views.RecipesBrowse = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.query = "default";
+    this.populatePreSearch();
     this.render();
+  },
+
+  populatePreSearch: function(){
+    this.resultsSubView = new BrewSocial.Views.SearchResultsIndex({
+      collection: this.collection,
+      preSearch: true
+    });
+    this.addSubview("#results", this.resultsSubView);
   },
 
   executeSearch: function(){
