@@ -5,7 +5,8 @@ BrewSocial.Views.SignIn = Backbone.View.extend({
   },
   className: "signin",
   events: {
-    "submit form":"submit"
+    "submit form":"submit",
+    "click #sign-in-as-guest-link": "signInAsGuest"
   },
 
   template: JST["shared/sign_in"],
@@ -13,6 +14,15 @@ BrewSocial.Views.SignIn = Backbone.View.extend({
   render: function(){
     this.$el.html(this.template());
     return this;
+  },
+
+  signInAsGuest: function(event){
+    event.preventDefault();
+    BrewSocial.currentUser.signIn({
+      username: "Stannis",
+      password: "password"
+    });
+    Backbone.history.navigate("", {trigger: true});
   },
 
   submit: function(event){
@@ -34,6 +44,7 @@ BrewSocial.Views.SignIn = Backbone.View.extend({
       }
     });
   },
+
   signInCallback: function(event){
     if(this.callback) {
       this.callback();

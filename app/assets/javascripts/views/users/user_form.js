@@ -3,7 +3,17 @@ BrewSocial.Views.UsersForm = Backbone.View.extend({
   className: "signup",
   events: {
     "submit form":"submit",
-    "change #input-user-avatar":"fileInputChange"
+    "change #input-user-avatar":"fileInputChange",
+    "click #sign-in-as-guest-link": "signInAsGuest"
+  },
+
+  signInAsGuest: function(event){
+    event.preventDefault();
+    BrewSocial.currentUser.signIn({
+      username: "Stannis",
+      password: "password"
+    });
+    Backbone.history.navigate("", {trigger: true});
   },
 
   submit: function(event){
